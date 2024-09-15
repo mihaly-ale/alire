@@ -22,7 +22,30 @@ body {
   font-family: "MerryWeather";
   src: url(../../../font/montserrat-variablefont_wght-webfont.woff2);
 }
-h1 {
-  color: red;
+.heading__primary {
+  color: hsl(0, 0%, 95%);
   font-family: Merienda, cursive;
+}
+
+.page-header {
+  height: 100vh;
+  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url(../../../media/img/hero-image.jpg);
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  align-self: flex-start;
+}
+
+.logo__image {
+  height: 100px;
+}
+
+.heading-wrapper {
+  margin-top: 15vh;
 }/*# sourceMappingURL=index.css.map */
