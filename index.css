@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Merienda";
+  src: url(../../../font/merienda-variablefont_wght-webfont.woff2);
+}
+@font-face {
+  font-family: "MerryWeather";
+  src: url(../../../font/montserrat-variablefont_wght-webfont.woff2);
+}
 h1 {
   color: red;
+  font-family: Merienda, cursive;
 }/*# sourceMappingURL=index.css.map */
