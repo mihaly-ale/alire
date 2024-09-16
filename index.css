@@ -24,11 +24,15 @@ body {
 }
 body {
   font-weight: 500;
+  font-family: Montserrat, sans-serif;
+}
+
+.heading-wrapper {
+  text-align: center;
 }
 
 .heading__primary {
   color: hsl(0, 0%, 95%);
-  text-align: center;
 }
 
 .heading__main {
@@ -71,6 +75,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 4rem;
 }
 
 .heading__main {
@@ -118,4 +123,29 @@ body {
     opacity: 1;
     translate: 0px;
   }
+}
+
+.btn {
+  text-transform: uppercase;
+  font-family: Merienda, cursive;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 0.5em 2em;
+  display: inline-block;
+  border-radius: 0.75rem;
+}
+.btn--cta {
+  color: hsl(182, 100%, 10%);
+  background-color: hsl(182, 100%, 90%);
+  transition: transform 150ms;
+}
+.btn--cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 10px 20px hsla(182, 100%, 90%, 0.4);
+}
+.btn--cta:active {
+  transform: translateY(-2px);
+  box-shadow: 0px 5px 10px hsla(182, 100%, 90%, 0.4);
 }/*# sourceMappingURL=index.css.map */
