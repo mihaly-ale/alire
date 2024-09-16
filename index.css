@@ -71,4 +71,51 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.heading__main {
+  animation-name: moveInLeft;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+}
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    translate: -150px;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  60% {
+    translate: 10px;
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+    translate: 0px;
+  }
+}
+
+.heading__sub {
+  animation-name: moveInRight;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  backface-visibility: hidden;
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    translate: 150px;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  60% {
+    translate: -10px;
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+    translate: 0px;
+  }
 }/*# sourceMappingURL=index.css.map */
