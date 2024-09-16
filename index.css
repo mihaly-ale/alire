@@ -49,7 +49,7 @@ body {
 
 .page-header {
   height: 100vh;
-  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url(../../../media/img/hero-image.jpg);
+  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.35)), url(../../../media/img/hero-image.jpg);
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
@@ -67,7 +67,7 @@ body {
 }
 
 .heading-wrapper {
-  margin-top: 15vh;
+  margin-top: 27vh;
 }
 
 .heading__primary {
