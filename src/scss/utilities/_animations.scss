@@ -1,0 +1,66 @@
+@mixin key-frames($name, $duration, $delay: null) {
+	@if $name == moveInLeft {
+		@keyframes moveInLeft {
+			0% {
+				opacity: 0;
+				translate: -150px;
+			}
+			40% {
+				opacity: 0.5;
+			}
+			60% {
+				translate: 10px;
+				opacity: 0.75;
+			}
+			100% {
+				opacity: 1;
+				translate: 0px;
+			}
+		}
+	}
+
+	@if $name == moveInRight {
+		@keyframes moveInRight {
+			0% {
+				opacity: 0;
+				translate: 150px;
+			}
+			40% {
+				opacity: 0.5;
+			}
+			60% {
+				translate: -10px;
+				opacity: 0.75;
+			}
+			100% {
+				opacity: 1;
+				translate: 0px;
+			}
+		}
+	}
+
+	@if $name == moveInBottom {
+		@keyframes moveInBottom {
+			0% {
+				opacity: 0;
+				translate: 0 50px;
+			}
+			40% {
+				opacity: 0.5;
+			}
+			60% {
+				translate: 0 -10px;
+				opacity: 0.75;
+			}
+			100% {
+				opacity: 1;
+				translate: 0px 0px;
+			}
+		}
+	}
+
+	animation-name: $name;
+	animation-duration: $duration;
+	animation-timing-function: ease-in-out;
+	animation-delay: $delay;
+}

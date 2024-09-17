@@ -1,0 +1,26 @@
+@use '../utilities' as *;
+
+body {
+	font-weight: $fw-500;
+	font-family: $ff-sans;
+}
+
+.heading-wrapper {
+	text-align: center;
+}
+
+.heading-primary {
+	color: $clr-white;
+}
+
+.heading-primary__main {
+	font-family: $ff-serif;
+	font-size: $fs-heading-main;
+}
+
+.heading-primary__sub {
+	font-family: $ff-sans;
+	font-weight: $fw-500;
+	font-size: $fs-heading-sub;
+	letter-spacing: 2px;
+}

@@ -1,0 +1,31 @@
+@font-face {
+	font-family: 'Merienda';
+	src: url(../../../font/merienda-variablefont_wght-webfont.woff2);
+}
+
+@font-face {
+	font-family: 'MerryWeather';
+	src: url(../../../font/montserrat-variablefont_wght-webfont.woff2);
+}
+
+// font-family
+$ff-sans: Montserrat, sans-serif;
+$ff-serif: Merienda, cursive;
+
+// font-weight
+$fw-200: 200;
+$fw-300: 300;
+$fw-500: 500;
+$fw-700: 700;
+$fw-900: 900;
+
+// font-size
+$fs-150: 1.5rem;
+$fs-200: 2rem;
+$fs-250: 2.5rem;
+$fs-300: 3rem;
+$fs-400: 4rem;
+$fs-500: 5rem;
+$fs-800: 8rem;
+$fs-heading-main: clamp($fs-400, 10vw, $fs-800);
+$fs-heading-sub: clamp($fs-150, 3vw, $fs-250);
