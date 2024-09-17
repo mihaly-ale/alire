@@ -31,23 +31,23 @@ body {
   text-align: center;
 }
 
-.heading__primary {
+.heading-primary {
   color: hsl(0, 0%, 95%);
 }
 
-.heading__main {
+.heading-primary__main {
   font-family: Merienda, cursive;
   font-size: clamp(4rem, 10vw, 8rem);
 }
 
-.heading__sub {
+.heading-primary__sub {
   font-family: Montserrat, sans-serif;
   font-weight: 500;
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   letter-spacing: 1px;
 }
 
-.page-header {
+.main-header {
   height: 100vh;
   background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.35)), url(../../../media/img/hero-image.jpg);
   background-position: top;
@@ -58,11 +58,11 @@ body {
   align-items: center;
 }
 
-.logo {
+.main-header__logo-box {
   align-self: flex-start;
 }
 
-.logo__image {
+.main-header__logo {
   height: 100px;
 }
 
@@ -70,7 +70,7 @@ body {
   margin-top: 27vh;
 }
 
-.heading__primary {
+.heading-primary {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -78,7 +78,7 @@ body {
   margin-bottom: 4rem;
 }
 
-.heading__main {
+.heading-primary__main {
   animation-name: moveInLeft;
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
@@ -101,7 +101,7 @@ body {
   }
 }
 
-.heading__sub {
+.heading-primary__sub {
   animation-name: moveInRight;
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
