@@ -11,7 +11,12 @@ h3 {
 p {
 	font-weight: $fw-500;
 	font-family: $ff-sans;
-	max-width: 65ch;
+	max-width: 60ch;
+	line-height: 1.45;
+
+	&:not(:last-child) {
+		margin-bottom: 2em;
+	}
 }
 
 .heading-wrapper {
@@ -32,4 +37,8 @@ p {
 	font-weight: $fw-500;
 	font-size: $fs-heading-primary__sub;
 	letter-spacing: 2px;
+}
+
+.heading-secondary {
+	font-size: $fs-heading-secondary;
 }

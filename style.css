@@ -33,7 +33,11 @@ h3 {
 p {
   font-weight: 500;
   font-family: Montserrat, sans-serif;
-  max-width: 65ch;
+  max-width: 60ch;
+  line-height: 1.45;
+}
+p:not(:last-child) {
+  margin-bottom: 2em;
 }
 
 .heading-wrapper {
@@ -54,6 +58,10 @@ p {
   font-weight: 500;
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   letter-spacing: 2px;
+}
+
+.heading-secondary {
+  font-size: clamp(2rem, 1.5vw, 2.5rem);
 }
 
 .btn {
@@ -213,9 +221,7 @@ section {
   margin-top: -15vh;
   height: 100vh;
 }
-
 .section-about__title {
-  font-size: clamp(2rem, 1.5vw, 2.5rem);
   padding-top: calc(15vh + 4rem);
   background-image: linear-gradient(to right, hsl(302, 100%, 30%), hsl(182, 100%, 10%));
   display: inline-block;
