@@ -2,53 +2,51 @@
 
 .btn {
 	text-transform: uppercase;
-	font-family: $ff-serif;
 	text-decoration: none;
 	letter-spacing: 1px;
 	font-weight: $fw-700;
-	font-size: $fs-150;
+	font-size: $fs-200;
 	padding: $gap-50 * 1em $gap-200 * 1em;
 	display: inline-block;
 	border-radius: $radius;
 	position: relative;
 
+	// call-to-action button styles starts here
 	&--cta {
+		font-family: $ff-serif;
 		color: $clr-brand-dark;
 		background-color: $clr-brand-light;
 		transition: transform 150ms;
 
+		&::after {
+			content: '';
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			border-radius: $radius;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			transition: all 450ms;
+		}
+
 		&:hover {
 			transform: translateY(-2px);
 			box-shadow: 0px 0px 5px $clr-brand-light;
+
+			&::after {
+				background-color: $clr-brand-light;
+				transform: scaleX(1.25) scaleY(1.5);
+				opacity: 0;
+			}
 		}
+
 		&:active {
-			// transform: translateY(-1px);
+			transform: translateY(-1px);
 			box-shadow: 0px 0px 20px $clr-brand-op;
 		}
 	}
-}
-
-// button animation
-.btn::after {
-	content: '';
-	display: inline-block;
-	width: 100%;
-	height: 100%;
-	border-radius: $radius;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: -1;
-	transition: all 450ms;
-}
-
-.btn--cta:after {
-	background-color: $clr-brand-light;
-}
-
-.btn:hover::after {
-	transform: scaleX(1.25) scaleY(1.5);
-	opacity: 0;
 }
 
 .btn--animated {

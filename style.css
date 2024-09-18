@@ -22,14 +22,6 @@ body {
   margin: 0;
 }
 
-@font-face {
-  font-family: "Merienda";
-  src: url(../../../font/merienda-variablefont_wght-webfont.woff2);
-}
-@font-face {
-  font-family: "MerryWeather";
-  src: url(../../../font/montserrat-variablefont_wght-webfont.woff2);
-}
 body {
   font-weight: 500;
   font-family: Montserrat, sans-serif;
@@ -57,30 +49,22 @@ body {
 
 .btn {
   text-transform: uppercase;
-  font-family: Merienda, cursive;
   text-decoration: none;
   letter-spacing: 1px;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 2rem;
   padding: 0.5em 2em;
   display: inline-block;
   border-radius: 0.75rem;
   position: relative;
 }
 .btn--cta {
+  font-family: Merienda, cursive;
   color: hsl(182, 100%, 10%);
   background-color: hsl(182, 100%, 90%);
   transition: transform 150ms;
 }
-.btn--cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0px 0px 5px hsl(182, 100%, 90%);
-}
-.btn--cta:active {
-  box-shadow: 0px 0px 20px hsla(182, 100%, 45%, 0.7);
-}
-
-.btn::after {
+.btn--cta::after {
   content: "";
   display: inline-block;
   width: 100%;
@@ -92,14 +76,18 @@ body {
   z-index: -1;
   transition: all 450ms;
 }
-
-.btn--cta:after {
-  background-color: hsl(182, 100%, 90%);
+.btn--cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 0px 5px hsl(182, 100%, 90%);
 }
-
-.btn:hover::after {
+.btn--cta:hover::after {
+  background-color: hsl(182, 100%, 90%);
   transform: scaleX(1.25) scaleY(1.5);
   opacity: 0;
+}
+.btn--cta:active {
+  transform: translateY(-1px);
+  box-shadow: 0px 0px 20px hsla(182, 100%, 45%, 0.7);
 }
 
 .btn--animated {
