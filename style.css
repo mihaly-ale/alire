@@ -124,6 +124,10 @@ p {
   }
 }
 
+section {
+  padding-inline: 1rem;
+}
+
 .main-header {
   height: 100vh;
   background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.35)), url(../../../media/img/hero-image.jpg);
@@ -213,5 +217,4 @@ p {
 .section-about__title {
   font-size: clamp(2rem, 1.5vw, 2.5rem);
   padding-top: calc(15vh + 4rem);
-  z-index: 1;
 }/*# sourceMappingURL=style.css.map */
