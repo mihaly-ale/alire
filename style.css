@@ -209,7 +209,7 @@ section {
 }
 
 .section-about {
-  background: linear-gradient(to right bottom, hsl(182, 100%, 90%), hsl(182, 100%, 45%));
+  background: linear-gradient(to right bottom, hsl(182, 100%, 90%), hsl(182, 100%, 10%));
   margin-top: -15vh;
   height: 100vh;
 }
@@ -217,4 +217,14 @@ section {
 .section-about__title {
   font-size: clamp(2rem, 1.5vw, 2.5rem);
   padding-top: calc(15vh + 4rem);
+  background-image: linear-gradient(to right, hsl(302, 100%, 30%), hsl(182, 100%, 10%));
+  display: inline-block;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  transition: all 200ms;
+}
+.section-about__title:hover {
+  transform: skewY(-2deg) skewX(2deg) scale(1.05);
+  text-shadow: 5px 5px 15px rgba(153, 0, 148, 0.4);
 }/*# sourceMappingURL=style.css.map */

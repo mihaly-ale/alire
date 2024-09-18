@@ -1,7 +1,11 @@
 @use '../utilities/' as *;
 
 .section-about {
-	background: linear-gradient(to right bottom, $clr-brand-light, $clr-brand);
+	background: linear-gradient(
+		to right bottom,
+		$clr-brand-light,
+		$clr-brand-dark
+	);
 	margin-top: -15vh;
 	height: 100vh;
 }
@@ -9,4 +13,18 @@
 .section-about__title {
 	font-size: $fs-heading-secondary;
 	padding-top: calc(15vh + $gap-400 * 1rem);
+	background-image: linear-gradient(
+		to right,
+		$clr-purple-dark,
+		$clr-brand-dark
+	);
+	display: inline-block;
+	background-clip: text;
+	color: transparent;
+	transition: all 200ms;
+
+	&:hover {
+		transform: skewY(-2deg) skewX(2deg) scale(1.05);
+		text-shadow: 5px 5px 15px rgba($clr-purple-dark, 0.4);
+	}
 }
