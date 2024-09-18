@@ -1,0 +1,12 @@
+@use '../utilities/' as *;
+
+.section-about {
+	background: linear-gradient(to right bottom, $clr-brand-light, $clr-brand);
+	margin-top: -15vh;
+	height: 100vh;
+}
+
+.section-about__title {
+	font-size: $fs-heading-secondary;
+	padding-top: calc(15vh + $gap-400 * 1rem);
+}
