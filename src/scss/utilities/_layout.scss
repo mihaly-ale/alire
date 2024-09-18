@@ -1,12 +1,16 @@
 // gap
-$gap-25: 0.25;
+$gap-25: 0.25; // 4px
 $gap-50: 0.5;
 $gap-75: 0.75;
-$gap-100: 1;
+$gap-100: 1; //16px
+$gap-150: 1.5;
 $gap-200: 2;
 $gap-250: 2.5;
 $gap-300: 3;
 $gap-400: 4;
+$gap-800: 8;
 
 // mix
-$radius: 0.75rem;
+$radius-small: 0.0625rem;
+$radius-medium: 0.125rem;
+$radius-large: 0.25rem;

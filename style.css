@@ -26,7 +26,7 @@ h1,
 h2,
 h3 {
   font-weight: 700;
-  color: hsl(182, 100%, 10%);
+  color: hsl(182, 85%, 5%);
   font-family: Merienda, cursive;
   margin-bottom: 2em;
 }
@@ -36,6 +36,7 @@ p {
   font-family: Montserrat, sans-serif;
   max-width: 60ch;
   line-height: 1.45;
+  color: hsl(182, 85%, 5%);
 }
 p:not(:last-child) {
   margin-bottom: 2em;
@@ -67,19 +68,19 @@ p:not(:last-child) {
 }
 
 .btn {
-  text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 1px;
   font-weight: 700;
   font-size: 2rem;
-  padding: 0.5em 2em;
   display: inline-block;
-  border-radius: 0.75rem;
   position: relative;
+  font-family: Merienda, cursive;
 }
 .btn--cta {
-  font-family: Merienda, cursive;
-  color: hsl(182, 100%, 10%);
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  color: hsl(182, 100%, 20%);
+  padding: 0.5em 1.5em;
   background-color: hsl(182, 100%, 90%);
   transition: transform 150ms;
 }
@@ -88,7 +89,7 @@ p:not(:last-child) {
   display: inline-block;
   width: 100%;
   height: 100%;
-  border-radius: 0.75rem;
+  border-radius: 0.0625rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -106,7 +107,7 @@ p:not(:last-child) {
 }
 .btn--cta:active {
   transform: translateY(-1px);
-  box-shadow: 0px 0px 20px hsla(182, 100%, 45%, 0.7);
+  box-shadow: 0px 0px 20px rgba(0, 222, 230, 0.7);
 }
 
 .btn--animated {
@@ -134,8 +135,23 @@ p:not(:last-child) {
   }
 }
 
+.btn--see-more {
+  color: hsl(182, 85%, 5%);
+  border: 2px solid hsl(182, 85%, 5%);
+  border-radius: 0.0625rem;
+  padding: 0.25em 1em;
+  box-shadow: 0px 0px 20px rgba(0, 99, 102, 0.4);
+  transition: all 650ms;
+}
+.btn--see-more:hover {
+  background-color: hsl(182, 85%, 5%);
+  color: hsl(0, 0%, 95%);
+}
+
 section {
   padding-inline: 1rem;
+  border: 1px solid red;
+  padding-block: 8rem;
 }
 
 .main-header {
@@ -144,8 +160,8 @@ section {
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
-  -webkit-clip-path: polygon(0 0, 0 100%, 100% 85vh, 100% 0);
-          clip-path: polygon(0 0, 0 100%, 100% 85vh, 100% 0);
+  -webkit-clip-path: polygon(0 0, 0 100%, 100% 92.5vh, 100% 0);
+          clip-path: polygon(0 0, 0 100%, 100% 92.5vh, 100% 0);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -219,13 +235,12 @@ section {
 }
 
 .section-about {
-  background: linear-gradient(to right bottom, hsl(182, 100%, 90%), hsl(182, 100%, 10%));
-  margin-top: -15vh;
-  height: 100vh;
-  padding-top: calc(15vh + 4rem);
+  background: linear-gradient(to bottom, rgba(0, 99, 102, 0.85), rgba(0, 222, 230, 0.35));
+  margin-top: -7.5vh;
+  padding-top: calc(7.5vh + 4rem);
 }
 .section-about__title {
-  background-image: linear-gradient(to right, hsl(302, 100%, 30%), hsl(182, 100%, 10%));
+  background-image: linear-gradient(to right, hsl(302, 100%, 80%), hsl(0, 0%, 95%));
   display: inline-block;
   -webkit-background-clip: text;
           background-clip: text;

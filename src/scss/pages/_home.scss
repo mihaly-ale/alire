@@ -2,20 +2,15 @@
 
 .section-about {
 	background: linear-gradient(
-		to right bottom,
-		$clr-brand-light,
-		$clr-brand-dark
+		to bottom,
+		rgba($clr-brand-dark, 0.85),
+		rgba($clr-brand, 0.35)
 	);
-	margin-top: -15vh;
-	height: 100vh;
-	padding-top: calc(15vh + $gap-400 * 1rem);
+	margin-top: -7.5vh;
+	padding-top: calc(7.5vh + $gap-400 * 1rem);
 
 	&__title {
-		background-image: linear-gradient(
-			to right,
-			$clr-purple-dark,
-			$clr-brand-dark
-		);
+		background-image: linear-gradient(to right, $clr-purple-light, $clr-white);
 		display: inline-block;
 		background-clip: text;
 		color: transparent;
