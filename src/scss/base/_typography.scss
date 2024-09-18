@@ -1,8 +1,17 @@
 @use '../utilities' as *;
 
-body {
+h1,
+h2,
+h3 {
+	font-weight: $fw-700;
+	color: $clr-brand-dark;
+	font-family: $ff-serif;
+}
+
+p {
 	font-weight: $fw-500;
 	font-family: $ff-sans;
+	max-width: 65ch;
 }
 
 .heading-wrapper {
@@ -14,13 +23,13 @@ body {
 }
 
 .heading-primary__main {
-	font-family: $ff-serif;
-	font-size: $fs-heading-main;
+	font-size: $fs-heading-primary__main;
+	font-weight: $fw-700;
 }
 
 .heading-primary__sub {
 	font-family: $ff-sans;
 	font-weight: $fw-500;
-	font-size: $fs-heading-sub;
+	font-size: $fs-heading-primary__sub;
 	letter-spacing: 2px;
 }
