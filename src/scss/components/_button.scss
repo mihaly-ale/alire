@@ -61,6 +61,7 @@
 	padding: $gap-25 * 1em $gap-100 * 1em;
 	box-shadow: 0px 0px 20px rgba($clr-brand-dark, 0.4);
 	transition: all 650ms;
+	margin-top: $gap-300 * 1rem;
 
 	&:hover {
 		background-color: $clr-dark;
