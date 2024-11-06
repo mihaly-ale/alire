@@ -1,0 +1,31 @@
+@use 'colors.scss' as *;
+@use 'spacers.scss' as *;
+@use 'type-scale.scss' as *;
+
+:root {
+	@each $color, $shades in $colors {
+		@each $prop, $value in $shades {
+			--clr-#{$color}-#{$prop}: #{$value};
+		}
+	}
+
+	@each $screenSize, $elements in $type-scale {
+		@each $prop, $value in $elements {
+			--fs-#{$screenSize}-#{$prop}: #{$value};
+		}
+	}
+
+	@each $type, $sizes in $spacing {
+		@each $prop, $value in $sizes {
+			@if $type == section {
+				--#{$type}-padding-#{$prop}: #{$value};
+			} @else {
+				--spacing-#{$prop}: #{$value};
+			}
+		}
+	}
+
+	@each $prop, $value in $font-weight {
+		--fw-#{$prop}: #{$value};
+	}
+}

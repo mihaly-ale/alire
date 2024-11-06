@@ -20,4 +20,7 @@ const { title } = Astro.props;
 		<slot />
 	</body>
 </html>
-<style is:global></style>
+<style is:global lang="scss">
+	// Import custom properties, font-face rules and resets
+	@import '../style/scss/index.scss';
+</style>
