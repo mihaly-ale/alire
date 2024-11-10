@@ -1,5 +1,6 @@
 ---
 import '../styles/index.scss';
+import Hero from '../components/Hero.astro';
 
 interface Props {
 	title: string;
@@ -18,28 +19,34 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>Alire - {title}</title>
 	</head>
+
 	<body>
-		<header>
-			<div class="logo-container">
-				<img src="/logos/logomark.svg" alt="Alire." class="header-logo" />
-			</div>
-			<nav class="navigation">
-				<ul class="nav-list">
-					<li class="nav-list-item">
-						<a href="/" class="nav-link">Inicio</a>
-					</li>
-					<li class="nav-list-item">
-						<a href="#" class="nav-link">Tratamientos</a>
-					</li>
-					<li class="nav-list-item">
-						<a href="#" class="nav-link">Blog</a>
-					</li>
-					<li class="nav-list-item">
-						<a href="#" class="contact nav-link">Contacto</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
+		<div class="intro">
+			<header>
+				<div class="logo-container">
+					<img src="/logos/logomark.svg" alt="Alire." class="header-logo" />
+				</div>
+				<nav class="navigation">
+					<ul class="nav-list">
+						<li class="nav-list-item">
+							<a href="/" class="nav-link">Inicio</a>
+						</li>
+						<li class="nav-list-item">
+							<a href="#" class="nav-link">Tratamientos</a>
+						</li>
+						<li class="nav-list-item">
+							<a href="#" class="nav-link">Blog</a>
+						</li>
+						<li class="nav-list-item">
+							<a href="#" class="contact nav-link">Contacto</a>
+						</li>
+					</ul>
+				</nav>
+			</header>
+
+			<Hero headline="Alire" tagline="Cuerpo, Alma y Energía en Equlibrio" />
+		</div>
+
 		<slot />
 	</body>
 </html>
