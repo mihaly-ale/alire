@@ -189,7 +189,7 @@ summary {
 :root {
 	text-rendering: optimizeLegibility;
 	/* 1.1 */
-	color-scheme: light dark;
+	// color-scheme: light dark;
 	/* 1.2 */
 }
 
@@ -322,3 +322,4 @@ a:not([class]) {
 :where(h1, h2, h3, h4, p, figure, blockquote, dl, dd) {
 	margin-block-end: 0;
 }
+
