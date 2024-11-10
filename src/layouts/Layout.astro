@@ -14,13 +14,107 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/logos/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Alire - {title}</title>
 	</head>
 	<body>
-		<header>This will be the header.</header>
+		<header>
+			<div class="logo-container">
+				<img src="/logos/logomark.svg" alt="Alire." class="header-logo" />
+			</div>
+			<nav class="navigation">
+				<ul class="nav-list">
+					<li class="nav-list-item">
+						<a href="/" class="nav-link">Inicio</a>
+					</li>
+					<li class="nav-list-item">
+						<a href="#" class="nav-link">Tratamientos</a>
+					</li>
+					<li class="nav-list-item">
+						<a href="#" class="nav-link">Blog</a>
+					</li>
+					<li class="nav-list-item">
+						<a href="#" class="contact nav-link">Contacto</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
 		<slot />
 	</body>
 </html>
-<style is:global></style>
+<style is:global>
+	body {
+		--text-color: var(--clr-ui-500);
+		--bg-color: var(--clr-ui-100);
+
+		color: var(--text-color);
+		font-family: 'Poppins';
+		font-weight: var(--fw-400);
+		font-size: var(--fs-phone-regular);
+
+		background-color: var(--bg-color);
+	}
+
+	header {
+		border: 1px solid red;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: grey;
+	}
+
+	.logo-container {
+		width: 3rem;
+		flex: none;
+	}
+
+	.header-logo {
+		object-fit: fill;
+	}
+
+	.nav-list {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: var(--em-spacing-50);
+		flex-wrap: wrap;
+	}
+
+	.nav-list-item {
+		list-style: none;
+	}
+
+	.nav-link {
+		padding: var(--em-spacing-50);
+		border-radius: 0.25em;
+		font-size: var(--fs-phone-large);
+		font-weight: var(--fw-500);
+		text-decoration-color: transparent;
+		transition: all 150ms;
+	}
+
+	[class='nav-link'] {
+		color: var(--text-color);
+
+		&:hover {
+			background-color: var(--clr-primary-100);
+		}
+		&:active {
+			opacity: 0.9;
+		}
+	}
+
+	.nav-link.contact {
+		background-color: var(--clr-primary-100);
+
+		&:hover {
+			background-color: var(--clr-primary-500);
+			color: var(--clr-primary-100);
+		}
+
+		&:active {
+			background-color: var(--clr-primary-600);
+		}
+	}
+</style>
