@@ -1,0 +1,14 @@
+---
+interface Props {
+	headline: string;
+	tagline: string;
+}
+
+const { headline, tagline } = Astro.props;
+---
+
+<section class="hero-section">
+	<h1 class="headline">{headline}</h1>
+	<p class="tagline">{tagline}</p>
+	<a href="/" class="button">MimaTe</a>
+</section>
