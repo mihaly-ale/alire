@@ -1,0 +1,37 @@
+$spacing: (
+	section: (
+		desktop: 7em,
+		tablet: 5.5em,
+		phone: 3.5em,
+	),
+	em: (
+		25: 0.25em,
+		50: 0.5em,
+		75: 0.75em,
+		100: 1em,
+		125: 1.25em,
+		150: 1.5em,
+		175: 1.75em,
+		200: 2em,
+		300: 3em,
+		400: 4em,
+		500: 5em,
+	),
+	rem: (
+		25: 0.25rem,
+		50: 0.5rem,
+		75: 0.75rem,
+		100: 1rem,
+		125: 1.25rem,
+		150: 1.5rem,
+		175: 1.75rem,
+		200: 2rem,
+		300: 3rem,
+		400: 4rem,
+		500: 5rem,
+	),
+	page: (
+		phone: 0.75rem,
+		tablet: 2rem,
+	),
+);

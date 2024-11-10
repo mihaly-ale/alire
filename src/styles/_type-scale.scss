@@ -1,0 +1,36 @@
+$type-scale: (
+	// minor-third
+	// multipliers above h2: 1.2*1, 1.2*4, 1.2*6
+	phone:
+		(
+			h1: 6.193rem,
+			list-nr: 4.3rem,
+			tagline: 2.488rem,
+			h2: 2.074rem,
+			h3: 1.728rem,
+			h4: 1.44rem,
+			large: 1.2rem,
+			regular: 1rem,
+			small: 0.8rem,
+		),
+	// major-third
+	desktop:
+		(
+			h1: 9.113rem,
+			list-nr: 6.329rem,
+			tagline: 3.662rem,
+			h2: 3.052rem,
+			h3: 2.441rem,
+			h4: 1.953rem,
+			large: 1.563rem,
+			regular: 1.25rem,
+			small: 1rem,
+		)
+);
+
+$font-weight: (
+	200: 200,
+	400: 400,
+	500: 500,
+	600: 600,
+);
