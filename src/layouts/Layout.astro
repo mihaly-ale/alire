@@ -63,12 +63,24 @@ const { title } = Astro.props;
 		background-color: var(--bg-color);
 	}
 
+	.intro {
+		display: flex;
+		flex-direction: column;
+		min-height: 92.5vh;
+
+		& > * {
+			padding-inline: var(--page-padding-phone);
+		}
+	}
+
 	header {
-		border: 1px solid red;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-color: grey;
+		background-color: var(--clr-transparent-50);
+
+		position: absolute;
+		width: 100%;
 	}
 
 	.logo-container {
@@ -102,10 +114,11 @@ const { title } = Astro.props;
 	}
 
 	[class='nav-link'] {
-		color: var(--text-color);
+		color: var(--bg-color);
 
 		&:hover {
 			background-color: var(--clr-primary-100);
+			color: var(--text-color);
 		}
 		&:active {
 			opacity: 0.9;
