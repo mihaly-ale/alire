@@ -15,12 +15,39 @@ import CtaCard from '../components/CtaCard.astro';
 					bgImageAVIF="leafy-veggie.avif"
 					bgImageWEBP="leafy-veggie.webp"
 				/>
+				<CtaCard
+					title="Mejora tu postura"
+					bgImageFallback="stones.jpg"
+					bgImageAVIF="stones.avif"
+					bgImageWEBP="stones.webp"
+				/>
+				<CtaCard
+					title="Adquiere hábitos saludables"
+					bgImageFallback="train-track.jpg"
+					bgImageAVIF="train-track.avif"
+					bgImageWEBP="train-track.webp"
+				/>
+				<CtaCard
+					title="Siéntete más feliz"
+					bgImageFallback="melon-face.jpg"
+					bgImageAVIF="melon-face.avif"
+					bgImageWEBP="melon-face.webp"
+				/>
 			</ul>
 		</section>
 	</main>
 </Layout>
 
 <style>
+	.cta-card-container {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: var(--rem-spacing-200);
+
+		padding: 0;
+	}
+
 	.cta-icon-section {
 		padding-inline: var(--page-padding-phone);
 		padding-block: var(--section-padding-phone);
