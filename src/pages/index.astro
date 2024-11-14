@@ -1,9 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CtaCard from '../components/CtaCard.astro';
 ---
 
 <Layout title="MimaTe">
-	<main>Page content comes here.</main>
+	<main>
+		<section class="cta-icon-section">
+			<h2 class="cta-icon-title">Decisiones sencillas para tu bienestar</h2>
+
+			<ul class="cta-card-container">
+				<CtaCard
+					title="Come de manera equilibrada"
+					bgImageFallback="leafy-veggie.jpg"
+					bgImageAVIF="leafy-veggie.avif"
+					bgImageWEBP="leafy-veggie.webp"
+				/>
+			</ul>
+		</section>
+	</main>
 </Layout>
 
-<style></style>
+<style>
+	.cta-icon-section {
+		padding-inline: var(--page-padding-phone);
+		padding-block: var(--section-padding-phone);
+	}
+
+	.cta-icon-title {
+		font-family: Merienda;
+		font-size: var(--fs-phone-h2);
+		font-weight: 200;
+		text-transform: capitalize;
+		text-align: center;
+	}
+</style>

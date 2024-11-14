@@ -1,0 +1,56 @@
+---
+interface Props {
+	title: string;
+	bgImageAVIF: string;
+	bgImageWEBP: string;
+	bgImageFallback: string;
+}
+
+const { title, bgImageAVIF, bgImageWEBP, bgImageFallback } = Astro.props;
+
+const backgroundImage = `
+			linear-gradient(
+				to bottom,
+				var(--clr-transparent-10),
+				var(--clr-transparent-50)
+				),
+			image-set(
+				url("images/${bgImageAVIF}") type("image/avif"),
+				url("images/${bgImageWEBP}") type("image/webp"),
+				url("images/${bgImageFallback}") type("image/jpg")
+				);
+		`;
+---
+
+<li class="cta-card">
+	<h3 class="cta-section-title">{title}</h3>
+</li>
+
+<style define:vars={{ backgroundImage }}>
+	.cta-card {
+		background-color: var(--clr-primary-400);
+		background-image: var(--backgroundImage);
+		max-width: 320px;
+		aspect-ratio: 1 / 1.5;
+		padding: var(--rem-spacing-100);
+		border-radius: 1rem;
+
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+
+		display: flex;
+		align-items: end;
+	}
+
+	.cta-section-title {
+		font-family: Merienda;
+		color: var(--bg-color);
+		font-weight: 200;
+		font-size: var(--fs-phone-h3);
+		text-align: center;
+		text-transform: capitalize;
+
+		margin: auto 0 0 0;
+	}
+</style>
