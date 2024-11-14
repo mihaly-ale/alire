@@ -16,11 +16,16 @@ const { headline, tagline } = Astro.props;
 <style>
 	.hero-section {
 		min-height: 85vh;
+		background-color: var(--clr-accent-400);
 		background-image: linear-gradient(
 				var(--clr-transparent-50),
 				var(--clr-transparent-50)
 			),
-			url(/images/hero-1600x1067.avif);
+			image-set(
+				url(/images/hero-large.avif) type('image/avif'),
+				url(/images/hero-large.webp) type('image/webp'),
+				url(/images/hero-large.jpg) type('image/jpg')
+			);
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;
