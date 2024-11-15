@@ -1,0 +1,60 @@
+---
+const serviceCards = await Astro.glob(`../../src/content/*.md`);
+---
+
+{
+	serviceCards.map((card) => (
+		<div class="service-card">
+			<img
+				src={`/icons/icon-${card.frontmatter.icon}.svg`}
+				alt=""
+				class="card-icon"
+			/>
+			<h3 class="card-title">{card.frontmatter.title}</h3>
+
+			<card.Content />
+
+			<a href="" class="card-button">
+				<span class="visually-hidden">
+					Saber más sobre ${card.frontmatter.title}
+				</span>
+				<img src="/icons/icon-arrow.svg" alt="" class="card-button-icon" />
+			</a>
+		</div>
+	))
+}
+
+<style>
+	.service-card {
+		background-color: var(--clr-primary-300);
+		border-radius: 1rem;
+		padding: var(--em-spacing-100) var(--em-spacing-150) var(--em-spacing-300);
+		width: 350px;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+
+		position: relative;
+
+		& > * {
+			margin: 0;
+		}
+
+		.card-icon {
+			height: 90px;
+		}
+
+		.card-title {
+			font-size: var(--fs-phone-h3);
+			font-family: Merienda;
+		}
+
+		.card-button {
+			position: absolute;
+			bottom: 1rem;
+			right: 1rem;
+		}
+	}
+</style>
