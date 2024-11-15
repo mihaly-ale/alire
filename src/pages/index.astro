@@ -5,10 +5,10 @@ import CtaCard from '../components/CtaCard.astro';
 
 <Layout title="MimaTe">
 	<main>
-		<section class="cta-icon-section">
-			<h2 class="cta-icon-title">Decisiones sencillas para tu bienestar</h2>
+		<section class="cta-icon-section section">
+			<h2 class="section-title">Decisiones sencillas para tu bienestar</h2>
 
-			<ul class="cta-card-container">
+			<ul class="flex-container">
 				<CtaCard
 					title="Come de manera equilibrada"
 					bgImageFallback="leafy-veggie.jpg"
@@ -38,8 +38,8 @@ import CtaCard from '../components/CtaCard.astro';
 			<img class="page-motif" src="/logos/motif-dark.svg" alt="" />
 		</section>
 
-		<section class="intro-section">
-			<h2 class="intro-section-title">Un enfoque integral</h2>
+		<section class="intro-section section">
+			<h2 class="section-title">Un enfoque integral</h2>
 			<div class="flex-container">
 				<p>
 					En Alire, estamos dedicados a ayudarte a alcanzar la armonía en todos
@@ -60,7 +60,7 @@ import CtaCard from '../components/CtaCard.astro';
 </Layout>
 
 <style>
-	.cta-card-container {
+	.flex-container {
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
@@ -69,12 +69,12 @@ import CtaCard from '../components/CtaCard.astro';
 		padding: 0;
 	}
 
-	.cta-icon-section {
+	.section {
 		padding-inline: var(--page-padding-phone);
 		padding-block: var(--section-padding-phone);
 	}
 
-	.cta-icon-title {
+	.section-title {
 		font-family: Merienda;
 		font-size: var(--fs-phone-h2);
 		font-weight: 200;
