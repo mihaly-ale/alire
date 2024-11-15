@@ -81,6 +81,7 @@ const { title } = Astro.props;
 	body {
 		--text-color: var(--clr-ui-500);
 		--bg-color: var(--clr-ui-100);
+		--radius-small: $radius-small;
 
 		color: var(--text-color);
 		font-family: 'Poppins';
@@ -133,7 +134,7 @@ const { title } = Astro.props;
 
 	.nav-link {
 		padding: var(--em-spacing-50);
-		border-radius: 0.25em;
+		border-radius: var(--rad-25);
 		font-size: var(--fs-phone-large);
 		font-weight: var(--fw-500);
 		text-decoration-color: transparent;

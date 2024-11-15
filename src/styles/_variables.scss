@@ -1,6 +1,7 @@
 @use 'colors.scss' as *;
 @use 'spacing.scss' as *;
 @use 'type-scale.scss' as *;
+@use 'border-radius' as *;
 
 :root {
 	@each $color, $shades in $colors {
@@ -32,4 +33,9 @@
 	@each $prop, $value in $font-weight {
 		--fw-#{$prop}: #{$value};
 	}
+
+	@each $prop, $value in $radius {
+		--rad-#{$prop}: #{$value};
+	}
 }
+
