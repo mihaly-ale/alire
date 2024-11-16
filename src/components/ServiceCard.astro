@@ -23,9 +23,9 @@ const serviceCards = await Astro.glob(`../../src/content/*.md`);
 					height="21"
 					viewBox="0 0 22 21"
 					fill="none"
+					class="card-button-icon"
 					xmlns="http://www.w3.org/2000/svg">
 					<path
-						class="card-button-icon"
 						d="M17.4305 11.3811C17.5983 9.55193 15.4183 8.48302 14.0749 9.73576L3.46967 19.6253C2.83855 20.2138 1.84983 20.1793 1.26131 19.5482C0.672781 18.9171 0.707308 17.9283 1.33843 17.3398L11.9437 7.45027C13.287 6.19754 12.3728 3.9483 10.5364 3.98804L4.50315 4.1186C3.51477 4.13998 2.73056 3.29158 2.82949 2.30793C2.91272 1.48028 3.60028 0.844748 4.43191 0.826751L19.4997 0.50068C20.6934 0.474849 21.6437 1.49388 21.5347 2.68286L20.1583 17.6912C20.0823 18.5196 19.4004 19.1611 18.5689 19.1864C17.5808 19.2165 16.7892 18.375 16.8794 17.3905L17.4305 11.3811Z"
 						fill="#000"
 					/>
@@ -41,11 +41,13 @@ const serviceCards = await Astro.glob(`../../src/content/*.md`);
 		--card-border-radius: var(--rad-250);
 
 		--button-width: 4rem;
-		--button-color: var(--clr-accent-400);
+		--button-color: var(--clr-accent-300);
 
 		--border-color: var(--bg-color);
 		--border-width: 1rem;
 		--border-style: solid;
+
+		--icon-fill-color: var(--bg-color);
 
 		background-color: var(--card-bg-color);
 		border-radius: var(--card-border-radius);
@@ -62,6 +64,12 @@ const serviceCards = await Astro.glob(`../../src/content/*.md`);
 
 		& > * {
 			margin: 0;
+		}
+
+		&:focus-within {
+			--card-bg-color: var(--clr-secondary-100);
+			--button-color: var(--clr-secondary-100);
+			--icon-fill-color: var(--clr-secondary-500);
 		}
 	}
 
@@ -90,6 +98,19 @@ const serviceCards = await Astro.glob(`../../src/content/*.md`);
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		transition: all 150ms;
+
+		&:hover {
+			background-color: var(--card-bg-color);
+		}
+
+		&:hover .card-button-icon path {
+			fill: var(--icon-fill-color);
+		}
+
+		&:focus {
+			outline: none;
+		}
 	}
 
 	/* fill behind button */
@@ -106,8 +127,9 @@ const serviceCards = await Astro.glob(`../../src/content/*.md`);
 		right: 0;
 	}
 
-	.card-button-icon {
-		fill: hsl(52, 90%, 70%);
+	.card-button-icon path {
+		fill: var(--icon-fill-color);
+		/* fill: white; */
 	}
 
 	/* add rounded corners to button background fill */
