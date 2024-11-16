@@ -37,8 +37,18 @@ const serviceCards = await Astro.glob(`../../src/content/*.md`);
 
 <style>
 	.service-card {
-		background-color: var(--clr-primary-300);
-		border-radius: var(--rad-250);
+		--card-bg-color: var(--clr-primary-100);
+		--card-border-radius: var(--rad-250);
+
+		--button-width: 4rem;
+		--button-color: var(--clr-accent-400);
+
+		--border-color: var(--bg-color);
+		--border-width: 1rem;
+		--border-style: solid;
+
+		background-color: var(--card-bg-color);
+		border-radius: var(--card-border-radius);
 		padding: var(--em-spacing-100) var(--em-spacing-100) var(--em-spacing-300);
 		width: 350px;
 
@@ -66,20 +76,15 @@ const serviceCards = await Astro.glob(`../../src/content/*.md`);
 
 	/* button styles */
 	.card-button {
-		--button-width: 4rem;
-		--border-color: var(--bg-color);
-		--border-width: 10px;
-		--border-style: solid;
-
 		display: inline-block;
 		width: var(--button-width);
 		aspect-ratio: 1;
 		border-radius: var(--button-width);
 
 		position: absolute;
-		bottom: -1px;
+		bottom: 0;
 		right: 0;
-		background-color: var(--clr-accent-400);
+		background-color: var(--button-color);
 
 		/* position card-button-icon */
 		display: flex;
@@ -93,7 +98,7 @@ const serviceCards = await Astro.glob(`../../src/content/*.md`);
 		background-color: var(--bg-color);
 		width: calc(var(--button-width) + var(--border-width));
 		aspect-ratio: 1;
-		border-top-left-radius: var(--rad-250);
+		border-top-left-radius: var(--card-border-radius);
 
 		z-index: -1;
 		position: absolute;
@@ -102,39 +107,35 @@ const serviceCards = await Astro.glob(`../../src/content/*.md`);
 	}
 
 	.card-button-icon {
-		fill: var(--clr-secondary-500);
+		fill: hsl(52, 90%, 70%);
 	}
 
 	/* add rounded corners to button background fill */
-	.service-card::before {
-		content: '';
-		display: block;
-		width: 40px;
-		aspect-ratio: 1;
-		background-color: var(--clr-primary-300);
-		position: absolute;
-		bottom: 61px;
-		right: -14px;
-		border-bottom-right-radius: 2rem;
-		border-bottom: 12px solid var(--bg-color);
-		border-right: 14px solid var(--bg-color);
 
-		z-index: -10;
-	}
+	.service-card::before,
 	.service-card::after {
 		content: '';
 		display: block;
-		width: 50px;
+		width: calc(
+			var(--button-width) + var(--border-width) - var(--card-border-radius)
+		);
 		aspect-ratio: 1;
-		background-color: var(--clr-primary-300);
-		/* background-color: red; */
+		background-color: var(--card-bg-color);
 		position: absolute;
-		bottom: -12px;
-		right: 60px;
-		border-bottom-right-radius: 2.75rem;
-		border-bottom: 12px solid var(--bg-color);
-		border-right: 14px solid var(--bg-color);
-
 		z-index: -10;
+
+		border-bottom-right-radius: var(--card-border-radius);
+		border-bottom: var(--border-width) solid var(--bg-color);
+		border-right: var(--border-width) solid var(--bg-color);
+	}
+
+	.service-card::before {
+		bottom: var(--button-width);
+		right: calc(-1 * var(--border-width));
+	}
+
+	.service-card::after {
+		bottom: calc(-1 * var(--border-width));
+		right: var(--button-width);
 	}
 </style>
