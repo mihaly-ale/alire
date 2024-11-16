@@ -53,55 +53,88 @@ const serviceCards = await Astro.glob(`../../src/content/*.md`);
 		& > * {
 			margin: 0;
 		}
+	}
 
-		.card-icon {
-			height: 90px;
-		}
+	.card-icon {
+		height: 90px;
+	}
 
-		.card-title {
-			font-size: var(--fs-phone-h3);
-			font-family: Merienda;
-		}
+	.card-title {
+		font-size: var(--fs-phone-h3);
+		font-family: Merienda;
+	}
 
-		/* button styles */
-		.card-button {
-			--button-width: 4rem;
-			--border-color: var(--bg-color);
-			--border-width: 10px;
-			--border-style: solid;
+	/* button styles */
+	.card-button {
+		--button-width: 4rem;
+		--border-color: var(--bg-color);
+		--border-width: 10px;
+		--border-style: solid;
 
-			display: inline-block;
-			width: var(--button-width);
-			aspect-ratio: 1;
-			border-radius: var(--button-width);
+		display: inline-block;
+		width: var(--button-width);
+		aspect-ratio: 1;
+		border-radius: var(--button-width);
 
-			position: absolute;
-			bottom: 0;
-			right: 0;
-			background-color: var(--clr-accent-400);
+		position: absolute;
+		bottom: -1px;
+		right: 0;
+		background-color: var(--clr-accent-400);
 
-			/* position card-button-icon */
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
+		/* position card-button-icon */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
-		/* fill behind button */
-		.card-button::before {
-			content: '';
-			background-color: var(--bg-color);
-			width: calc(var(--button-width) + var(--border-width));
-			aspect-ratio: 1;
-			border-top-left-radius: var(--rad-250);
+	/* fill behind button */
+	.card-button::before {
+		content: '';
+		background-color: var(--bg-color);
+		width: calc(var(--button-width) + var(--border-width));
+		aspect-ratio: 1;
+		border-top-left-radius: var(--rad-250);
 
-			z-index: -1;
-			position: absolute;
-			bottom: 0;
-			right: 0;
-		}
+		z-index: -1;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
 
-		.card-button-icon {
-			fill: var(--clr-secondary-500);
-		}
+	.card-button-icon {
+		fill: var(--clr-secondary-500);
+	}
+
+	/* add rounded corners to button background fill */
+	.service-card::before {
+		content: '';
+		display: block;
+		width: 40px;
+		aspect-ratio: 1;
+		background-color: var(--clr-primary-300);
+		position: absolute;
+		bottom: 61px;
+		right: -14px;
+		border-bottom-right-radius: 2rem;
+		border-bottom: 12px solid var(--bg-color);
+		border-right: 14px solid var(--bg-color);
+
+		z-index: -10;
+	}
+	.service-card::after {
+		content: '';
+		display: block;
+		width: 50px;
+		aspect-ratio: 1;
+		background-color: var(--clr-primary-300);
+		/* background-color: red; */
+		position: absolute;
+		bottom: -12px;
+		right: 60px;
+		border-bottom-right-radius: 2.75rem;
+		border-bottom: 12px solid var(--bg-color);
+		border-right: 14px solid var(--bg-color);
+
+		z-index: -10;
 	}
 </style>
