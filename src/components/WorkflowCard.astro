@@ -5,9 +5,11 @@ const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 <ol>
 	{
 		workflowCards.map((card) => (
-			<li class="card">
-				<h3 class="card-title">{card.frontmatter.title}</h3>
-				<card.Content class="p" />
+			<li class="card" data-element="list-item">
+				<div class="card-content">
+					<h3 class="card-title">{card.frontmatter.title}</h3>
+					<card.Content />
+				</div>
 			</li>
 		))
 	}
@@ -17,17 +19,32 @@ const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 	ol {
 		display: flex;
 		flex-direction: column;
-		gap: var(--rem-spacing-200);
+		gap: var(--rem-spacing-300);
+
+		padding-inline-start: 0;
+	}
+
+	li {
+		list-style: none;
+		max-width: none;
 	}
 
 	.card {
-		display: flexbox;
-		justify-content: center;
+		display: flex;
+		flex-direction: column;
+		border-top-left-radius: var(--rad-250);
+		border-top-right-radius: var(--rad-250);
+
+		overflow: hidden;
+		box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+	}
+
+	.card-content {
 		padding-block: var(--em-spacing-100);
 	}
 
 	.card-title {
-		color: var(--text-xolor);
+		color: var(--text-color);
 		font-size: var(--fs-phone-h3);
 		font-family: Merienda;
 		text-align: center;
@@ -36,17 +53,111 @@ const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 
 	.card:nth-child(1) {
 		background-color: var(--clr-primary-200);
+
+		&::before {
+			color: var(--clr-primary-500);
+			background-color: var(--clr-primary-100);
+		}
 	}
 
 	.card:nth-child(2) {
 		background-color: var(--clr-tertiary-200);
+
+		&::before {
+			color: var(--clr-tertiary-500);
+			background-color: var(--clr-tertiary-100);
+		}
 	}
 
 	.card:nth-child(3) {
 		background-color: var(--clr-accent-200);
+
+		&::before {
+			color: var(--clr-accent-500);
+			background-color: var(--clr-accent-100);
+		}
 	}
 
 	.card:nth-child(4) {
 		background-color: var(--clr-secondary-200);
+
+		&::before {
+			color: var(--clr-secondary-500);
+			background-color: var(--clr-secondary-100);
+		}
+	}
+
+	.card::before {
+		content: var(--step, '');
+		border-bottom: 2px solid currentColor;
+
+		font-size: var(--fs-phone-list-nr);
+		font-family: Merienda;
+		text-align: center;
+	}
+
+	/* p max-width takes effect from 654px  */
+	@media screen and (min-width: 654px) {
+		ol {
+			max-width: 1100px;
+		}
+
+		.card {
+			flex-direction: row;
+		}
+
+		.card-content {
+			display: flex;
+			flex-direction: column;
+			align-items:center;
+			justify-content:center;
+			margin-inline: auto;
+		}
+
+		.card:nth-child(odd) {
+			border-top-right-radius: 0;
+			border-bottom-left-radius: var(--rad-250);
+
+			&::before {
+				border-right: 2px solid currentColor;
+			}
+		}
+
+		.card:nth-child(even) {
+			flex-direction: row-reverse;
+			border-top-left-radius: 0;
+			border-bottom-right-radius: var(--rad-250);
+
+			&::before {
+				border-left: 2px solid currentColor;
+			}
+		}
+
+		.card::before {
+			padding-inline: var(--em-spacing-100);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-bottom: 0;
+		}
+	}
+
+	@media screen and (min-width: 1100px) {
+		.card {
+			border-radius: var(--rad-250) !important;
+		}
 	}
 </style>
+
+<script define:vars={{ workflowCards }}>
+	const listItems = Array.from(
+		document.querySelectorAll('[data-element="list-item"]')
+	);
+
+	for (let i = 0; i < workflowCards.length; i++) {
+		listItems[i].style.setProperty(
+			'--step',
+			`"${workflowCards[i].frontmatter.step}"`
+		);
+	}
+</script>

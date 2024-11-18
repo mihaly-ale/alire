@@ -70,12 +70,12 @@ import WorkflowCard from '../components/WorkflowCard.astro';
 			<img class="page-motif" src="/logos/motif-dark.svg" alt="" />
 		</section>
 
-		<div class="section workflow-section">
+		<section class="section workflow-section">
 			<h2 class="section-title">Como trabajamos</h2>
 			<WorkflowCard />
 
 			<img class="page-motif" src="/logos/motif-dark.svg" alt="" />
-		</div>
+		</section>
 	</main>
 </Layout>
 
@@ -108,5 +108,24 @@ import WorkflowCard from '../components/WorkflowCard.astro';
 
 	.intro-section .flex-container {
 		gap: unset;
+	}
+
+	.workflow-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-inline: 0;
+	}
+
+	@media screen and (min-width: 654px) {
+		.workflow-section {
+			align-items: stretch;
+		}
+	}
+
+	@media screen and (min-width: 1100px) {
+		.workflow-section {
+			align-items: center;
+		}
 	}
 </style>
