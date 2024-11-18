@@ -2,7 +2,7 @@
 const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 ---
 
-<ul>
+<ol>
 	{
 		workflowCards.map((card) => (
 			<li class="card-box">
@@ -11,10 +11,10 @@ const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 			</li>
 		))
 	}
-</ul>
+</ol>
 
 <style>
-	ul {
+	ol {
 		display: flex;
 		flex-direction: column;
 		gap: var(--rem-spacing-200);
