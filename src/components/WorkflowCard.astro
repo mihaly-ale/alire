@@ -5,7 +5,7 @@ const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 <ol>
 	{
 		workflowCards.map((card) => (
-			<li class="card-box">
+			<li class="card-box" data-element="list-item">
 				<h3 class="card-title">{card.frontmatter.title}</h3>
 				<card.Content class="p" />
 			</li>
@@ -15,19 +15,24 @@ const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 
 <style>
 	ol {
+		/* general line height is 1.5 */
+		--li-box-height: calc(1.5 * var(--fs-phone-list-nr));
+
 		display: flex;
 		flex-direction: column;
-		gap: var(--rem-spacing-200);
+		gap: calc(var(--li-box-height) + var(--rem-spacing-200));
+		padding-top: var(--li-box-height);
 	}
 
 	.card-box {
-		display: flexbox;
+		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		padding-block: var(--em-spacing-100);
 	}
 
 	.card-title {
-		color: var(--text-xolor);
+		color: var(--text-color);
 		font-size: var(--fs-phone-h3);
 		font-family: Merienda;
 		text-align: center;
@@ -36,17 +41,70 @@ const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 
 	.card-box:nth-child(1) {
 		background-color: var(--clr-primary-200);
+
+		&::before {
+			color: var(--clr-primary-500);
+			background-color: var(--clr-primary-100);
+		}
 	}
 
 	.card-box:nth-child(2) {
 		background-color: var(--clr-tertiary-200);
+
+		&::before {
+			color: var(--clr-tertiary-500);
+			background-color: var(--clr-tertiary-100);
+		}
 	}
 
 	.card-box:nth-child(3) {
 		background-color: var(--clr-accent-200);
+
+		&::before {
+			color: var(--clr-accent-500);
+			background-color: var(--clr-accent-100);
+		}
 	}
 
 	.card-box:nth-child(4) {
 		background-color: var(--clr-secondary-200);
+
+		&::before {
+			color: var(--clr-secondary-500);
+			background-color: var(--clr-secondary-100);
+		}
+	}
+
+	li {
+		list-style: none;
+		position: relative;
+	}
+
+	li::before {
+		content: var(--step, '');
+		display: block;
+		width: 100%;
+		position: absolute;
+		top: calc(-1 * var(--li-box-height));
+		border-top-left-radius: var(--rad-100);
+		border-top-right-radius: var(--rad-100);
+
+		font-size: var(--fs-phone-list-nr);
+		font-family: Merienda;
+		text-align: center;
+		border-bottom: 2px solid currentColor;
 	}
 </style>
+
+<script define:vars={{ workflowCards }}>
+	const listItems = Array.from(
+		document.querySelectorAll('[data-element="list-item"]')
+	);
+
+	for (let i = 0; i < workflowCards.length; i++) {
+		listItems[i].style.setProperty(
+			'--step',
+			`"${workflowCards[i].frontmatter.step}"`
+		);
+	}
+</script>
