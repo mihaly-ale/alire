@@ -1,0 +1,20 @@
+---
+const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
+---
+
+<ul>
+	{
+		workflowCards.map((card) => (
+			<li class="card-box">
+				<h3 class="card-title">{card.frontmatter.title}</h3>
+				<card.Content />
+			</li>
+		))
+	}
+</ul>
+
+<style>
+	.card-box p {
+		color: red;
+	}
+</style>
