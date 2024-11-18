@@ -7,14 +7,46 @@ const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 		workflowCards.map((card) => (
 			<li class="card-box">
 				<h3 class="card-title">{card.frontmatter.title}</h3>
-				<card.Content />
+				<card.Content class="p" />
 			</li>
 		))
 	}
 </ul>
 
 <style>
-	.card-box p {
-		color: red;
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rem-spacing-200);
+	}
+
+	.card-box {
+		display: flexbox;
+		justify-content: center;
+		padding-block: var(--em-spacing-100);
+	}
+
+	.card-title {
+		color: var(--text-xolor);
+		font-size: var(--fs-phone-h3);
+		font-family: Merienda;
+		text-align: center;
+		margin: 0;
+	}
+
+	.card-box:nth-child(1) {
+		background-color: var(--clr-primary-200);
+	}
+
+	.card-box:nth-child(2) {
+		background-color: var(--clr-tertiary-200);
+	}
+
+	.card-box:nth-child(3) {
+		background-color: var(--clr-accent-200);
+	}
+
+	.card-box:nth-child(4) {
+		background-color: var(--clr-secondary-200);
 	}
 </style>
