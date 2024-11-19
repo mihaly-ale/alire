@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import CtaCard from '../components/CtaCard.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import WorkflowCard from '../components/WorkflowCard.astro';
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout title="MimaTe">
@@ -75,6 +76,10 @@ import WorkflowCard from '../components/WorkflowCard.astro';
 			<WorkflowCard />
 
 			<img class="page-motif" src="/logos/motif-dark.svg" alt="" />
+		</section>
+
+		<section class="section form-section">
+			<ContactForm />
 		</section>
 	</main>
 </Layout>

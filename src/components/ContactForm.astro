@@ -1,0 +1,73 @@
+<form action="">
+	<div class="form-group">
+		<div class="column">
+			<label for="name">Nombre: *</label>
+			<input
+				type="text"
+				id="name"
+				name="name"
+				placeholder="Tu nombre"
+				required
+			/>
+			<span class="error-message"></span>
+		</div>
+		<span class="validation"></span>
+	</div>
+
+	<div class="form-group">
+		<div class="column">
+			<label for="email">Correo electrónico: *</label>
+			<input
+				type="email"
+				id="email"
+				name="email"
+				placeholder="Tu email"
+				pattern="^.+@[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?\.[A-Za-z]{2,}$"
+				required
+			/>
+			<span class="error-message"></span>
+		</div>
+		<span class="validation"></span>
+	</div>
+
+	<div class="form-group">
+		<fieldset class="column">
+			<legend> &nbsp; Elige tratamiento &nbsp;</legend>
+			<div>
+				<input type="checkbox" id="massage" name="massage" />
+				<label for="massage">Masaje</label>
+			</div>
+			<div>
+				<input type="checkbox" id="nutrition" name="nutrition" />
+				<label for="nutrition">Nutrición</label>
+			</div>
+			<div>
+				<input type="checkbox" id="biomagnet" name="biomagnet" />
+				<label for="biomagnet">Biomagnetismo</label>
+			</div>
+			<div>
+				<input type="checkbox" id="osteopathy" name="osteopathy" />
+				<label for="osteopathy">Ostepatía</label>
+			</div>
+		</fieldset>
+		<span class="error-message"></span>
+	</div>
+
+	<div class="form-group">
+		<div class="column">
+			<label for="comments">Mensaje: *</label>
+			<textarea
+				id="comments"
+				name="comments"
+				placeholder="Escribe tu mensaje"
+				required>
+			</textarea>
+			<span class="error-message"></span>
+		</div>
+		<span class="validation"></span>
+	</div>
+
+	<div class="form-group">
+		<input type="submit" value="Enviar" />
+	</div>
+</form>
