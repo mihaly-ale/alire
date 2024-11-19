@@ -68,6 +68,101 @@
 	</div>
 
 	<div class="form-group">
-		<input type="submit" value="Enviar" />
+		<input class="btn" type="submit" value="Enviar" />
 	</div>
 </form>
+
+<style>
+	form {
+		color: var(--bg-color);
+		background: var(--clr-transparent-30);
+
+		margin: 0 auto;
+		width: 95%;
+		max-width: 600px;
+	}
+
+	.form-group {
+		margin-block-end: var(--rem-spacing-150);
+		position: relative;
+	}
+
+	.column {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rem-spacing-75);
+	}
+
+	input::placeholder,
+	textarea::placeholder {
+		color: var(--clr-ui-200);
+	}
+
+	input:not([type='submit']),
+	textarea {
+		padding: var(--em-spacing-75);
+		border-radius: var(--rad-25);
+
+		&:focus {
+			outline-offset: 4px;
+		}
+	}
+
+	input:placeholder-shown,
+	textarea:placeholder-shown {
+		background-color: white;
+	}
+
+	input:not(:placeholder-shown),
+	textarea:not(:placeholder-shown) {
+		background-color: var(--clr-primary-100);
+	}
+
+	input[type='checkbox'] {
+		margin-right: var(--em-spacing-50);
+		accent-color: var(--clr-primary-100);
+	}
+
+	input[type='submit'] {
+		font-size: var(--fs-phone-h4);
+		color: var(--bg-color);
+		font-weight: var(--fw-500);
+		background-color: var(--text-color);
+		margin: 0 auto;
+		border: 2px solid var(--clr-primary-200);
+
+		&:hover {
+			background-color: var(--bg-color);
+			color: var(--text-color);
+		}
+
+		&:focus {
+			opacity: 0.75;
+		}
+	}
+
+	legend {
+		margin-left: var(--em-spacing-100);
+		margin-block-end: var(--em-spacing-75);
+	}
+
+	label,
+	legend {
+		font-size: calc(var(--fs-phone-regular) * 1.1);
+	}
+
+	.error-message {
+		height: calc(var(--fs-phone-regular) + calc(var(--em-spacing-75)));
+		width: fit-content;
+		padding: var(--em-spacing-75) var(--em-spacing-25);
+		border-radius: var(--rad-25);
+
+		font-size: var(--fs-phone-regular);
+		color: red;
+		font-weight: var(--fw-500);
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+</style>

@@ -69,13 +69,15 @@ const { headline, tagline } = Astro.props;
 
 	a[class~='btn'] {
 		text-decoration: none;
-		border-radius: var(--rad-25);
 	}
 
-	.btn {
+	:global(.btn) {
+		display: block;
 		padding: var(--em-spacing-50) var(--em-spacing-125);
-		cursor: pointer;
+		border-radius: var(--rad-25);
 		border: 1px solid currentColor;
+		cursor: pointer;
+		transition: all 250ms;
 	}
 
 	.btn-cta {
@@ -83,7 +85,6 @@ const { headline, tagline } = Astro.props;
 		color: var(--clr-primary-200);
 		background-color: var(--clr-transparent-50);
 		letter-spacing: 2px;
-		transition: all 250ms;
 
 		&:hover {
 			background-color: var(--bg-color);
