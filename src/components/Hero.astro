@@ -67,7 +67,7 @@ const { headline, tagline } = Astro.props;
 		line-height: 1.3;
 	}
 
-	a[class~='btn'] {
+	:global(a[class]) {
 		text-decoration: none;
 	}
 
