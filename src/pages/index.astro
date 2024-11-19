@@ -133,4 +133,20 @@ import ContactForm from '../components/ContactForm.astro';
 			align-items: center;
 		}
 	}
+
+	.form-section {
+		background-image: linear-gradient(
+				var(--clr-transparent-50),
+				var(--clr-transparent-50)
+			),
+			image-set(
+				url(/images/form-bg-large.avif) type('image/avif'),
+				url(/images/form-bg-large.webp) type('image/webp'),
+				url(/images/form-bg-large.jpg) type('image/jpg')
+			);
+
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
 </style>
