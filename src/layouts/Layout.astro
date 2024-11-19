@@ -94,6 +94,19 @@ const { title } = Astro.props;
 		background-color: var(--bg-color);
 	}
 
+	a:not([class]) {
+		text-decoration-color: transparent;
+		transition: text-decoration-color 250ms;
+
+		&:hover {
+			text-decoration-color: currentColor;
+		}
+
+		&:visited {
+			color: color-mix(in srgb, currentColor 90%, black 10%);
+		}
+	}
+
 	.intro {
 		display: flex;
 		flex-direction: column;
@@ -140,7 +153,7 @@ const { title } = Astro.props;
 		border-radius: var(--rad-25);
 		font-size: var(--fs-phone-large);
 		font-weight: var(--fw-500);
-		text-decoration-color: transparent;
+		text-decoration: none;
 		transition: all 150ms;
 	}
 
@@ -158,6 +171,7 @@ const { title } = Astro.props;
 
 	.nav-link.contact {
 		background-color: var(--clr-primary-100);
+		color: var(--text-color);
 
 		&:hover {
 			background-color: var(--clr-primary-500);
