@@ -3,7 +3,7 @@
 ---
 
 <footer>
-	<div class="logo-container">
+	<div>
 		<a href="/"
 			><img src="/logos/wordmark-gradient.svg" alt="" class="footer-logo" /></a
 		>
@@ -28,9 +28,9 @@
 	</div>
 
 	<div class="legal">
-		<a class="footer-link" href="">Aviso Legal</a>
-		<a class="footer-link" href="">Política de Privacidad</a>
-		<a class="footer-link" href="">Política de Cookies</a>
+		<a class="footer-link" target="_blank" href="">Aviso Legal</a>
+		<a class="footer-link" target="_blank" href="">Política de Privacidad</a>
+		<a class="footer-link" target="_blank" href="">Política de Cookies</a>
 	</div>
 
 	<div>
@@ -53,5 +53,33 @@
 		color: var(--bg-color);
 		background-color: var(--text-color);
 		padding: var(--section-padding-phone);
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--rem-spacing-300);
+	}
+
+	.footer-logo {
+		width: 75%;
+		margin: 0 auto;
+	}
+
+	.social-links,
+	.legal {
+		display: flex;
+		gap: var(--rem-spacing-200);
+	}
+
+	.social-links a {
+		transition: scale 150ms;
+		&:hover {
+			scale: 0.95;
+		}
+	}
+
+	.legal {
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 </style>
