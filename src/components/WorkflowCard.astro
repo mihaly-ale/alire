@@ -103,7 +103,8 @@ const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 	}
 
 	/* p max-width takes effect from 654px  */
-	@media screen and (min-width: 654px) {
+	/* 40.875em = 654px */
+	@media screen and (min-width: 40.875em) {
 		ol {
 			max-width: 1100px;
 		}
@@ -148,7 +149,8 @@ const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 		}
 	}
 
-	@media screen and (min-width: 1100px) {
+	/* 68.75em = 1100px */
+	@media screen and (min-width: 68.75em) {
 		.card {
 			border-radius: var(--rad-250) !important;
 		}

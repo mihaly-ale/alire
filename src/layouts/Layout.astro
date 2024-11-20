@@ -192,7 +192,8 @@ const { title } = Astro.props;
 	}
 
 	/* mobile navigation */
-	@media screen and (max-width: 410px) {
+	/* 25.625em = 410px */
+	@media screen and (max-width: 25.625em) {
 		.navigation {
 			background-color: var(--clr-transparent-50);
 			position: absolute;
