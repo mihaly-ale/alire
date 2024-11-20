@@ -1,11 +1,10 @@
 $type-scale: (
 	// minor-third
-	// multipliers above h2: 1.2*1, 1.2*4, 1.2*6
+	// multipliers above h2: 1.2*4, 1.2*6
 	phone:
 		(
 			h1: 6.193rem,
 			list-nr: 4.3rem,
-			tagline: 2.488rem,
 			h2: 2.074rem,
 			h3: 1.728rem,
 			h4: 1.44rem,
@@ -13,18 +12,17 @@ $type-scale: (
 			regular: 1rem,
 			small: 0.8rem,
 		),
-	// major-third
+	// multipliers above h2: 1.2*2, 1.2*6
 	desktop:
 		(
-			h1: 9.113rem,
-			list-nr: 6.329rem,
-			tagline: 3.662rem,
-			h2: 3.052rem,
-			h3: 2.441rem,
-			h4: 1.953rem,
-			large: 1.563rem,
+			h1: 7.74rem,
+			list-nr: 3.732rem,
+			h2: 2.592rem,
+			h3: 2.16rem,
+			h4: 1.8rem,
+			large: 1.5rem,
 			regular: 1.25rem,
-			small: 1rem,
+			small: 1.042rem,
 		)
 );
 
