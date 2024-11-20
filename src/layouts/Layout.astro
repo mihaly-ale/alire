@@ -89,7 +89,11 @@ const { title } = Astro.props;
 		color: var(--text-color);
 		font-family: 'Poppins';
 		font-weight: var(--fw-400);
-		font-size: var(--fs-phone-regular);
+		font-size: clamp(
+			var(--fs-phone-regular),
+			1.45vw,
+			var(--fs-desktop-regular)
+		);
 
 		background-color: var(--bg-color);
 	}
@@ -151,7 +155,7 @@ const { title } = Astro.props;
 	.nav-link {
 		padding: var(--em-spacing-50);
 		border-radius: var(--rad-25);
-		font-size: var(--fs-phone-large);
+		font-size: clamp(var(--fs-phone-large), 1.45vw, var(--fs-desktop-large));
 		font-weight: var(--fw-500);
 		text-decoration: none;
 		transition: all 150ms;

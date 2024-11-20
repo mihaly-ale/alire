@@ -78,7 +78,8 @@ const serviceCards = await Astro.glob(`../../src/content/services/*.md`);
 	}
 
 	.card-title {
-		font-size: var(--fs-phone-h3);
+		font-size: clamp(var(--fs-phone-h3), 2.15vw, var(--fs-desktop-h3));
+		font-weight: 200;
 		font-family: Merienda;
 	}
 

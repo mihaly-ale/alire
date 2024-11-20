@@ -124,7 +124,7 @@
 	}
 
 	input[type='submit'] {
-		font-size: var(--fs-phone-h4);
+		font-size: clamp(var(--fs-phone-h4), 2vw, var(--fs-desktop-h3));
 		color: var(--bg-color);
 		font-weight: var(--fw-500);
 		background-color: var(--text-color);
@@ -148,7 +148,11 @@
 
 	label,
 	legend {
-		font-size: calc(var(--fs-phone-regular) * 1.1);
+		font-size: clamp(
+			calc(var(--fs-phone-regular) * 1.1),
+			1.45vw,
+			calc(var(--fs-desktop-regular) * 1.1)
+		);
 	}
 
 	.error-message {
@@ -157,7 +161,11 @@
 		padding: var(--em-spacing-75) var(--em-spacing-25);
 		border-radius: var(--rad-25);
 
-		font-size: var(--fs-phone-regular);
+		font-size: clamp(
+			var(--fs-phone-regular),
+			1.45vw,
+			var(--fs-desktop-regular)
+		);
 		color: red;
 		font-weight: var(--fw-500);
 

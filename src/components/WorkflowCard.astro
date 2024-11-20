@@ -36,7 +36,9 @@ const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 		border-top-right-radius: var(--rad-250);
 
 		overflow: hidden;
-		box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+		box-shadow:
+			rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+			rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 	}
 
 	.card-content {
@@ -45,7 +47,7 @@ const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 
 	.card-title {
 		color: var(--text-color);
-		font-size: var(--fs-phone-h3);
+		font-size: clamp(var(--fs-phone-h3), 2.15vw, var(--fs-desktop-h3));
 		font-family: Merienda;
 		text-align: center;
 		margin: 0;
@@ -91,7 +93,11 @@ const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 		content: var(--step, '');
 		border-bottom: 2px solid currentColor;
 
-		font-size: var(--fs-phone-list-nr);
+		font-size: clamp(
+			var(--fs-phone-list-nr),
+			5.25vw,
+			var(--fs-desktop-list-nr)
+		);
 		font-family: Merienda;
 		text-align: center;
 	}
@@ -109,8 +115,8 @@ const workflowCards = await Astro.glob('../../src/content/workflows/*.md');
 		.card-content {
 			display: flex;
 			flex-direction: column;
-			align-items:center;
-			justify-content:center;
+			align-items: center;
+			justify-content: center;
 			margin-inline: auto;
 		}
 

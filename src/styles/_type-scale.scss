@@ -1,10 +1,10 @@
 $type-scale: (
 	// minor-third
-	// multipliers above h2: 1.2*4, 1.2*6
+	// multipliers above h2: 1.2*3, 1.2*4
 	phone:
 		(
-			h1: 6.193rem,
-			list-nr: 4.3rem,
+			h1: 4.3rem,
+			list-nr: 3.58rem,
 			h2: 2.074rem,
 			h3: 1.728rem,
 			h4: 1.44rem,
@@ -12,11 +12,12 @@ $type-scale: (
 			regular: 1rem,
 			small: 0.8rem,
 		),
-	// multipliers above h2: 1.2*2, 1.2*6
+	// multipliers above h2: 1.2*4, 1.2*10
 	desktop:
 		(
-			h1: 7.74rem,
-			list-nr: 3.732rem,
+			h1: 16.049rem,
+			tagline: 3.732rem,
+			list-nr: 5.375rem,
 			h2: 2.592rem,
 			h3: 2.16rem,
 			h4: 1.8rem,

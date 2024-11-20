@@ -54,14 +54,15 @@ const { headline, tagline } = Astro.props;
 	}
 
 	.headline {
-		font-size: var(--fs-phone-h1);
+		font-size: clamp(var(--fs-phone-h1), 13.4vw, var(--fs-desktop-h1));
+
 		font-weight: var(--fw-200);
 		line-height: 1;
 		margin-block-end: 0.23em;
 	}
 
 	.tagline {
-		font-size: var(--fs-phone-h2);
+		font-size: clamp(var(--fs-phone-h3), 3vw, var(--fs-desktop-tagline));
 		font-family: Merienda;
 		max-width: 22ch;
 		line-height: 1.3;
@@ -78,7 +79,7 @@ const { headline, tagline } = Astro.props;
 	}
 
 	.btn-cta {
-		font-size: var(--fs-phone-h3);
+		font-size: clamp(var(--fs-phone-h4), 2vw, var(--fs-desktop-h3));
 		color: var(--clr-primary-200);
 		background-color: var(--clr-transparent-50);
 		letter-spacing: 2px;

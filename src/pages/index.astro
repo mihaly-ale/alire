@@ -102,7 +102,8 @@ import ContactForm from '../components/ContactForm.astro';
 
 	.section-title {
 		font-family: Merienda;
-		font-size: var(--fs-phone-h2);
+		font-size: clamp(var(--fs-phone-h2), 3vw, var(--fs-desktop-h2));
+
 		font-weight: 200;
 		text-transform: capitalize;
 		text-align: center;
