@@ -1,0 +1,15 @@
+---
+import { Modal } from 'accessible-astro-components';
+const overlays = await Astro.glob('../../src/content/overlays/*.md');
+---
+
+{
+	overlays.map((overlay) => (
+		<Modal
+			triggerId={overlay.frontmatter.title}
+			title={overlay.frontmatter.title}
+			closeText="Cerrar">
+			<overlay.Content />
+		</Modal>
+	))
+}
