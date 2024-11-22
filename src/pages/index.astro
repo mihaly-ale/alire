@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CtaCard from '../components/CtaCard.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import WorkflowCard from '../components/WorkflowCard.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import WorkflowCards from '../components/WorkflowCards.astro';
 import ContactForm from '../components/ContactForm.astro';
 ---
 
@@ -65,7 +65,7 @@ import ContactForm from '../components/ContactForm.astro';
 		<section class="services-section section">
 			<h2 class="section-title">Cuidado Holístico</h2>
 			<div class="flex-container">
-				<ServiceCard />
+				<ServiceCards />
 			</div>
 
 			<img class="page-motif" src="/logos/motif-dark.svg" alt="" />
@@ -73,7 +73,7 @@ import ContactForm from '../components/ContactForm.astro';
 
 		<section class="section workflow-section">
 			<h2 class="section-title">Como trabajamos</h2>
-			<WorkflowCard />
+			<WorkflowCards />
 
 			<img class="page-motif" src="/logos/motif-dark.svg" alt="" />
 		</section>
