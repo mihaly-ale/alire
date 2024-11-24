@@ -22,9 +22,9 @@ const { headline, tagline } = Astro.props;
 				var(--clr-transparent-50)
 			),
 			image-set(
-				url(/images/hero-large.avif) type('image/avif'),
-				url(/images/hero-large.webp) type('image/webp'),
-				url(/images/hero-large.jpg) type('image/jpg')
+				url(/images/hero-medium.avif) type('image/webp'),
+				url(/images/hero-medium.webp) type('image/avif'),
+				url(/images/hero-medium.jpg) type('image/jpg')
 			);
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -39,6 +39,20 @@ const { headline, tagline } = Astro.props;
 
 		flex: 1;
 		padding-block-start: min(8vw, 200px);
+	}
+
+	@media screen and (min-width: 62.5em) {
+		.hero-section {
+			background-image: linear-gradient(
+					var(--clr-transparent-50),
+					var(--clr-transparent-50)
+				),
+				image-set(
+					url(/images/hero-medium.avif) type('image/webp'),
+					url(/images/hero-medium.webp) type('image/avif'),
+					url(/images/hero-medium.jpg) type('image/jpg')
+				);
+		}
 	}
 
 	.headline,
