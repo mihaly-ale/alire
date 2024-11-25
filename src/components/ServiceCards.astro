@@ -15,6 +15,7 @@ import ServiceCardModals from './ServiceCardModals.astro';
 				<h3 class="card-title">{card.frontmatter.title}</h3>
 				<card.Content />
 
+				<div class="button-bg-fill" />
 				<button class="card-button" id={card.frontmatter.title}>
 					<span class="visually-hidden">
 						Saber más sobre {card.frontmatter.title}
@@ -115,55 +116,71 @@ import ServiceCardModals from './ServiceCardModals.astro';
 		}
 
 		&:focus {
-			outline: none;
+			outline: 4px solid var(--clr-secondary-500);
+			outline-offset: -4px;
 		}
 	}
 
-	/* fill behind button */
-	.card-button::before {
-		content: '';
-		background-color: var(--bg-color);
+	.button-bg-fill {
 		width: calc(var(--button-width) + var(--border-width));
 		aspect-ratio: 1;
-		border-top-left-radius: var(--card-border-radius);
+		background-color: var(--bg-color);
 
-		z-index: -1;
 		position: absolute;
-		bottom: 0;
 		right: 0;
-	}
+		bottom: 0;
 
-	.card-button-icon path {
-		fill: var(--icon-fill-color);
-		/* fill: white; */
-	}
+		border-bottom-right-radius: var(--card-border-radius);
+		border-top-left-radius: var(--card-border-radius);
+		border-top: calc(var(--border-width) / 2) solid var(--card-bg-color);
+		border-left: calc(var(--border-width) / 2) solid var(--card-bg-color);
 
-	/* add rounded corners to button background fill */
+		&::before,
+		&:after {
+			content: '';
+			width: calc(var(--button-width) * 0.75);
+			aspect-ratio: 1;
+			position: absolute;
+			background-color: var(--card-bg-color);
+		}
+
+		&::before {
+			right: calc(var(--border-width) * -0.5);
+			bottom: var(--button-width);
+			border-bottom-right-radius: var(--card-border-radius);
+			border-right: calc(var(--border-width) / 2) solid var(--bg-color);
+			border-bottom: calc(var(--border-width) / 2) solid var(--bg-color);
+		}
+
+		&::after {
+			bottom: calc(var(--border-width) * -0.5);
+			right: var(--button-width);
+			border-bottom-right-radius: var(--card-border-radius);
+			border-right: calc(var(--border-width) / 2) solid var(--bg-color);
+			border-bottom: calc(var(--border-width) / 2) solid var(--bg-color);
+		}
+	}
 
 	.service-card::before,
 	.service-card::after {
 		content: '';
-		display: block;
 		width: calc(
-			var(--button-width) + var(--border-width) - var(--card-border-radius)
+			var(--button-width) - var(--border-width) - var(--card-border-radius)
 		);
 		aspect-ratio: 1;
-		background-color: var(--card-bg-color);
 		position: absolute;
-		z-index: -10;
-
-		border-bottom-right-radius: var(--card-border-radius);
-		border-bottom: var(--border-width) solid var(--bg-color);
-		border-right: var(--border-width) solid var(--bg-color);
+		background-color: var(--bg-color);
 	}
 
 	.service-card::before {
-		bottom: var(--button-width);
-		right: calc(-1 * var(--border-width));
+		right: 0;
+		bottom: calc(var(--button-width) + calc(var(--border-width) / 2));
+		z-index: 10;
 	}
 
 	.service-card::after {
-		bottom: calc(-1 * var(--border-width));
-		right: var(--button-width);
+		bottom: 0;
+		right: calc(var(--button-width) + calc(var(--border-width) / 2));
+		z-index: 10;
 	}
 </style>
