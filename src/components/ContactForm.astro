@@ -113,6 +113,7 @@
 	textarea {
 		padding: var(--em-spacing-75);
 		border-radius: var(--rad-25);
+		color: var(--text-color);
 
 		&:focus {
 			outline-offset: 4px;
@@ -121,12 +122,12 @@
 
 	input:placeholder-shown,
 	textarea:placeholder-shown {
-		background-color: white;
+		background-color: var(--bg-color);
 	}
 
 	input:not(:placeholder-shown),
 	textarea:not(:placeholder-shown) {
-		background-color: var(--clr-primary-100);
+		background-color: white;
 	}
 
 	input[type='checkbox'] {
@@ -183,5 +184,12 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	input:user-valid {
+		background-color: var(--clr-primary-100);
+	}
+	input:user-invalid {
+		background-color: var(--clr-tertiary-200);
 	}
 </style>
