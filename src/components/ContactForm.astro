@@ -1,74 +1,81 @@
-<form action="">
-	<div class="form-group">
-		<div class="column">
-			<label for="name">Nombre: *</label>
-			<input
-				type="text"
-				id="name"
-				name="name"
-				placeholder="Tu nombre"
-				required
-			/>
-			<span class="error-message"></span>
-		</div>
-		<span class="validation"></span>
+<form action="" id="contact-form">
+	<div class="form-group column">
+		<label for="name">Nombre: *</label>
+		<input
+			id="name"
+			type="text"
+			pattern="^[A-Za-zÀ-ÿ\s]+$"
+			name="name"
+			placeholder="Tu nombre"
+			required
+		/>
+		<p class="error-message"></p>
 	</div>
 
-	<div class="form-group">
-		<div class="column">
-			<label for="email">Correo electrónico: *</label>
-			<input
-				type="email"
-				id="email"
-				name="email"
-				placeholder="Tu email"
-				pattern="^.+@[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?\.[A-Za-z]{2,}$"
-				required
-			/>
-			<span class="error-message"></span>
-		</div>
-		<span class="validation"></span>
+	<div class="form-group column">
+		<label for="email">Correo electrónico: *</label>
+		<input
+			id="email"
+			pattern="^.+@[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?\.[A-Za-z]{2,}$"
+			type="email"
+			name="email"
+			placeholder="Tu email"
+			required
+		/>
+		<p class="error-message"></p>
 	</div>
 
 	<div class="form-group">
 		<fieldset class="column">
 			<legend> &nbsp; Elige tratamiento &nbsp;</legend>
 			<div>
-				<input type="checkbox" id="massage" name="massage" />
+				<input type="checkbox" id="massage" name="services" value="massage" />
 				<label for="massage">Masaje</label>
 			</div>
 			<div>
-				<input type="checkbox" id="nutrition" name="nutrition" />
+				<input
+					id="nutrition"
+					type="checkbox"
+					name="services"
+					value="nutrition"
+				/>
 				<label for="nutrition">Nutrición</label>
 			</div>
 			<div>
-				<input type="checkbox" id="biomagnet" name="biomagnet" />
+				<input
+					id="biomagnet"
+					type="checkbox"
+					name="services"
+					value="biomagnet"
+				/>
 				<label for="biomagnet">Biomagnetismo</label>
 			</div>
 			<div>
-				<input type="checkbox" id="osteopathy" name="osteopathy" />
+				<input
+					id="osteopathy"
+					type="checkbox"
+					name="services"
+					value="osteopathy"
+				/>
 				<label for="osteopathy">Ostepatía</label>
 			</div>
 		</fieldset>
-		<span class="error-message"></span>
+		<p class="error-message"></p>
 	</div>
 
-	<div class="form-group">
-		<div class="column">
-			<label for="comments">Mensaje: *</label>
-			<textarea
-				id="comments"
-				name="comments"
-				placeholder="Escribe tu mensaje"
-				required>
-			</textarea>
-			<span class="error-message"></span>
-		</div>
-		<span class="validation"></span>
+	<div class="form-group column">
+		<label for="comments">Mensaje: *</label>
+		<textarea
+			id="comments"
+			name="comments"
+			placeholder="Escribe tu mensaje"
+			required>
+		</textarea>
+		<p class="error-message"></p>
 	</div>
 
-	<div class="form-group">
-		<input class="btn" type="submit" value="Enviar" />
+	<div class="form-group column">
+		<input id="submit-button" class="btn" type="submit" value="Enviar" />
 	</div>
 </form>
 
@@ -80,6 +87,10 @@
 		margin: 0 auto;
 		width: 95%;
 		max-width: 600px;
+
+		& p {
+			margin: 0;
+		}
 	}
 
 	.form-group {
