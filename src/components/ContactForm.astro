@@ -1,4 +1,4 @@
-<form action="" id="contact-form">
+<form action="" id="contact-form" novalidate>
 	<div class="form-group column">
 		<label for="name">Nombre: *</label>
 		<input
@@ -189,7 +189,22 @@
 	input:user-valid {
 		background-color: var(--clr-primary-100);
 	}
+
 	input:user-invalid {
 		background-color: var(--clr-tertiary-200);
 	}
 </style>
+
+<script lang="ts">
+	const form = document.getElementById('contact-form');
+
+	form.addEventListener('submit', (event) => {
+		event.preventDefault();
+		console.log(`Is form valid: ${form.checkValidity()}`);
+		if (form.checkValidity()) {
+			console.log('Valid from');
+		} else {
+			console.log('Invalid form');
+		}
+	});
+</script>
