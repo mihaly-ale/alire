@@ -215,6 +215,20 @@
 	});
 
 	name.addEventListener('change', (event) => {
-		error.textContent = name.reportValidity();
+		// debugger;
+		const { valueMissing, tooShort, patternMismatch } = name.validity;
+		if (!name.validity.valid) {
+			if (valueMissing) {
+				error.textContent = 'missing value';
+			}
+			if (patternMismatch) {
+				error.textContent = 'pattern Mismatch';
+			}
+			if (tooShort) {
+				error.textContent = 'too short';
+			}
+		} else {
+			error.textContent = name.reportValidity();
+		}
 	});
 </script>
