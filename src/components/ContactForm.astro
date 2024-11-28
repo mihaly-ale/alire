@@ -210,6 +210,10 @@
 		}
 	});
 
+	name.addEventListener('input', () => {
+		if (name.checkValidity() === true) error.textContent = '';
+	});
+
 	name.addEventListener('change', (event) => {
 		error.textContent = name.reportValidity();
 	});
