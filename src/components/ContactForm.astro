@@ -195,9 +195,7 @@
 	}
 
 	[data-validate='with-icon']::before {
-		/* content: '✔'; */
-		content: '✖';
-		color: red;
+		content: '';
 		font-weight: 900;
 		font-size: clamp(var(--fs-phone-h4), 2vw, var(--fs-desktop-h3));
 		position: absolute;
@@ -208,6 +206,16 @@
 
 		display: flex;
 		align-items: center;
+	}
+
+	[data-validate='with-icon'].valid::before {
+		content: '✔';
+		color: green;
+	}
+
+	[data-validate='with-icon'].invalid::before {
+		content: '✖';
+		color: red;
 	}
 </style>
 
@@ -234,7 +242,9 @@
 		const validity = event.target.validity;
 		if (!validity.valid) {
 			error.textContent = showErrorFor(event.target);
+			displayValidationIcon(event, 'invalid');
 		} else {
+			displayValidationIcon(event, 'valid');
 			error.textContent = name.reportValidity();
 		}
 	});
@@ -264,6 +274,21 @@
 			if (validityFlagValue === true) {
 				return errorMessages[targetId][validityFlag];
 			}
+		}
+	}
+
+	function displayValidationIcon(event, flag) {
+		const validationBox = event.target.parentElement;
+		if (flag === 'valid') {
+			validationBox.classList.contains('invalid') &&
+				validationBox.classList.remove('invalid');
+			!validationBox.classList.contains('valid') &&
+				validationBox.classList.add('valid');
+		} else {
+			validationBox.classList.contains('valid') &&
+				validationBox.classList.remove('valid');
+			!validationBox.classList.contains('invalid') &&
+				validationBox.classList.add('invalid');
 		}
 	}
 </script>
