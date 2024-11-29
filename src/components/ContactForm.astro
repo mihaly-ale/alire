@@ -1,5 +1,5 @@
 <form action="" id="contact-form" novalidate autocomplete="off">
-	<div class="form-group column">
+	<div class="form-group column" data-validate="with-icon">
 		<label for="name">Nombre: *</label>
 		<input
 			id="name"
@@ -12,7 +12,7 @@
 		<p class="error-message"></p>
 	</div>
 
-	<div class="form-group column">
+	<div class="form-group column" data-validate="with-icon">
 		<label for="email">Correo electrónico: *</label>
 		<input
 			id="email"
@@ -192,6 +192,22 @@
 
 	input:user-invalid {
 		background-color: var(--clr-tertiary-200);
+	}
+
+	[data-validate='with-icon']::before {
+		/* content: '✔'; */
+		content: '✖';
+		color: red;
+		font-weight: 900;
+		font-size: clamp(var(--fs-phone-h4), 2vw, var(--fs-desktop-h3));
+		position: absolute;
+		right: 0;
+		width: fit-content;
+		height: 100%;
+		padding-inline-end: var(--em-spacing-75);
+
+		display: flex;
+		align-items: center;
 	}
 </style>
 
