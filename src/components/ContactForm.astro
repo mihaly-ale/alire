@@ -215,20 +215,39 @@
 	});
 
 	name.addEventListener('change', (event) => {
-		// debugger;
-		const { valueMissing, tooShort, patternMismatch } = name.validity;
-		if (!name.validity.valid) {
-			if (valueMissing) {
-				error.textContent = 'missing value';
-			}
-			if (patternMismatch) {
-				error.textContent = 'pattern Mismatch';
-			}
-			if (tooShort) {
-				error.textContent = 'too short';
-			}
+		const validity = event.target.validity;
+		if (!validity.valid) {
+			error.textContent = showErrorFor(event.target);
 		} else {
 			error.textContent = name.reportValidity();
 		}
 	});
+
+	function showErrorFor(target) {
+		const errorMessages = {
+			name: {
+				valueMissing: 'Name is required.',
+				tooShort: 'Name is too short.',
+				patternMismatch: 'Name format is incorrect.',
+			},
+			email: {
+				valueMissing: 'Email is required.',
+				typeMismatch: 'Please enter a valid email address.',
+			},
+			textarea: {
+				valueMissing: 'This field cannot be empty.',
+				tooShort: 'The text is too short.',
+			},
+		};
+
+		const targetId = target.id;
+		const targetValidityStateObject = target.validity;
+
+		for (const validityFlag in targetValidityStateObject) {
+			const validityFlagValue = targetValidityStateObject[validityFlag];
+			if (validityFlagValue === true) {
+				return errorMessages[targetId][validityFlag];
+			}
+		}
+	}
 </script>
