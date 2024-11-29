@@ -234,18 +234,20 @@
 		}
 	});
 
-	name.addEventListener('input', () => {
-		if (name.checkValidity() === true) error.textContent = '';
+	name.addEventListener('input', (event) => {
+		if (name.checkValidity() === true) {
+			displayValidationIcon(event, 'valid');
+			error.textContent = '';
+		} else {
+			console.log('invalid input');
+		}
 	});
 
 	name.addEventListener('change', (event) => {
 		const validity = event.target.validity;
 		if (!validity.valid) {
-			error.textContent = showErrorFor(event.target);
 			displayValidationIcon(event, 'invalid');
-		} else {
-			displayValidationIcon(event, 'valid');
-			error.textContent = name.reportValidity();
+			error.textContent = showErrorFor(event.target);
 		}
 	});
 
