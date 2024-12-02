@@ -223,6 +223,7 @@
 	const form = document.getElementById('contact-form');
 	const name = document.getElementById('name');
 	const error = name.parentElement.lastElementChild;
+	let isTouched = false;
 
 	form.addEventListener('submit', (event) => {
 		event.preventDefault();
@@ -238,6 +239,8 @@
 		if (name.checkValidity() === true) {
 			displayValidationIcon(event, 'valid');
 			error.textContent = '';
+		} else if (!name.checkValidity() && isTouched) {
+			displayValidationIcon(event, 'invalid');
 		} else {
 			console.log('invalid input');
 		}
@@ -245,6 +248,9 @@
 
 	name.addEventListener('change', (event) => {
 		const validity = event.target.validity;
+
+		if (!isTouched) isTouched = true;
+
 		if (!validity.valid) {
 			displayValidationIcon(event, 'invalid');
 			error.textContent = showErrorFor(event.target);
