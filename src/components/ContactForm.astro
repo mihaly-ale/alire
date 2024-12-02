@@ -16,7 +16,6 @@
 		<label for="email">Correo electrónico: *</label>
 		<input
 			id="email"
-			pattern="^.+@[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?\.[A-Za-z]{2,}$"
 			type="email"
 			name="email"
 			placeholder="Tu email"
@@ -222,7 +221,9 @@
 <script lang="ts">
 	const form = document.getElementById('contact-form');
 	const name = document.getElementById('name');
-	const error = name.parentElement.lastElementChild;
+	const email = document.getElementById('email');
+	const errorName = name.parentElement.lastElementChild;
+	const errorEmail = email.parentElement.lastElementChild;
 	let isTouched = false;
 
 	form.addEventListener('submit', (event) => {
@@ -235,12 +236,12 @@
 		}
 	});
 
-	name.addEventListener('input', (event) => {
+	name.addEventListener('input', () => {
 		if (name.checkValidity() === true) {
-			displayValidationIcon(event, 'valid');
-			error.textContent = '';
+			displayValidationIcon('valid');
+			errorName.textContent = '';
 		} else if (!name.checkValidity() && isTouched) {
-			displayValidationIcon(event, 'invalid');
+			displayValidationIcon('invalid');
 		} else {
 			console.log('invalid input');
 		}
@@ -253,7 +254,20 @@
 
 		if (!validity.valid) {
 			displayValidationIcon(event, 'invalid');
-			error.textContent = showErrorFor(event.target);
+			errorName.textContent = showErrorFor(event.target);
+		}
+	});
+
+	email.addEventListener('change', () => {
+		if (checkEmailPattern() === false) {
+			displayValidationIcon('invalid');
+			email.setCustomValidity('Please enter a valid email address.');
+			errorEmail.textContent = email.validationMessage;
+		} else {
+			email.setCustomValidity('');
+			displayValidationIcon('valid');
+			console.log('are we here?');
+			errorEmail.textContent = '';
 		}
 	});
 
@@ -285,7 +299,7 @@
 		}
 	}
 
-	function displayValidationIcon(event, flag) {
+	function displayValidationIcon(flag) {
 		const validationBox = event.target.parentElement;
 		if (flag === 'valid') {
 			validationBox.classList.contains('invalid') &&
@@ -298,5 +312,11 @@
 			!validationBox.classList.contains('invalid') &&
 				validationBox.classList.add('invalid');
 		}
+	}
+
+	function checkEmailPattern() {
+		const pattern =
+			/^.+@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?.[A-Za-z]{2,}$/;
+		return pattern.test(email.value);
 	}
 </script>
