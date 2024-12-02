@@ -222,10 +222,9 @@
 	const form = document.getElementById('contact-form');
 	const name = document.getElementById('name');
 	const email = document.getElementById('email');
-	const checkboxes = document.querySelectorAll('input[type="checkbox');
 	const errorName = name.parentElement.lastElementChild;
 	const errorEmail = email.parentElement.lastElementChild;
-	const errorCheckbox = checkboxes[0].closest('.column').nextElementSibling;
+
 	let isTouched = false;
 	let emailIsTouched = false;
 
@@ -339,6 +338,9 @@
 	}
 
 	function checkboxHandler() {
+		const checkboxes = document.querySelectorAll('input[type="checkbox');
+		const errorCheckbox = checkboxes[0].closest('.column').nextElementSibling;
+
 		const isTreatmentSelected = () => {
 			return Array.from(checkboxes).some((checkbox) => checkbox.checked);
 		};
