@@ -222,15 +222,17 @@
 	const form = document.getElementById('contact-form');
 	const name = document.getElementById('name');
 	const email = document.getElementById('email');
+	const checkboxes = document.querySelectorAll('input[type="checkbox');
 	const errorName = name.parentElement.lastElementChild;
 	const errorEmail = email.parentElement.lastElementChild;
+	const errorCheckbox = checkboxes[0].closest('.column').nextElementSibling;
 	let isTouched = false;
 	let emailIsTouched = false;
 
 	form.addEventListener('submit', (event) => {
 		event.preventDefault();
 		console.log(`Is form valid: ${form.checkValidity()}`);
-		if (form.checkValidity()) {
+		if (form.checkValidity() && checkboxHandler()) {
 			console.log('Valid from');
 		} else {
 			console.log('Invalid form');
@@ -334,5 +336,19 @@
 		const pattern =
 			/^.+@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.[A-Za-z]{2,}$/;
 		return pattern.test(email.value);
+	}
+
+	function checkboxHandler() {
+		const isTreatmentSelected = () => {
+			return Array.from(checkboxes).some((checkbox) => checkbox.checked);
+		};
+
+		if (!isTreatmentSelected()) {
+			errorCheckbox.textContent = 'At least one treatment has to be selected';
+			errorCheckbox.previousElementSibling.style.borderColor = 'red';
+		} else {
+			errorCheckbox.textContent = '';
+			errorCheckbox.previousElementSibling.style.borderColor = '';
+		}
 	}
 </script>
