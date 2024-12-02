@@ -225,6 +225,7 @@
 	const errorName = name.parentElement.lastElementChild;
 	const errorEmail = email.parentElement.lastElementChild;
 	let isTouched = false;
+	let emailIsTouched = false;
 
 	form.addEventListener('submit', (event) => {
 		event.preventDefault();
@@ -259,15 +260,30 @@
 	});
 
 	email.addEventListener('change', () => {
+		emailIsTouched = true;
+
 		if (checkEmailPattern() === false) {
-			displayValidationIcon('invalid');
 			email.setCustomValidity('Please enter a valid email address.');
 			errorEmail.textContent = email.validationMessage;
+			displayValidationIcon('invalid');
 		} else {
 			email.setCustomValidity('');
-			displayValidationIcon('valid');
-			console.log('are we here?');
 			errorEmail.textContent = '';
+			displayValidationIcon('valid');
+		}
+	});
+
+	email.addEventListener('input', () => {
+		if (checkEmailPattern() === true && emailIsTouched) {
+			email.setCustomValidity('');
+			errorEmail.textContent = '';
+			displayValidationIcon('valid');
+		}
+
+		if (checkEmailPattern() === false && emailIsTouched) {
+			email.setCustomValidity('Please enter a valid email address.');
+			errorEmail.textContent = email.validationMessage;
+			displayValidationIcon('invalid');
 		}
 	});
 
@@ -316,7 +332,7 @@
 
 	function checkEmailPattern() {
 		const pattern =
-			/^.+@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?.[A-Za-z]{2,}$/;
+			/^.+@[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.[A-Za-z]{2,}$/;
 		return pattern.test(email.value);
 	}
 </script>
