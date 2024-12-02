@@ -230,8 +230,10 @@
 
 	form.addEventListener('submit', (event) => {
 		event.preventDefault();
-		console.log(`Is form valid: ${form.checkValidity()}`);
-		if (form.checkValidity() && checkboxHandler()) {
+		const isFormValid = form.checkValidity();
+		const isCheckboxValid = checkboxHandler();
+
+		if (isFormValid && isCheckboxValid) {
 			console.log('Valid from');
 		} else {
 			console.log('Invalid form');
