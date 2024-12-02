@@ -68,8 +68,8 @@
 			id="comments"
 			name="comments"
 			placeholder="Escribe tu mensaje"
-			required>
-		</textarea>
+			minlength="100"
+			required></textarea>
 		<p class="error-message"></p>
 	</div>
 
@@ -222,8 +222,10 @@
 	const form = document.getElementById('contact-form');
 	const name = document.getElementById('name');
 	const email = document.getElementById('email');
+	const textarea = document.getElementById('comments');
 	const errorName = name.parentElement.lastElementChild;
 	const errorEmail = email.parentElement.lastElementChild;
+	const errorTextarea = textarea.parentElement.lastElementChild;
 
 	let isTouched = false;
 	let emailIsTouched = false;
@@ -290,6 +292,18 @@
 		}
 	});
 
+	textarea.addEventListener('change', (event) => {
+		if (textarea.validity.tooShort) {
+			errorTextarea.textContent = showErrorFor(event.target);
+			textarea.style.backgroundColor = `var(--clr-tertiary-200)`;
+		}
+
+		if (textarea.checkValidity()) {
+			errorTextarea.textContent = '';
+			textarea.style.backgroundColor = ``;
+		}
+	});
+
 	function showErrorFor(target) {
 		const errorMessages = {
 			name: {
@@ -301,7 +315,7 @@
 				valueMissing: 'Email is required.',
 				typeMismatch: 'Please enter a valid email address.',
 			},
-			textarea: {
+			comments: {
 				valueMissing: 'This field cannot be empty.',
 				tooShort: 'The text is too short.',
 			},
