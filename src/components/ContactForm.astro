@@ -229,9 +229,9 @@
 	const errorEmail = email.parentElement.lastElementChild;
 	const errorTextarea = textarea.parentElement.lastElementChild;
 
-	let isTouched = false;
-	let emailIsTouched = false;
-	let textareaIsTouched = false;
+	let isNameFieldTouched = false;
+	let isEmailFieldTouched = false;
+	let isTextareaTouched = false;
 
 	form.addEventListener('submit', (event) => {
 		event.preventDefault();
@@ -247,24 +247,28 @@
 		}
 	});
 
-	name.addEventListener('input', () => {
-		if (name.checkValidity() === true) {
+	name.addEventListener('input', (event) => {
+		const isFieldValid = event.target.checkValidity();
+
+		if (isFieldValid) {
 			displayValidationIcon('valid');
 			errorName.textContent = '';
-		} else if (!name.checkValidity() && isTouched) {
+		} else if (isFieldValid === false && isNameFieldTouched) {
 			displayValidationIcon('invalid');
-		} else {
-			console.log('invalid input');
+			errorName.textContent = showErrorFor(event.target);
 		}
 	});
 
 	name.addEventListener('change', (event) => {
-		const validity = event.target.validity;
+		const isFieldValid = event.target.checkValidity();
 
-		if (!isTouched) isTouched = true;
+		if (!isNameFieldTouched) isNameFieldTouched = true;
 
-		if (!validity.valid) {
-			displayValidationIcon(event, 'invalid');
+		if (isFieldValid) {
+			displayValidationIcon('valid');
+			errorName.textContent = '';
+		} else {
+			displayValidationIcon('invalid');
 			errorName.textContent = showErrorFor(event.target);
 		}
 	});
