@@ -273,31 +273,31 @@
 		}
 	});
 
-	email.addEventListener('change', () => {
-		emailIsTouched = true;
+	email.addEventListener('change', (event) => {
+		if (!isEmailFieldTouched) isEmailFieldTouched = true;
 
 		if (checkEmailPattern() === false) {
+			displayValidationIcon('invalid');
 			email.setCustomValidity('Please enter a valid email address.');
 			errorEmail.textContent = email.validationMessage;
-			displayValidationIcon('invalid');
 		} else {
+			displayValidationIcon('valid');
 			email.setCustomValidity('');
 			errorEmail.textContent = '';
-			displayValidationIcon('valid');
 		}
 	});
 
-	email.addEventListener('input', () => {
-		if (checkEmailPattern() === true && emailIsTouched) {
-			email.setCustomValidity('');
-			errorEmail.textContent = '';
-			displayValidationIcon('valid');
-		}
-
-		if (checkEmailPattern() === false && emailIsTouched) {
-			email.setCustomValidity('Please enter a valid email address.');
-			errorEmail.textContent = email.validationMessage;
-			displayValidationIcon('invalid');
+	email.addEventListener('input', (event) => {
+		if (isEmailFieldTouched) {
+			if (checkEmailPattern() == true) {
+				displayValidationIcon('valid');
+				email.setCustomValidity('');
+				errorEmail.textContent = '';
+			} else {
+				displayValidationIcon('invalid');
+				email.setCustomValidity('Please enter a valid email address.');
+				errorEmail.textContent = email.validationMessage;
+			}
 		}
 	});
 
