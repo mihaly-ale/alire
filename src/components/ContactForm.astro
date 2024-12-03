@@ -185,11 +185,13 @@
 		align-items: center;
 	}
 
-	input:user-valid {
+	input:user-valid,
+	textarea: :user-valid {
 		background-color: var(--clr-primary-100);
 	}
 
-	input:user-invalid {
+	input:user-invalid,
+	textarea:user-invalid {
 		background-color: var(--clr-tertiary-200);
 	}
 
@@ -234,6 +236,9 @@
 		event.preventDefault();
 		const isFormValid = form.checkValidity();
 		const isCheckboxValid = checkboxHandler();
+		const isTextareaValid = textarea.checkValidity();
+		console.log(`textarea:`);
+		console.log(textarea.checkValidity());
 
 		if (isFormValid && isCheckboxValid) {
 			console.log('Valid from');
@@ -293,12 +298,23 @@
 	});
 
 	textarea.addEventListener('change', (event) => {
-		if (textarea.validity.tooShort) {
+		const validity = event.target.validity;
+
+		textareaIsTouched = true;
+
+		if (!validity.valid) {
 			errorTextarea.textContent = showErrorFor(event.target);
 			textarea.style.backgroundColor = `var(--clr-tertiary-200)`;
 		}
 
 		if (textarea.checkValidity()) {
+			errorTextarea.textContent = '';
+			textarea.style.backgroundColor = ``;
+		}
+	});
+
+	textarea.addEventListener('input', () => {
+		if (textarea.validity.tooShort === false) {
 			errorTextarea.textContent = '';
 			textarea.style.backgroundColor = ``;
 		}
