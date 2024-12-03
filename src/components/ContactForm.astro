@@ -238,10 +238,9 @@
 		const isFormValid = form.checkValidity();
 		const isCheckboxValid = checkboxHandler();
 		const isTextareaValid = textarea.checkValidity();
-		console.log(`textarea:`);
-		console.log(textarea.checkValidity());
+		console.log(isCheckboxValid);
 
-		if (isFormValid && isCheckboxValid) {
+		if (isFormValid && isCheckboxValid && isTextareaValid) {
 			console.log('Valid from');
 		} else {
 			console.log('Invalid form');
@@ -381,9 +380,11 @@
 		if (!isTreatmentSelected()) {
 			errorCheckbox.textContent = 'At least one treatment has to be selected';
 			errorCheckbox.previousElementSibling.style.borderColor = 'red';
+			return false;
 		} else {
 			errorCheckbox.textContent = '';
 			errorCheckbox.previousElementSibling.style.borderColor = '';
+			return true;
 		}
 	}
 </script>
