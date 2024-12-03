@@ -251,10 +251,10 @@
 		const isFieldValid = event.target.checkValidity();
 
 		if (isFieldValid) {
-			displayValidationIcon('valid');
+			displayValidationIcon(event.target, 'valid');
 			errorName.textContent = '';
 		} else if (isFieldValid === false && isNameFieldTouched) {
-			displayValidationIcon('invalid');
+			displayValidationIcon(event.target, 'invalid');
 			errorName.textContent = showErrorFor(event.target);
 		}
 	});
@@ -265,10 +265,10 @@
 		if (!isNameFieldTouched) isNameFieldTouched = true;
 
 		if (isFieldValid) {
-			displayValidationIcon('valid');
+			displayValidationIcon(event.target, 'valid');
 			errorName.textContent = '';
 		} else {
-			displayValidationIcon('invalid');
+			displayValidationIcon(event.target, 'invalid');
 			errorName.textContent = showErrorFor(event.target);
 		}
 	});
@@ -277,11 +277,11 @@
 		if (!isEmailFieldTouched) isEmailFieldTouched = true;
 
 		if (checkEmailPattern() === false) {
-			displayValidationIcon('invalid');
+			displayValidationIcon(event.target, 'invalid');
 			email.setCustomValidity('Please enter a valid email address.');
 			errorEmail.textContent = email.validationMessage;
 		} else {
-			displayValidationIcon('valid');
+			displayValidationIcon(event.target, 'valid');
 			email.setCustomValidity('');
 			errorEmail.textContent = '';
 		}
@@ -290,11 +290,11 @@
 	email.addEventListener('input', (event) => {
 		if (isEmailFieldTouched) {
 			if (checkEmailPattern() == true) {
-				displayValidationIcon('valid');
+				displayValidationIcon(event.target, 'valid');
 				email.setCustomValidity('');
 				errorEmail.textContent = '';
 			} else {
-				displayValidationIcon('invalid');
+				displayValidationIcon(event.target, 'invalid');
 				email.setCustomValidity('Please enter a valid email address.');
 				errorEmail.textContent = email.validationMessage;
 			}
@@ -350,8 +350,8 @@
 		}
 	}
 
-	function displayValidationIcon(flag) {
-		const validationBox = event.target.parentElement;
+	function displayValidationIcon(input, flag) {
+		const validationBox = input.parentElement;
 		if (flag === 'valid') {
 			validationBox.classList.contains('invalid') &&
 				validationBox.classList.remove('invalid');
