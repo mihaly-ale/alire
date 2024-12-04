@@ -225,7 +225,6 @@
 	const name = document.getElementById('name');
 	const email = document.getElementById('email');
 	const textarea = document.getElementById('comments');
-	const errorName = name.parentElement.lastElementChild;
 	const errorEmail = email.parentElement.lastElementChild;
 	const errorTextarea = textarea.parentElement.lastElementChild;
 
@@ -248,29 +247,14 @@
 	});
 
 	name.addEventListener('input', (event) => {
-		const isFieldValid = event.target.checkValidity();
-
-		if (isFieldValid) {
-			displayValidationIcon(event.target, 'valid');
-			errorName.textContent = '';
-		} else if (isFieldValid === false && isNameFieldTouched) {
-			displayValidationIcon(event.target, 'invalid');
-			errorName.textContent = showErrorFor(event.target);
-		}
+		errorElement = findErrorElement(event.target);
+		validateField(event.target, errorElement, isNameFieldTouched);
 	});
 
 	name.addEventListener('change', (event) => {
-		const isFieldValid = event.target.checkValidity();
-
-		if (!isNameFieldTouched) isNameFieldTouched = true;
-
-		if (isFieldValid) {
-			displayValidationIcon(event.target, 'valid');
-			errorName.textContent = '';
-		} else {
-			displayValidationIcon(event.target, 'invalid');
-			errorName.textContent = showErrorFor(event.target);
-		}
+		isNameFieldTouched = markFieldTouched(event.target);
+		errorElement = findErrorElement(event.target);
+		validateField(event.target, errorElement, isNameFieldTouched);
 	});
 
 	email.addEventListener('change', (event) => {
@@ -321,6 +305,29 @@
 			errorTextarea.textContent = '';
 		}
 	});
+
+	function validateField(field, errorElement, isTouched) {
+		const isFieldValid = field.checkValidity();
+
+		if (isFieldValid) {
+			displayValidationIcon(field, 'valid');
+			errorElement.textContent = '';
+		} else if (isFieldValid === false && isTouched) {
+			displayValidationIcon(field, 'invalid');
+			// prevents overwhelming display of error messages
+			if (errorElement.textContent.length === 0) {
+				errorElement.textContent = showErrorFor(field);
+			}
+		}
+	}
+
+	function findErrorElement(field) {
+		return field.parentElement.lastElementChild;
+	}
+
+	function markFieldTouched(field) {
+		return true;
+	}
 
 	function showErrorFor(target) {
 		const errorMessages = {
