@@ -225,8 +225,6 @@
 	const name = document.getElementById('name');
 	const email = document.getElementById('email');
 	const textarea = document.getElementById('comments');
-	const errorEmail = email.parentElement.lastElementChild;
-	const errorTextarea = textarea.parentElement.lastElementChild;
 
 	let isNameFieldTouched = false;
 	let isEmailFieldTouched = false;
@@ -250,35 +248,35 @@
 	});
 
 	name.addEventListener('input', (event) => {
-		errorElement = findErrorElement(event.target);
+		const errorElement = findErrorElement(event.target);
 		validateField(event.target, errorElement, isNameFieldTouched);
 	});
 
 	name.addEventListener('change', (event) => {
 		isNameFieldTouched = markFieldTouched(event.target);
-		errorElement = findErrorElement(event.target);
+		const errorElement = findErrorElement(event.target);
 		validateField(event.target, errorElement, isNameFieldTouched);
 	});
 
 	email.addEventListener('change', (event) => {
 		isEmailFieldTouched = markFieldTouched(event.target);
-		errorElement = findErrorElement(event.target);
+		const errorElement = findErrorElement(event.target);
 		validateField(event.target, errorElement, isEmailFieldTouched);
 	});
 
 	email.addEventListener('input', (event) => {
-		errorElement = findErrorElement(event.target);
+		const errorElement = findErrorElement(event.target);
 		validateField(event.target, errorElement, isEmailFieldTouched);
 	});
 
 	textarea.addEventListener('change', (event) => {
 		isTextareaTouched = markFieldTouched(event.target);
-		errorElement = findErrorElement(event.target);
+		const errorElement = findErrorElement(event.target);
 		validateField(event.target, errorElement, isTextareaTouched);
 	});
 
 	textarea.addEventListener('input', (event) => {
-		errorElement = findErrorElement(event.target);
+		const errorElement = findErrorElement(event.target);
 		validateField(event.target, errorElement, isTextareaTouched);
 	});
 
@@ -299,8 +297,6 @@
 	}
 
 	function findErrorElement(field) {
-		console.log(field);
-
 		return field.parentElement.lastElementChild;
 	}
 
