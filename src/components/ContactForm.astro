@@ -242,6 +242,10 @@
 		if (isFormValid && isCheckboxValid && isTextareaValid) {
 			console.log('Valid from');
 		} else {
+			// displayValidationIcon(name, 'invalid');
+			// errorName.textContent = showErrorFor(name);
+
+			//  this should come here to do errors on submit, so event.target has to e replaced with the field, as there is no event
 			console.log('Invalid form');
 		}
 	});
@@ -286,24 +290,14 @@
 	});
 
 	textarea.addEventListener('change', (event) => {
-		const isFieldValid = event.target.checkValidity();
-
-		if (!isTextareaTouched) isTextareaTouched = true;
-
-		if (isFieldValid) {
-			textarea.style.backgroundColor = ``;
-			errorTextarea.textContent = '';
-		} else {
-			textarea.style.backgroundColor = `var(--clr-tertiary-200)`;
-			errorTextarea.textContent = showErrorFor(event.target);
-		}
+		isTextareaTouched = markFieldTouched(event.target);
+		errorElement = findErrorElement(event.target);
+		validateField(event.target, errorElement, isTextareaTouched);
 	});
 
 	textarea.addEventListener('input', (event) => {
-		if (textarea.validity.tooShort === false) {
-			textarea.style.backgroundColor = ``;
-			errorTextarea.textContent = '';
-		}
+		errorElement = findErrorElement(event.target);
+		validateField(event.target, errorElement, isTextareaTouched);
 	});
 
 	function validateField(field, errorElement, isTouched) {
