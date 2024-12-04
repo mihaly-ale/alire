@@ -185,14 +185,11 @@
 		align-items: center;
 	}
 
-	input:user-valid,
-	textarea:user-valid {
-		background-color: var(--clr-primary-100);
+	.custom-valid {
+		background-color: var(--clr-primary-100) !important;
 	}
-
-	input:user-invalid,
-	textarea:user-invalid {
-		background-color: var(--clr-tertiary-200);
+	.custom-invalid {
+		background-color: var(--clr-tertiary-200) !important;
 	}
 
 	[data-validate='with-icon']::before {
@@ -285,9 +282,11 @@
 			field === email ? checkEmailPattern() : field.checkValidity();
 
 		if (isFieldValid) {
+			markFieldValid(field);
 			displayValidationIcon(field, 'valid');
 			errorElement.textContent = '';
 		} else if (isFieldValid === false && isTouched) {
+			markFieldInValid(field);
 			displayValidationIcon(field, 'invalid');
 			// prevents overwhelming display of error messages
 			if (errorElement.textContent.length === 0) {
@@ -345,6 +344,21 @@
 			!validationBox.classList.contains('invalid') &&
 				validationBox.classList.add('invalid');
 		}
+	}
+
+	function markFieldValid(field) {
+		console.log(' are we doing this');
+		field.classList.contains('custom-invalid') &&
+			field.classList.remove('custom-invalid');
+		!field.classList.contains('custom-valid') &&
+			field.classList.add('custom-valid');
+	}
+
+	function markFieldInValid(field) {
+		field.classList.contains('custom-valid') &&
+			field.classList.remove('custom-valid');
+		!field.classList.contains('custom-invalid') &&
+			field.classList.add('custom-invalid');
 	}
 
 	function checkEmailPattern() {
