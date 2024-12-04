@@ -237,15 +237,14 @@
 		const isFormValid = form.checkValidity();
 		const isCheckboxValid = checkboxHandler();
 		const isTextareaValid = textarea.checkValidity();
-		console.log(isCheckboxValid);
 
 		if (isFormValid && isCheckboxValid && isTextareaValid) {
 			console.log('Valid from');
 		} else {
-			// displayValidationIcon(name, 'invalid');
-			// errorName.textContent = showErrorFor(name);
-
-			//  this should come here to do errors on submit, so event.target has to e replaced with the field, as there is no event
+			debugger;
+			validateField(name, name.parentElement.lastElementChild, true);
+			validateField(email, email.parentElement.lastElementChild, true);
+			validateField(textarea, textarea.parentElement.lastElementChild, true);
 			console.log('Invalid form');
 		}
 	});
@@ -300,6 +299,8 @@
 	}
 
 	function findErrorElement(field) {
+		console.log(field);
+
 		return field.parentElement.lastElementChild;
 	}
 
