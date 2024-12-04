@@ -262,31 +262,14 @@
 	});
 
 	email.addEventListener('change', (event) => {
-		if (!isEmailFieldTouched) isEmailFieldTouched = true;
-
-		if (checkEmailPattern() === false) {
-			displayValidationIcon(event.target, 'invalid');
-			email.setCustomValidity('Please enter a valid email address.');
-			errorEmail.textContent = email.validationMessage;
-		} else {
-			displayValidationIcon(event.target, 'valid');
-			email.setCustomValidity('');
-			errorEmail.textContent = '';
-		}
+		isEmailFieldTouched = markFieldTouched(event.target);
+		errorElement = findErrorElement(event.target);
+		validateField(event.target, errorElement, isEmailFieldTouched);
 	});
 
 	email.addEventListener('input', (event) => {
-		if (isEmailFieldTouched) {
-			if (checkEmailPattern() == true) {
-				displayValidationIcon(event.target, 'valid');
-				email.setCustomValidity('');
-				errorEmail.textContent = '';
-			} else {
-				displayValidationIcon(event.target, 'invalid');
-				email.setCustomValidity('Please enter a valid email address.');
-				errorEmail.textContent = email.validationMessage;
-			}
-		}
+		errorElement = findErrorElement(event.target);
+		validateField(event.target, errorElement, isEmailFieldTouched);
 	});
 
 	textarea.addEventListener('change', (event) => {
@@ -301,7 +284,8 @@
 	});
 
 	function validateField(field, errorElement, isTouched) {
-		const isFieldValid = field.checkValidity();
+		const isFieldValid =
+			field === email ? checkEmailPattern() : field.checkValidity();
 
 		if (isFieldValid) {
 			displayValidationIcon(field, 'valid');
