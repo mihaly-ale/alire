@@ -1,0 +1,11 @@
+---
+import * as Privacidad from '../../src/content/legal/politica-de-privacidad.md';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title={Privacidad.frontmatter.title}>
+	<div>
+		<h1>{Privacidad.frontmatter.title}</h1>
+		<Privacidad.Content />
+	</div>
+</Layout>

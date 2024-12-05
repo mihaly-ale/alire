@@ -1,0 +1,11 @@
+---
+import * as Aviso from '../../src/content/legal/aviso-legal.md';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title={Aviso.frontmatter.title}>
+	<div>
+		<h1>{Aviso.frontmatter.title}</h1>
+		<Aviso.Content />
+	</div>
+</Layout>
