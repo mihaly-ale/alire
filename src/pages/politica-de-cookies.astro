@@ -3,8 +3,8 @@ import * as Cookies from '../../src/content/legal/politica-de-cookies.md';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title={Cookies.frontmatter.title}>
-	<div>
+<Layout title={Cookies.frontmatter.title} showHero={false}>
+	<div class="legal-page-content">
 		<h1>{Cookies.frontmatter.title}</h1>
 		<Cookies.Content />
 	</div>

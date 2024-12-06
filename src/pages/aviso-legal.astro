@@ -3,8 +3,8 @@ import * as Aviso from '../../src/content/legal/aviso-legal.md';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title={Aviso.frontmatter.title}>
-	<div>
+<Layout title={Aviso.frontmatter.title} showHero={false}>
+	<div class="legal-page-content">
 		<h1>{Aviso.frontmatter.title}</h1>
 		<Aviso.Content />
 	</div>

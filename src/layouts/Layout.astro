@@ -3,11 +3,7 @@ import '../styles/index.scss';
 import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
 
-interface Props {
-	title: string;
-}
-
-const { title } = Astro.props;
+const { title, showHero = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -61,7 +57,14 @@ const { title } = Astro.props;
 				</nav>
 			</header>
 
-			<Hero headline="Alire" tagline="Cuerpo, Alma y Energía en Equlibrio" />
+			{
+				showHero && (
+					<Hero
+						headline="Alire"
+						tagline="Cuerpo, Alma y Energía en Equlibrio"
+					/>
+				)
+			}
 		</div>
 
 		<slot />
@@ -114,7 +117,6 @@ const { title } = Astro.props;
 	.intro {
 		display: flex;
 		flex-direction: column;
-		min-height: 92.5vh;
 
 		& > * {
 			padding-inline: var(--page-padding-phone);
@@ -282,6 +284,10 @@ const { title } = Astro.props;
 		.transformBarTwo {
 			opacity: 0;
 		}
+	}
+
+	.legal-page-content {
+		padding-top: 5rem;
 	}
 </style>
 
