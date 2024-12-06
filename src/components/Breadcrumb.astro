@@ -1,5 +1,5 @@
 ---
-const currentPage = ' current Page';
+
 ---
 
 {
@@ -10,7 +10,7 @@ const currentPage = ' current Page';
 					<a href="/">Inicio</a>
 					<span class="separator">/</span>
 				</li>
-				<li aria-current="page">{currentPage}</li>
+				<li aria-current="page" />
 			</ul>
 		</nav>
 	)
@@ -19,6 +19,7 @@ const currentPage = ' current Page';
 <style>
 	.breadcrumb-list {
 		list-style-type: none;
+		padding-inline-start: 0;
 
 		display: flex;
 	}
@@ -28,10 +29,16 @@ const currentPage = ' current Page';
 	}
 
 	a {
-		padding: var(--em-spacing-50);
+		padding-inline-end: var(--em-spacing-50);
+		padding-block: var(--em-spacing-50);
 	}
 
 	[aria-current='page'] {
 		padding-inline-start: var(--em-spacing-50);
 	}
 </style>
+
+<script>
+	const currentPage = document.querySelector('h1').textContent;
+	document.querySelector("[aria-current='page']").textContent = currentPage;
+</script>
