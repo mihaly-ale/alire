@@ -33,7 +33,7 @@
 		<fieldset class="column">
 			<legend> &nbsp; Elige tratamiento &nbsp;</legend>
 			<div>
-				<input type="checkbox" id="massage" name="services" value="massage" />
+				<input type="checkbox" id="massage" name="services" value="masaje" />
 				<label for="massage">Masaje</label>
 			</div>
 			<div>
@@ -41,7 +41,7 @@
 					id="nutrition"
 					type="checkbox"
 					name="services"
-					value="nutrition"
+					value="nutricion"
 				/>
 				<label for="nutrition">Nutrición</label>
 			</div>
@@ -50,7 +50,7 @@
 					id="biomagnet"
 					type="checkbox"
 					name="services"
-					value="biomagnet"
+					value="biomagnetismo"
 				/>
 				<label for="biomagnet">Biomagnetismo</label>
 			</div>
@@ -59,7 +59,7 @@
 					id="osteopathy"
 					type="checkbox"
 					name="services"
-					value="osteopathy"
+					value="osteopatia"
 				/>
 				<label for="osteopathy">Ostepatía</label>
 			</div>
@@ -77,6 +77,24 @@
 			required></textarea>
 		<p class="error-message"></p>
 	</div>
+
+	<!-- formsubmit hidden fields -->
+	<input type="hidden" name="_subject" value="" />
+	<input
+		type="hidden"
+		name="_autoresponse"
+		value=`
+	Gracias por ponerte en contacto con nosotros!
+	Hemos recibido tu mensaje correctamente y nos pondremos en contacto contigo lo antes posible.
+
+	Un saludo
+
+	Alire
+	`
+	/>
+	<input type="hidden" name="_captcha" value="false" />
+	<input type="text" name="_honey" style="display:none" />
+	<input type="hidden" name="_template" value="table" />
 
 	<div class="form-group column">
 		<input id="submit-button" class="btn" type="submit" value="Enviar" />
@@ -229,6 +247,7 @@
 	const name = document.getElementById('name');
 	const email = document.getElementById('email');
 	const textarea = document.getElementById('comments');
+	const subjectField = document.querySelector("[name = '_subject']");
 
 	let isNameFieldTouched = false;
 	let isEmailFieldTouched = false;
@@ -242,12 +261,13 @@
 
 		if (isFormValid && isCheckboxValid && isTextareaValid) {
 			console.log('Valid from');
+			subjectField.value = `${name}.value solicité cita para ${treatmentRequested()}`;
 			form.submit();
 		} else {
 			validateField(name, name.parentElement.lastElementChild, true);
 			validateField(email, email.parentElement.lastElementChild, true);
 			validateField(textarea, textarea.parentElement.lastElementChild, true);
-			console.log('Invalid form');
+			console.log(`Is form valid: ${form.checkValidity()}`);
 		}
 	});
 
@@ -354,7 +374,6 @@
 	}
 
 	function markFieldValid(field) {
-		console.log(' are we doing this');
 		field.classList.contains('custom-invalid') &&
 			field.classList.remove('custom-invalid');
 		!field.classList.contains('custom-valid') &&
@@ -392,5 +411,13 @@
 			errorCheckbox.previousElementSibling.style.borderColor = '';
 			return true;
 		}
+	}
+
+	function treatmentRequested() {
+		const checkboxes = document.querySelectorAll('input[type="checkbox');
+		const filteredArray = Array.from(checkboxes).filter(
+			(checkbox) => checkbox.checked
+		);
+		return filteredArray.map((item) => item.value).toString();
 	}
 </script>
