@@ -9,7 +9,8 @@
 		<input
 			id="name"
 			type="text"
-			pattern="^[A-Za-zÀ-ÿ\s]+$"
+			minlength="3"
+			pattern="^[A-Za-zÀ-ÿ\\s]+$"
 			name="name"
 			placeholder="Tu nombre"
 			required
@@ -333,17 +334,19 @@
 	function showErrorFor(target) {
 		const errorMessages = {
 			name: {
-				valueMissing: 'Name is required.',
-				tooShort: 'Name is too short.',
-				patternMismatch: 'Name format is incorrect.',
+				valueMissing: 'El campo es obligatorio.',
+				tooShort: 'El nombre debe tener al menos 3 caracteres.',
+				patternMismatch:
+					'El formato del nombre es incorrecto. Solo puede contener letras.',
 			},
 			email: {
-				valueMissing: 'Email is required.',
-				typeMismatch: 'Please enter a valid email address.',
+				valueMissing: 'El correo electrónico es obligatorio.',
+				typeMismatch: 'Por favor, introduce una dirección de correo válida.',
 			},
 			comments: {
-				valueMissing: 'This field cannot be empty.',
-				tooShort: 'The text is too short.',
+				valueMissing:
+					'Por favor, proporciona más detalles sobre el motivo de tu contacto.',
+				tooShort: 'El campo debe tener al menos 1000 caracteres.',
 			},
 		};
 
@@ -402,7 +405,8 @@
 		};
 
 		if (!isTreatmentSelected()) {
-			errorCheckbox.textContent = 'At least one treatment has to be selected';
+			errorCheckbox.textContent =
+				'Por favor, selecciona al menos una opción de los tratamientos.';
 			errorCheckbox.previousElementSibling.style.borderColor =
 				'var(--error-color';
 			return false;
