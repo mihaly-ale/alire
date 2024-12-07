@@ -3,11 +3,7 @@ import '../styles/index.scss';
 import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
 
-interface Props {
-	title: string;
-}
-
-const { title } = Astro.props;
+const { title, showHero = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -49,19 +45,26 @@ const { title } = Astro.props;
 							<a href="/" class="nav-link">Inicio</a>
 						</li>
 						<li class="nav-list-item">
-							<a href="#" class="nav-link">Tratamientos</a>
+							<a href="#tratamientos" class="nav-link">Tratamientos</a>
 						</li>
 						<li class="nav-list-item">
-							<a href="#" class="nav-link">Blog</a>
+							<a href="/blog" class="nav-link">Blog</a>
 						</li>
 						<li class="nav-list-item">
-							<a href="#" class="contact nav-link">Contacto</a>
+							<a href="#contacto" class="contact nav-link">Contacto</a>
 						</li>
 					</ul>
 				</nav>
 			</header>
 
-			<Hero headline="Alire" tagline="Cuerpo, Alma y Energía en Equlibrio" />
+			{
+				showHero && (
+					<Hero
+						headline="Alire"
+						tagline="Cuerpo, Alma y Energía en Equlibrio"
+					/>
+				)
+			}
 		</div>
 
 		<slot />
@@ -82,7 +85,7 @@ const { title } = Astro.props;
 
 	/* styling starts here */
 	body {
-		--text-color: var(--clr-ui-500);
+		--text-color: var(--clr-ui-600);
 		--bg-color: var(--clr-ui-100);
 		--radius-small: $radius-small;
 
@@ -114,7 +117,6 @@ const { title } = Astro.props;
 	.intro {
 		display: flex;
 		flex-direction: column;
-		min-height: 92.5vh;
 
 		& > * {
 			padding-inline: var(--page-padding-phone);
@@ -156,7 +158,6 @@ const { title } = Astro.props;
 		padding: var(--em-spacing-50);
 		border-radius: var(--rad-25);
 		font-size: clamp(var(--fs-phone-large), 1.45vw, var(--fs-desktop-large));
-		font-weight: var(--fw-500);
 		text-decoration: none;
 		transition: all 150ms;
 	}
@@ -246,7 +247,6 @@ const { title } = Astro.props;
 			cursor: pointer;
 
 			position: absolute;
-			top: 1.5rem;
 			right: 1rem;
 			z-index: 1;
 
@@ -283,6 +283,23 @@ const { title } = Astro.props;
 
 		.transformBarTwo {
 			opacity: 0;
+		}
+	}
+
+	.legal-page-content {
+		padding-block-start: var(--rem-spacing-550);
+		padding-block-end: var(--rem-spacing-300);
+		padding-inline: var(--rem-spacing-200);
+
+		& > * {
+			margin-inline-start: 0;
+		}
+	}
+
+	/* 32.6875em = 523px */
+	@media screen and (width <= 523px) {
+		.legal-page-content {
+			padding-block-start: var(--rem-spacing-700);
 		}
 	}
 </style>

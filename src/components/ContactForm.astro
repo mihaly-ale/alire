@@ -80,6 +80,7 @@
 
 <style>
 	form {
+		--error-color: var(--clr-tertiary-200);
 		color: var(--bg-color);
 		background: var(--clr-transparent-30);
 
@@ -105,7 +106,7 @@
 
 	input::placeholder,
 	textarea::placeholder {
-		color: var(--clr-ui-200);
+		color: var(--clr-ui-400);
 	}
 
 	input:not([type='submit']),
@@ -113,6 +114,7 @@
 		padding: var(--em-spacing-75);
 		border-radius: var(--rad-25);
 		color: var(--text-color);
+		border: none;
 
 		&:focus {
 			outline-offset: 4px;
@@ -177,7 +179,7 @@
 			1.45vw,
 			var(--fs-desktop-regular)
 		);
-		color: red;
+		color: var(--error-color);
 		font-weight: var(--fw-500);
 
 		display: flex;
@@ -213,7 +215,7 @@
 
 	[data-validate='with-icon'].invalid::before {
 		content: '✖';
-		color: red;
+		color: var(--error-color);
 	}
 </style>
 
@@ -236,7 +238,6 @@
 		if (isFormValid && isCheckboxValid && isTextareaValid) {
 			console.log('Valid from');
 		} else {
-			debugger;
 			validateField(name, name.parentElement.lastElementChild, true);
 			validateField(email, email.parentElement.lastElementChild, true);
 			validateField(textarea, textarea.parentElement.lastElementChild, true);
@@ -377,7 +378,8 @@
 
 		if (!isTreatmentSelected()) {
 			errorCheckbox.textContent = 'At least one treatment has to be selected';
-			errorCheckbox.previousElementSibling.style.borderColor = 'red';
+			errorCheckbox.previousElementSibling.style.borderColor =
+				'var(--error-color';
 			return false;
 		} else {
 			errorCheckbox.textContent = '';

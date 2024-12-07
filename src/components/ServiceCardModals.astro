@@ -24,10 +24,7 @@ const overlays = await Astro.glob('../../src/content/overlays/*.md');
 		border: none;
 
 		&::backdrop {
-			background-image: linear-gradient(
-				var(--clr-transparent-50),
-				var(--clr-transparent-50)
-			);
+			background-color: var(--clr-transparent-50);
 			filter: none;
 			opacity: 0.75;
 		}

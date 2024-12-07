@@ -1,0 +1,44 @@
+---
+
+---
+
+{
+	(
+		<nav aria-label="Breadcrumb">
+			<ul class="breadcrumb-list">
+				<li>
+					<a href="/">Inicio</a>
+					<span class="separator">/</span>
+				</li>
+				<li aria-current="page" />
+			</ul>
+		</nav>
+	)
+}
+
+<style>
+	.breadcrumb-list {
+		list-style-type: none;
+		padding-inline-start: 0;
+
+		display: flex;
+	}
+
+	.separator {
+		color: var(--clr-ui-300);
+	}
+
+	a {
+		padding-inline-end: var(--em-spacing-50);
+		padding-block: var(--em-spacing-50);
+	}
+
+	[aria-current='page'] {
+		padding-inline-start: var(--em-spacing-50);
+	}
+</style>
+
+<script>
+	const currentPage = document.querySelector('h1').textContent;
+	document.querySelector("[aria-current='page']").textContent = currentPage;
+</script>

@@ -62,7 +62,7 @@ import ContactForm from '../components/ContactForm.astro';
 			<img class="page-motif" src="/logos/motif-dark.svg" alt="" />
 		</section>
 
-		<section class="services-section section">
+		<section id="tratamientos" class="services-section section">
 			<h2 class="section-title">Cuidado Holístico</h2>
 			<div class="flex-container">
 				<ServiceCards />
@@ -78,7 +78,7 @@ import ContactForm from '../components/ContactForm.astro';
 			<img class="page-motif" src="/logos/motif-dark.svg" alt="" />
 		</section>
 
-		<section class="section form-section">
+		<section id="contacto" class="section form-section">
 			<ContactForm />
 		</section>
 		<div class="linear-divider"></div>
@@ -139,16 +139,16 @@ import ContactForm from '../components/ContactForm.astro';
 	}
 
 	.form-section {
+		background-color: var(--text-color);
 		background-image: linear-gradient(
-				var(--clr-transparent-50),
-				var(--clr-transparent-50)
+				var(--clr-transparent-70),
+				var(--clr-transparent-70)
 			),
 			image-set(
 				url(/images/form-bg-large.avif) type('image/avif'),
 				url(/images/form-bg-large.webp) type('image/webp'),
 				url(/images/form-bg-large.jpg) type('image/jpg')
 			);
-
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;
@@ -162,9 +162,10 @@ import ContactForm from '../components/ContactForm.astro';
 		right: 50%;
 		margin-left: -50vw;
 		margin-right: -50vw;
+		background-color: var(--clr-primary-200);
 		background-image: linear-gradient(
 			-45deg,
-			var(--clr-ui-500) 0%,
+			var(--clr-ui-600) 0%,
 			var(--clr-primary-600) 15%,
 			var(--clr-primary-500) 25%,
 			var(--clr-primary-400) 32.5%,
@@ -174,7 +175,7 @@ import ContactForm from '../components/ContactForm.astro';
 			var(--clr-primary-400) 67.5%,
 			var(--clr-primary-500) 75%,
 			var(--clr-primary-600) 85%,
-			var(--clr-ui-500) 100%
+			var(--clr-ui-600) 100%
 		);
 
 		background-repeat: no-repeat;
