@@ -1,4 +1,9 @@
-<form action="" id="contact-form" novalidate autocomplete="off">
+<form
+	action="https://formsubmit.co/1ea487fbf9f0318a3f08a58afcbc5dd0 "
+	method="POST"
+	id="contact-form"
+	novalidate
+	autocomplete="off">
 	<div class="form-group column" data-validate="with-icon">
 		<label for="name">Nombre: *</label>
 		<input
@@ -237,6 +242,7 @@
 
 		if (isFormValid && isCheckboxValid && isTextareaValid) {
 			console.log('Valid from');
+			form.submit();
 		} else {
 			validateField(name, name.parentElement.lastElementChild, true);
 			validateField(email, email.parentElement.lastElementChild, true);
