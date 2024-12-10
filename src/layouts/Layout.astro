@@ -3,7 +3,7 @@ import '../styles/index.scss';
 import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
 
-const { title, showHero = true } = Astro.props;
+const { title, showHero = true, headline, tagline } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,54 +18,45 @@ const { title, showHero = true } = Astro.props;
 	</head>
 
 	<body>
-		<div class="intro">
-			<header>
-				<a href="/">
-					<div class="logo-container">
-						<img src="/logos/logomark.svg" alt="Alire." class="header-logo" />
-					</div>
-				</a>
-				<button class="nav-toggle-button">
-					<span class="visually-hidden">Menu</span>
-					<svg
-						class="nav-toggle-icon"
-						width="32"
-						height="20"
-						viewBox="0 0 32 20"
-						fill="var(--clr-primary-100)"
-						xmlns="http://www.w3.org/2000/svg">
-						<rect width="32" height="4" rx="2" fill=""></rect>
-						<rect y="8" width="32" height="4" rx="2" fill=""></rect>
-						<rect y="16" width="32" height="4" rx="2" fill=""></rect>
-					</svg>
-				</button>
-				<nav class="navigation">
-					<ul class="nav-list">
-						<li class="nav-list-item">
-							<a href="/" class="nav-link">Inicio</a>
-						</li>
-						<li class="nav-list-item">
-							<a href="#tratamientos" class="nav-link">Tratamientos</a>
-						</li>
-						<li class="nav-list-item">
-							<a href="/blog" class="nav-link">Blog</a>
-						</li>
-						<li class="nav-list-item">
-							<a href="#contacto" class="contact nav-link">Contacto</a>
-						</li>
-					</ul>
-				</nav>
-			</header>
+		<header>
+			<a href="/">
+				<div class="logo-container">
+					<img src="/logos/logomark.svg" alt="Alire." class="header-logo" />
+				</div>
+			</a>
+			<button class="nav-toggle-button">
+				<span class="visually-hidden">Menu</span>
+				<svg
+					class="nav-toggle-icon"
+					width="32"
+					height="20"
+					viewBox="0 0 32 20"
+					fill="var(--clr-primary-100)"
+					xmlns="http://www.w3.org/2000/svg">
+					<rect width="32" height="4" rx="2" fill=""></rect>
+					<rect y="8" width="32" height="4" rx="2" fill=""></rect>
+					<rect y="16" width="32" height="4" rx="2" fill=""></rect>
+				</svg>
+			</button>
+			<nav class="navigation">
+				<ul class="nav-list">
+					<li class="nav-list-item">
+						<a href="/" class="nav-link">Inicio</a>
+					</li>
+					<li class="nav-list-item">
+						<a href="#tratamientos" class="nav-link">Tratamientos</a>
+					</li>
+					<li class="nav-list-item">
+						<a href="/blogs" class="nav-link">Blog</a>
+					</li>
+					<li class="nav-list-item">
+						<a href="#contacto" class="contact nav-link">Contacto</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
-			{
-				showHero && (
-					<Hero
-						headline="Alire"
-						tagline="Cuerpo, Alma y Energía en Equlibrio"
-					/>
-				)
-			}
-		</div>
+		{showHero && <Hero headline={headline} tagline={tagline} />}
 
 		<slot />
 
@@ -111,15 +102,6 @@ const { title, showHero = true } = Astro.props;
 
 		&:visited {
 			color: color-mix(in srgb, currentColor 90%, black 10%);
-		}
-	}
-
-	.intro {
-		display: flex;
-		flex-direction: column;
-
-		& > * {
-			padding-inline: var(--page-padding-phone);
 		}
 	}
 
