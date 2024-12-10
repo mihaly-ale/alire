@@ -6,7 +6,9 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout
 	title={Privacidad.frontmatter.title}
-	headline={Privacidad.frontmatter.title}>
+	headline={Privacidad.frontmatter.title}
+	showHero={false}
+	heroShrunk={true}>
 	<min class="legal-page-content">
 		<Breadcrumb />
 		<Privacidad.Content />

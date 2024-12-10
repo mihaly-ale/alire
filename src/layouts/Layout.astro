@@ -3,7 +3,7 @@ import '../styles/index.scss';
 import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
 
-const { title, showHero = true, headline, tagline } = Astro.props;
+const { title, headline, tagline, showHero, heroShrunk } = Astro.props;
 ---
 
 <!doctype html>
@@ -56,7 +56,12 @@ const { title, showHero = true, headline, tagline } = Astro.props;
 			</nav>
 		</header>
 
-		{showHero && <Hero headline={headline} tagline={tagline} />}
+		<Hero
+			headline={headline}
+			tagline={tagline}
+			showHero={showHero}
+			heroShrunk={heroShrunk}
+		/>
 
 		<slot />
 
@@ -269,19 +274,11 @@ const { title, showHero = true, headline, tagline } = Astro.props;
 	}
 
 	.legal-page-content {
-		padding-block-start: var(--rem-spacing-550);
 		padding-block-end: var(--rem-spacing-300);
 		padding-inline: var(--rem-spacing-200);
 
 		& > * {
 			margin-inline-start: 0;
-		}
-	}
-
-	/* 32.6875em = 523px */
-	@media screen and (width <= 523px) {
-		.legal-page-content {
-			padding-block-start: var(--rem-spacing-700);
 		}
 	}
 </style>

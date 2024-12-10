@@ -4,7 +4,11 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title={Aviso.frontmatter.title} headline={Aviso.frontmatter.title}>
+<Layout
+	title={Aviso.frontmatter.title}
+	headline={Aviso.frontmatter.title}
+	showHero={false}
+	heroShrunk={true}>
 	<main class="legal-page-content">
 		<Breadcrumb />
 		<Aviso.Content />

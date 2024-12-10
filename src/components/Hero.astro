@@ -1,40 +1,64 @@
 ---
-const { headline, tagline } = Astro.props;
+const { headline, tagline, showHero = true, heroShrunk = false } = Astro.props;
 import { Image } from 'astro:assets';
 import heroImage from '../content/images/hero-image.jpg';
 ---
 
-<section class="hero-section">
-	<Image
-		src={heroImage}
-		alt=""
-		aria-hidden="true"
-		widths={[800, 1200, 1600, 2000]}
-		sizes={`(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, 2000px`}
-		decoding="async"
-		quality="30"
-		loading="eager"
-		class="hero-image"
-	/>
-
+<section class:list={['hero-section', {'hero-shrunk': heroShrunk}]}>
 	<h1 class="headline">{headline}</h1>
-	<p class="tagline">{tagline}</p>
-	<a href="#contacto" class="btn btn-cta">MimaTe</a>
+
+	{
+		showHero && (
+			<Image
+				src={heroImage}
+				alt=""
+				aria-hidden="true"
+				widths={[800, 1200, 1600, 2000]}
+				sizes={`(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, 2000px`}
+				decoding="async"
+				quality="30"
+				loading="eager"
+				class="hero-image"
+			/>
+
+			<p class="tagline">{tagline}</p>
+			<a href="#contacto" class="btn btn-cta">MimaTe</a>)
+	}
 </section>
 
 <style>
 	.hero-section {
 		min-height: 100vh;
-		color: var(--clr-tertiary-100);
 
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 
-		flex: 1;
 		padding-block-start: min(8vw, 200px);
 		padding-block-end: var(--rem-spacing-300);
+	}
+
+	.hero-shrunk {
+		min-height: 0;
+		padding-inline: var(--rem-spacing-200);
+
+		padding-block-end: var(--rem-spacing-100);
+		padding-block-start: 10rem;
+
+	& .headline {
+		color: var(--text-color);
+		font-family: Poppins;
+		font-size: clamp(var(--fs-phone-h2), 3vw, var(--fs-desktop-h2));
+		align-self: self-start;
+	}
+}
+
+	/* 32.6875em = 523px */
+	@media screen and (width <= 523px) {
+		.heroShrunk {
+			padding-block-start: var(--rem-spacing-700);
+		}
 	}
 
 	.hero-image {

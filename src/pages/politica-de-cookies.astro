@@ -4,7 +4,11 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title={Cookies.frontmatter.title} headline={Cookies.frontmatter.title}>
+<Layout
+	title={Cookies.frontmatter.title}
+	headline={Cookies.frontmatter.title}
+	showHero={false}
+	heroShrunk={true}>
 	<main class="legal-page-content">
 		<Breadcrumb />
 		<Cookies.Content />
