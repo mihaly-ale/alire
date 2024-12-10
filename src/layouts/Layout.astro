@@ -2,8 +2,10 @@
 import '../styles/index.scss';
 import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 
-const { title, headline, tagline, showHero, heroShrunk } = Astro.props;
+const { title, headline, tagline, showHero, heroShrunk, isSecondaryPage } =
+	Astro.props;
 ---
 
 <!doctype html>
@@ -55,6 +57,8 @@ const { title, headline, tagline, showHero, heroShrunk } = Astro.props;
 				</ul>
 			</nav>
 		</header>
+
+		<Breadcrumb isSecondaryPage={isSecondaryPage} />
 
 		<Hero
 			headline={headline}
@@ -270,15 +274,6 @@ const { title, headline, tagline, showHero, heroShrunk } = Astro.props;
 
 		.transformBarTwo {
 			opacity: 0;
-		}
-	}
-
-	.legal-page-content {
-		padding-block-end: var(--rem-spacing-300);
-		padding-inline: var(--rem-spacing-200);
-
-		& > * {
-			margin-inline-start: 0;
 		}
 	}
 </style>

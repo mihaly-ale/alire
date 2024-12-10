@@ -8,9 +8,9 @@ import Layout from '../layouts/Layout.astro';
 	title={Privacidad.frontmatter.title}
 	headline={Privacidad.frontmatter.title}
 	showHero={false}
-	heroShrunk={true}>
-	<min class="legal-page-content">
-		<Breadcrumb />
+	heroShrunk={true}
+	isSecondaryPage={true}>
+	<main class="legal-page-content">
 		<Privacidad.Content />
-	</min>
+	</main>
 </Layout>

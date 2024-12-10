@@ -1,10 +1,10 @@
 ---
-
+const { isSecondaryPage } = Astro.props;
 ---
 
 {
-	(
-		<nav aria-label="Breadcrumb">
+	isSecondaryPage && (
+		<nav aria-label="Breadcrumb" class="breadcrumb-nav">
 			<ul class="breadcrumb-list">
 				<li>
 					<a href="/">Inicio</a>
@@ -17,6 +17,16 @@
 }
 
 <style>
+	.breadcrumb-nav {
+		padding-inline-start: var(--rem-spacing-200);
+
+		padding-block-start: min(25vw, 100px);
+
+		& > * {
+			margin-inline-start: 0;
+		}
+	}
+
 	.breadcrumb-list {
 		list-style-type: none;
 		padding-inline-start: 0;
