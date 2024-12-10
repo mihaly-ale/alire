@@ -1,8 +1,22 @@
 ---
 const { headline, tagline } = Astro.props;
+import { Image } from 'astro:assets';
+import heroImage from '../content/images/hero-image.jpg';
 ---
 
 <section class="hero-section">
+	<Image
+		src={heroImage}
+		alt=""
+		aria-hidden="true"
+		widths={[800, 1200, 1600, 2000]}
+		sizes={`(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, 2000px`}
+		decoding="async"
+		quality="30"
+		loading="eager"
+		class="hero-image"
+	/>
+
 	<h1 class="headline">{headline}</h1>
 	<p class="tagline">{tagline}</p>
 	<a href="#contacto" class="btn btn-cta">MimaTe</a>
@@ -11,20 +25,6 @@ const { headline, tagline } = Astro.props;
 <style>
 	.hero-section {
 		min-height: 100vh;
-		background-color: var(--clr-tertiary-400);
-		background-image: linear-gradient(
-				var(--clr-transparent-50),
-				var(--clr-transparent-50)
-			),
-			image-set(
-				url(/images/hero-medium.avif) type('image/webp'),
-				url(/images/hero-medium.webp) type('image/avif'),
-				url(/images/hero-medium.jpg) type('image/jpg')
-			);
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-
 		color: var(--clr-tertiary-100);
 
 		display: flex;
@@ -37,19 +37,13 @@ const { headline, tagline } = Astro.props;
 		padding-block-end: var(--rem-spacing-300);
 	}
 
-	@media screen and (min-width: 62.5em) {
-		.hero-section {
-			background-color: var(--clr-tertiary-400);
-			background-image: linear-gradient(
-					var(--clr-transparent-50),
-					var(--clr-transparent-50)
-				),
-				image-set(
-					url(/images/hero-medium.avif) type('image/webp'),
-					url(/images/hero-medium.webp) type('image/avif'),
-					url(/images/hero-medium.jpg) type('image/jpg')
-				);
-		}
+	.hero-image {
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
 	}
 
 	.headline,
