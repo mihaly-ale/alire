@@ -235,27 +235,37 @@ body {
 /* 7 */
 p {
 	line-height: calc(1ex / 0.32);
-	margin: calc(1ex / 0.32);
+	margin-inline: 0;
+	margin-block-start: 0;
+	margin-block-end: calc(1ex / 0.32);
 }
 
 h1 {
 	line-height: calc(1ex / 0.42);
-	margin: calc(1ex / 0.42);
+	margin-inline: 0;
+	margin-block-start: 0;
+	margin-block-end: calc(1ex / 0.42);
 }
 
 h2 {
 	line-height: calc(1ex / 0.42);
-	margin: calc(1ex / 0.42);
+	margin-inline: 0;
+	margin-block-start: 0;
+	margin-block-end: calc(1ex / 0.42);
 }
 
 h3 {
 	line-height: calc(1ex / 0.38);
-	margin: calc(1ex / 0.38);
+	margin-inline: 0;
+	margin-block-start: 0;
+	margin-block-end: calc(1ex / 0.38);
 }
 
 h4 {
 	line-height: calc(1ex / 0.37);
-	margin: calc(1ex / 0.37);
+	margin-inline: 0;
+	margin-block-start: 0;
+	margin-block-end: calc(1ex / 0.37);
 }
 
 /* 8 */
@@ -333,7 +343,8 @@ a {
 
 /* 17 */
 ul:not([class]) {
-	margin: 0;
+	margin-inline: 0;
+	margin-block-start: 0;
 	padding: 0;
 }
 

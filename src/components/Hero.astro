@@ -38,20 +38,19 @@ import heroImage from '../content/images/hero-image.jpg';
 
 	.hero-shrunk {
 		min-height: 0;
-		padding-inline: var(--rem-spacing-200);
 
 	& .headline {
 		color: var(--text-color);
 		font-weight: var(--fw-600);
 		font-family: Poppins;
 		font-size: clamp(var(--fs-phone-h2), 3vw, var(--fs-desktop-h2));
-		align-self: self-start;
+		margin-block-end: calc(1ex / 0.42);
 	}
 }
 
 	/* 32.6875em = 523px */
 	@media screen and (width <= 523px) {
-		.heroShrunk {
+		.hero-shrunk {
 			padding-block-start: var(--rem-spacing-700);
 		}
 	}
