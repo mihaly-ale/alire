@@ -54,6 +54,10 @@ const { isSecondaryPage } = Astro.props;
 </style>
 
 <script>
-	const currentPage = document.querySelector('h1').textContent;
-	document.querySelector("[aria-current='page']").textContent = currentPage;
+	let currentPage = document.querySelector('h1').textContent;
+	let lastBreadcrumb = document.querySelector("[aria-current='page']");
+
+	if (lastBreadcrumb) {
+		lastBreadcrumb.textContent = currentPage;
+	}
 </script>
