@@ -28,6 +28,7 @@ const { isSecondaryPage } = Astro.props;
 	.breadcrumb-list {
 		list-style-type: none;
 		padding-inline-start: 0;
+		color: var(--clr-ui-400);
 
 		display: flex;
 	}
@@ -37,8 +38,14 @@ const { isSecondaryPage } = Astro.props;
 	}
 
 	a {
+		color: currentColor;
 		padding-inline-end: var(--em-spacing-50);
 		padding-block: var(--em-spacing-50);
+		text-decoration-color: transparent;
+
+		&:hover {
+			text-decoration-color: currentColor;
+		}
 	}
 
 	[aria-current='page'] {
