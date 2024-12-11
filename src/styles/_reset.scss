@@ -302,9 +302,22 @@ textarea:not([rows]) {
 }
 
 /* 14 */
-a:not([class]) {
-	text-decoration-skip-ink: auto;
+:where(a:not([class])) {
 	color: currentColor;
+	text-underline-offset: 4px;
+	transition: text-decoration-color 250ms;
+
+	&:hover {
+		text-decoration-color: transparent;
+	}
+
+	&:visited {
+		color: grey;
+	}
+}
+
+a {
+	text-decoration-skip-ink: auto;
 }
 
 /* 15 */
@@ -319,7 +332,8 @@ a:not([class]) {
 }
 
 /* 17 */
-:where(h1, h2, h3, h4, p, figure, blockquote, dl, dd) {
-	margin-block-end: 0;
+ul:not([class]) {
+	margin: 0;
+	padding: 0;
 }
 

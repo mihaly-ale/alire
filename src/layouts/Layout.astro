@@ -101,19 +101,6 @@ const { title, headline, tagline, showHero, heroShrunk, isSecondaryPage } =
 		background-color: var(--bg-color);
 	}
 
-	a:not([class]) {
-		text-decoration-color: transparent;
-		transition: text-decoration-color 250ms;
-
-		&:hover {
-			text-decoration-color: currentColor;
-		}
-
-		&:visited {
-			color: color-mix(in srgb, currentColor 90%, black 10%);
-		}
-	}
-
 	header {
 		display: flex;
 		align-items: center;
