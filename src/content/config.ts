@@ -5,8 +5,8 @@ const blogCollection = defineCollection ({
     {
       title: z.string(),
       author: z.string(),
-      isDraft : z.string(),
-      publishedDate : z.string().transform((dateString) => new Date(dateString)),
+      isDraft : z.boolean(),
+      publishedDate : z.date(),
       tags: z.array(z.string()),
       image: z.string().optional(),
       canonicalURL: z.string().url(),
@@ -14,6 +14,6 @@ const blogCollection = defineCollection ({
 })
 const alireBlogs = defineCollection(blogCollection)
 
-export const collections= {
+export const collections = {
   blog: alireBlogs
 }
