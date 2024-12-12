@@ -1,5 +1,5 @@
 <form
-	action="https://formsubmit.co/1ea487fbf9f0318a3f08a58afcbc5dd0 "
+	action="https://formsubmit.co/1ea487fbf9f0318a3f08a58afcbc5dd0"
 	method="POST"
 	id="contact-form"
 	novalidate
@@ -81,24 +81,15 @@
 
 	<!-- formsubmit hidden fields -->
 	<input type="hidden" name="_subject" value="" />
-	<input
-		type="hidden"
-		name="_autoresponse"
-		value=`
-	Gracias por ponerte en contacto con nosotros!
-	Hemos recibido tu mensaje correctamente y nos pondremos en contacto contigo lo antes posible.
-
-	Un saludo
-
-	Alire
-	`
-	/>
 	<input type="hidden" name="_captcha" value="false" />
 	<input type="text" name="_honey" style="display:none" />
 	<input type="hidden" name="_template" value="table" />
 
 	<div class="form-group column">
 		<input id="submit-button" class="btn" type="submit" value="Enviar" />
+	</div>
+	<div class="form-group column">
+		<p id="submit-feedback"></p>
 	</div>
 </form>
 
@@ -241,6 +232,10 @@
 		content: '✖';
 		color: var(--error-color);
 	}
+
+	#submit-feedback {
+		height: 2rem;
+	}
 </style>
 
 <script lang="ts">
@@ -261,14 +256,47 @@
 		const isTextareaValid = textarea.checkValidity();
 
 		if (isFormValid && isCheckboxValid && isTextareaValid) {
-			console.log('Valid from');
-			subjectField.value = `${name}.value solicité cita para ${treatmentRequested()}`;
-			form.submit();
+			subjectField.value = `${name.value} solicité cita para ${treatmentRequested()}`;
+			const submitFeedback = document.querySelector('#submit-feedback');
+
+			// AJAX start
+			const formData = new FormData(form);
+
+			fetch('https://formsubmit.co/1ea487fbf9f0318a3f08a58afcbc5dd0', {
+				method: 'POST',
+				body: formData,
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json',
+				},
+			})
+				.then((response) => {
+					if (response.ok) {
+						form.reset();
+						[name, email, textarea].forEach((input) => {
+							clearValidationIndicators(input);
+						});
+						addSubmitFeedback(
+							submitFeedback,
+							'Gracias, tu mensaje ha sido enviado.',
+							'green'
+						);
+					} else {
+						addSubmitFeedback(
+							submitFeedback,
+							'Lo sentimos, ocurrió un error. Inténtelo más tarde.',
+							'red'
+						);
+					}
+				})
+				.catch((error) => {
+					console.error('Error:', error);
+				});
+			// AJAX end
 		} else {
 			validateField(name, name.parentElement.lastElementChild, true);
 			validateField(email, email.parentElement.lastElementChild, true);
 			validateField(textarea, textarea.parentElement.lastElementChild, true);
-			console.log(`Is form valid: ${form.checkValidity()}`);
 		}
 	});
 
@@ -423,5 +451,16 @@
 			(checkbox) => checkbox.checked
 		);
 		return filteredArray.map((item) => item.value).toString();
+	}
+
+	function clearValidationIndicators(formElement) {
+		formElement.classList.remove('custom-valid', 'custom-invalid');
+		formElement.parentElement.classList.remove('valid', 'invalid');
+	}
+
+	function addSubmitFeedback(submitFeedback, message, color) {
+		submitFeedback.style.color = color;
+		submitFeedback.style.textAlign = 'center';
+		submitFeedback.textContent = message;
 	}
 </script>
