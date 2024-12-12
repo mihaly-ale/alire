@@ -1,12 +1,53 @@
 ---
 import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import pageMotif from '../../../public/logos/motif-dark.svg';
 const blogPosts = await getCollection('blog');
 ---
 
-{
-	blogPosts.map((post) => (
-		<h2>
-			<a href={`/blog/${post.slug}`}>{post.data.title}</a>
-		</h2>
-	))
-}
+<Layout
+	title="Blogs"
+	headline="Mi Blog"
+	showHero={false}
+	heroShrunk={true}
+	isSecondaryPage={true}>
+	<main class="secondary-page-content">
+		{blogPosts}
+		{
+			blogPosts.map((post) => (
+				<div class="container">
+					<h2>
+						<a href={`/blog/${post.slug}`}>{post.data.title}</a>
+					</h2>
+
+					<p>
+						{post.data.author} &middot;{' '}
+						{new Date(post.data.publishedDate).toLocaleDateString('es-ES', {
+							// weekday: "short",
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric',
+						})}
+					</p>
+
+					<Image
+						src={post.data.image}
+						alt=""
+						aria-hidden="true"
+						width="500"
+						height="300"
+						decoding="async"
+						loading="eager"
+					/>
+
+					<p>{post.body.slice(0, 250)} ...</p>
+
+					<a href={`/blog/${post.slug}`}> Saber más</a>
+
+					<Image src={pageMotif} alt="" width="24" height="24" />
+				</div>
+			))
+		}
+	</main>
+</Layout>
