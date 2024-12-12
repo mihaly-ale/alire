@@ -38,17 +38,18 @@ import heroImage from '../content/images/hero-image.jpg';
 
 	.hero-shrunk {
 		min-height: 0;
+		margin-block-start: var(--rem-spacing-200);
 
 	& .headline {
 		color: var(--text-color);
 		font-weight: var(--fw-600);
 		font-family: Poppins;
 		font-size: clamp(var(--fs-phone-h2), 3vw, var(--fs-desktop-h2));
-		margin-block-end: calc(1ex / 0.42);
+		margin-block-end: calc(1ex / 0.72);
 	}
 }
 
-	/* 32.6875em = 523px */
+	32.6875em = 523px
 	@media screen and (width <= 523px) {
 		.hero-shrunk {
 			padding-block-start: var(--rem-spacing-700);
@@ -109,6 +110,22 @@ import heroImage from '../content/images/hero-image.jpg';
 		&:hover {
 			background-color: var(--bg-color);
 			color: var(--text-color);
+		}
+
+		&:active {
+			opacity: 0.75;
+		}
+	}
+
+	:global(.btn-secondary) {
+		font-size: clamp(var(--fs-phone-large), 1.45vw, var(--fs-desktop-large));
+		color: var(--text-color);
+		background-color: var(--clr-primary-200);
+		letter-spacing: 2px;
+		align-self: flex-start;
+
+		&:hover {
+			background-color: var(--clr-primary-300);
 		}
 
 		&:active {

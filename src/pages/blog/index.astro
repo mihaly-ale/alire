@@ -17,12 +17,13 @@ const blogPosts = await getCollection('blog');
 		{
 			blogPosts.map((post) => (
 				<div class="container">
-					<h2>
+					<h2 class="blog-title">
 						<a href={`/blog/${post.slug}`}>{post.data.title}</a>
 					</h2>
 
-					<p>
-						{post.data.author} &middot;{' '}
+					<p class="intro">
+						<span class="author">{post.data.author}</span>
+						&middot;
 						{new Date(post.data.publishedDate).toLocaleDateString('es-ES', {
 							// weekday: "short",
 							year: 'numeric',
@@ -43,7 +44,10 @@ const blogPosts = await getCollection('blog');
 
 					<p>{post.body.slice(0, 250)} ...</p>
 
-					<a href={`/blog/${post.slug}`}> Saber más</a>
+					<a class="btn btn-secondary" href={`/blog/${post.slug}`}>
+						{' '}
+						Saber más
+					</a>
 
 					<Image src={pageMotif} alt="" width="24" height="24" />
 				</div>
@@ -51,3 +55,28 @@ const blogPosts = await getCollection('blog');
 		}
 	</main>
 </Layout>
+
+<style>
+	.container {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rem-spacing-75);
+		margin-block-end: var(--rem-spacing-400);
+	}
+
+	.blog-title a {
+		color: var(--clr-primary-500);
+	}
+
+	.author {
+		background-color: var(--clr-secondary-500);
+		padding: var(--em-spacing-50) var(--em-spacing-25);
+		border-radius: var(--rad-25);
+		color: var(--bg-color);
+	}
+
+	.container > :last-child {
+		margin-top: var(--rem-spacing-200);
+		align-self: center;
+	}
+</style>
