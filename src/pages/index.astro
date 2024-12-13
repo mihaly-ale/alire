@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import CtaCard from '../components/CtaCard.astro';
+import CtaCards from '../components/CtaCards.astro';
 import ServiceCards from '../components/ServiceCards.astro';
 import WorkflowCards from '../components/WorkflowCards.astro';
 import ContactForm from '../components/ContactForm.astro';
@@ -19,30 +19,7 @@ import formBackground from '../assets/form-background.jpg';
 			<h2 class="section-title">Decisiones sencillas para tu bienestar</h2>
 
 			<ul class="flex-container">
-				<CtaCard
-					title="Come de manera equilibrada"
-					bgImageFallback="leafy-veggie.jpg"
-					bgImageAVIF="leafy-veggie.avif"
-					bgImageWEBP="leafy-veggie.webp"
-				/>
-				<CtaCard
-					title="Mejora tu postura"
-					bgImageFallback="stones.jpg"
-					bgImageAVIF="stones.avif"
-					bgImageWEBP="stones.webp"
-				/>
-				<CtaCard
-					title="Adquiere hábitos saludables"
-					bgImageFallback="train-track.jpg"
-					bgImageAVIF="train-track.avif"
-					bgImageWEBP="train-track.webp"
-				/>
-				<CtaCard
-					title="Siéntete más feliz"
-					bgImageFallback="melon-face.jpg"
-					bgImageAVIF="melon-face.avif"
-					bgImageWEBP="melon-face.webp"
-				/>
+				<CtaCards />
 			</ul>
 
 			<img class="page-motif" src="/logos/motif-dark.svg" alt="" />
@@ -86,7 +63,17 @@ import formBackground from '../assets/form-background.jpg';
 		</section>
 
 		<section id="contacto" class="section form-section">
-			<Image src={formBackground} alt="" class="background-image" />
+			<Image
+				src={formBackground}
+				alt=""
+				aria-hidden="true"
+				widths={[800, 1200, 1600, 2000, 3000]}
+				sizes={`(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (max-width:2000px) 2000px, (min-width: 2001px) 3000px`}
+				decoding="async"
+				quality="70"
+				loading="lazy"
+				class="background-image"
+			/>
 			<ContactForm />
 		</section>
 		<div class="linear-divider"></div>

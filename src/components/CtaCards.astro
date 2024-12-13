@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets';
+import ctaImage1 from '../assets/cta-leafy-veggie.jpg';
+import ctaImage2 from '../assets/cta-stones-dark.jpg';
+import ctaImage3 from '../assets/cta-train-track.jpg';
+import ctaImage4 from '../assets/cta-melon-face.jpg';
+
+const ctaImages = [
+	{ src: ctaImage1, title: 'Come de manera equilibrada' },
+	{ src: ctaImage2, title: 'Mejora tu postura' },
+	{ src: ctaImage3, title: 'Adquiere hábitos saludables' },
+	{ src: ctaImage4, title: 'Siéntete más feliz' },
+];
+---
+
+{
+	ctaImages.map((image) => (
+		<li class="cta-card">
+			<Image
+				src={image.src}
+				alt=""
+				aria-hidden="true"
+				width={image.src.width / 2}
+				densities={[1.5, 2]}
+				decoding="async"
+				quality="50"
+				loading="eager"
+				class="background-image"
+			/>
+			<h3 class="cta-section-title">{image.title}</h3>
+		</li>
+	))
+}
+
+<style>
+	.cta-card {
+		width: 320px;
+		aspect-ratio: 1;
+		padding: var(--rem-spacing-200) var(--rem-spacing-100);
+		border-radius: var(--rad-250);
+		overflow: hidden;
+
+		display: flex;
+		align-items: end;
+		justify-content: center;
+		flex: none;
+		position: relative;
+	}
+
+	.cta-section-title {
+		font-family: Merienda;
+		color: var(--bg-color);
+		font-weight: 200;
+		font-size: clamp(var(--fs-phone-h3), 2.15vw, var(--fs-desktop-h3));
+		text-align: center;
+		text-transform: capitalize;
+
+		margin: auto 0 0 0;
+	}
+</style>
