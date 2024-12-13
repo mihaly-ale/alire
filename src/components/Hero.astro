@@ -1,7 +1,7 @@
 ---
 const { headline, tagline, showHero = true, heroShrunk = false } = Astro.props;
 import { Image } from 'astro:assets';
-import heroImage from '../content/images/hero-image.jpg';
+import heroImage from '../assets/hero-image.jpg';
 ---
 
 <section class:list={['hero-section', {'hero-shrunk': heroShrunk}]}>
@@ -18,7 +18,7 @@ import heroImage from '../content/images/hero-image.jpg';
 				decoding="async"
 				quality="70"
 				loading="eager"
-				class="hero-image"
+				class="background-image"
 			/>
 
 			<p class="tagline">{tagline}</p>
@@ -56,7 +56,7 @@ import heroImage from '../content/images/hero-image.jpg';
 		}
 	}
 
-	.hero-image {
+	:global(.background-image) {
 		position: absolute;
 		inset: 0;
 		z-index: -1;
