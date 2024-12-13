@@ -1,5 +1,6 @@
 ---
 title: Masaje
+resolvekey: massage
 ---
 
 La terapia de masaje ofrece una amplia gama de beneficios, desde la relajación hasta la curación de tejidos profundos. Existen varios tipos de masajes, cada uno diseñado para abordar diferentes necesidades.

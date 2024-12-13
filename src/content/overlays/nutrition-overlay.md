@@ -1,5 +1,6 @@
 ---
 title: Nutrición
+resolvekey: nutrition
 ---
 
 La nutrición juega un papel fundamental en el mantenimiento del bienestar y la vitalidad, y su enfoque ha evolucionado hacia la personalización. La nutrición personalizada pone énfasis en la importancia de crear planes de alimentación únicos adaptados a las necesidades específicas de condición física, estilo de vida y preferencias de cada individuo.

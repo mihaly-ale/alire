@@ -1,5 +1,6 @@
 ---
 title: Osteopatía
+resolvekey: osteopathy
 ---
 
 La osteopatía es una forma de atención sanitaria holística que subraya la importancia del sistema musculoesquelético en el bienestar general. Se basa en el principio de que el cuerpo tiene la capacidad de sanarse a sí mismo, pero los desequilibrios estructurales pueden obstaculizar este proceso natural.

@@ -10,16 +10,20 @@ const overlays = await Astro.glob('../../src/content/overlays/*.md');
 			title={overlay.frontmatter.title}
 			closeText="Cerrar">
 			<overlay.Content />
+			<img
+				src={`../../images/${overlay.frontmatter.resolvekey}-overlay.webp`}
+				alt=""
+				aria-hidden="true"
+				loading="lazy"
+				decoding="async"
+				class="background-image"
+			/>
 		</Modal>
 	))
 }
 
 <style is:global>
 	.modal {
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: cover;
-
 		box-shadow: 0 0 25px var(--clr-transparent-50);
 		border: none;
 
@@ -51,56 +55,8 @@ const overlays = await Astro.glob('../../src/content/overlays/*.md');
 		}
 	}
 
-	.modal[aria-labelledby='Nutrición'] {
-		background-image: linear-gradient(
-				to bottom,
-				var(--clr-transparent-50),
-				var(--clr-transparent-30)
-			),
-			image-set(
-				url(/public/images/nutrition-overlay.avif) type('image/avif'),
-				url(/public/images/nutrition-overlay.webp) type('image/webp'),
-				url(/public/images/nutrition-overlay.jpg) type('image/jpg')
-			);
-	}
-
-	.modal[aria-labelledby='Masaje'] {
-		background-image: linear-gradient(
-				to bottom,
-				var(--clr-transparent-50),
-				var(--clr-transparent-30)
-			),
-			image-set(
-				url(/public/images/massage-overlay.avif) type('image/avif'),
-				url(/public/images/massage-overlay.webp) type('image/webp'),
-				url(/public/images/massage-overlay.jpg) type('image/jpg')
-			);
-	}
-
-	.modal[aria-labelledby='Osteopatía'] {
-		background-image: linear-gradient(
-				to bottom,
-				var(--clr-transparent-50),
-				var(--clr-transparent-30)
-			),
-			image-set(
-				url(/public/images/osteopathy-overlay.avif) type('image/avif'),
-				url(/public/images/osteopathy-overlay.webp) type('image/webp'),
-				url(/public/images/osteopathy-overlay.jpg) type('image/jpg')
-			);
-	}
-
-	.modal[aria-labelledby='Biomagnetismo'] {
-		background-image: linear-gradient(
-				to bottom,
-				var(--clr-transparent-50),
-				var(--clr-transparent-30)
-			),
-			image-set(
-				url(/public/images/biomagnet-overlay.avif) type('image/avif'),
-				url(/public/images/biomagnet-overlay.webp) type('image/webp'),
-				url(/public/images/biomagnet-overlay.jpg) type('image/jpg')
-			);
+	.modal__content {
+		position: relative;
 	}
 
 	.modal__close button {

@@ -1,5 +1,6 @@
 ---
 title: Biomagnetismo
+resolvekey: biomagnet
 ---
 
 El biomagnetismo es un enfoque terapéutico que utiliza campos magnéticos para ayudar a restablecer el equilibrio en el cuerpo. Aunque no es ampliamente conocido, se cree que este método apoya los procesos naturales de sanación del cuerpo al equilibrar los niveles de pH y mejorar la función celular.
