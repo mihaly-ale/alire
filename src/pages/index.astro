@@ -4,6 +4,9 @@ import CtaCard from '../components/CtaCard.astro';
 import ServiceCards from '../components/ServiceCards.astro';
 import WorkflowCards from '../components/WorkflowCards.astro';
 import ContactForm from '../components/ContactForm.astro';
+
+import { Image } from 'astro:assets';
+import formBackground from '../assets/form-background.jpg';
 ---
 
 <Layout
@@ -83,6 +86,7 @@ import ContactForm from '../components/ContactForm.astro';
 		</section>
 
 		<section id="contacto" class="section form-section">
+			<Image src={formBackground} alt="" class="background-image" />
 			<ContactForm />
 		</section>
 		<div class="linear-divider"></div>
@@ -127,6 +131,10 @@ import ContactForm from '../components/ContactForm.astro';
 		align-items: center;
 	}
 
+	.form-section {
+		position: relative;
+	}
+
 	/* 40.875em = 654px */
 	@media screen and (min-width: 40.875em) {
 		.workflow-section {
@@ -139,22 +147,6 @@ import ContactForm from '../components/ContactForm.astro';
 		.workflow-section {
 			align-items: center;
 		}
-	}
-
-	.form-section {
-		background-color: var(--text-color);
-		background-image: linear-gradient(
-				var(--clr-transparent-70),
-				var(--clr-transparent-70)
-			),
-			image-set(
-				url(/images/form-bg-large.avif) type('image/avif'),
-				url(/images/form-bg-large.webp) type('image/webp'),
-				url(/images/form-bg-large.jpg) type('image/jpg')
-			);
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
 	}
 
 	.linear-divider {

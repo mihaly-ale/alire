@@ -30,7 +30,7 @@
 		<p class="error-message"></p>
 	</div>
 
-	<div class="form-group">
+	<div class="form-group column">
 		<fieldset class="column">
 			<legend> &nbsp; Elige tratamiento &nbsp;</legend>
 			<div>
@@ -95,9 +95,12 @@
 
 <style>
 	form {
-		--error-color: var(--clr-tertiary-200);
+		--error-color-light: var(--clr-tertiary-100);
+		--error-color-strong: var(--clr-tertiary-300);
 		color: var(--bg-color);
-		background: var(--clr-transparent-30);
+		background: var(--clr-transparent-50);
+		padding: var(--rem-spacing-100);
+		border-radius: var(--rad-25);
 
 		margin: 0 auto;
 		width: 95%;
@@ -106,6 +109,15 @@
 		& p {
 			margin: 0;
 		}
+	}
+
+	fieldset {
+		border-radius: var(--rad-25);
+	}
+
+	textarea,
+	fieldset {
+		margin-bottom: var(--rem-spacing-75);
 	}
 
 	.form-group {
@@ -170,7 +182,6 @@
 	}
 
 	legend {
-		margin-left: var(--em-spacing-100);
 		margin-block-end: var(--em-spacing-75);
 	}
 
@@ -194,7 +205,7 @@
 			1.45vw,
 			var(--fs-desktop-regular)
 		);
-		color: var(--error-color);
+		color: var(--error-color-strong);
 		font-weight: var(--fw-500);
 
 		display: flex;
@@ -206,7 +217,7 @@
 		background-color: var(--clr-primary-100) !important;
 	}
 	.custom-invalid {
-		background-color: var(--clr-tertiary-200) !important;
+		background-color: var(--error-color-light) !important;
 	}
 
 	[data-validate='with-icon']::before {
@@ -230,7 +241,7 @@
 
 	[data-validate='with-icon'].invalid::before {
 		content: '✖';
-		color: var(--error-color);
+		color: var(--error-color-light);
 	}
 
 	#submit-feedback {
@@ -436,7 +447,7 @@
 			errorCheckbox.textContent =
 				'Por favor, selecciona al menos una opción de los tratamientos.';
 			errorCheckbox.previousElementSibling.style.borderColor =
-				'var(--error-color';
+				'var(--error-color-light)';
 			return false;
 		} else {
 			errorCheckbox.textContent = '';
