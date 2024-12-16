@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import pageMotif from '../../../public/logos/motif-dark.svg';
+import '../../styles/secondary-page.css';
 
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('blog');

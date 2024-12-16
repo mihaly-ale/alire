@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import pageMotif from '../../../public/logos/motif-dark.svg';
+import '../../styles/secondary-page.css';
 
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('blog');
@@ -20,7 +21,6 @@ const { category, blogEntries } = Astro.props;
 const filteredPosts = blogEntries.filter((entry) =>
 	entry.data.categories.includes(category)
 );
-console.log(filteredPosts);
 ---
 
 <Layout
@@ -41,7 +41,9 @@ console.log(filteredPosts);
 									<br />
 									<small>
 										de
-										<a href={`/blog/${post.data.author}`}>{post.data.author}</a>
+										<a class="author" href={`/blog/${post.data.author}`}>
+											{post.data.author}
+										</a>
 									</small>
 								</h2>
 
