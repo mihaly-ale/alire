@@ -35,10 +35,10 @@ const blogPosts = await getCollection('blog');
 							})}
 						</p>
 
-						<ul class="tags">
-							{post.data.category.map((category) => (
+						<ul class="categories">
+							{post.data.categories.map((category) => (
 								<li>
-									<a href={`${category}`} class="tag">
+									<a href={`/blog/${category}`} class="category">
 										{category}
 									</a>
 								</li>
@@ -56,11 +56,11 @@ const blogPosts = await getCollection('blog');
 								loading="eager"
 								class="blog-image"
 							/>
-							<p class="blog-excerpt">{post.body.slice(0, 250)} ...</p>
+						</a>
+						<p class="blog-excerpt">{post.body.slice(0, 250)} ...</p>
 
-							<a class="btn btn-secondary" href={`/blog/${post.slug}`}>
-								Saber más
-							</a>
+						<a class="btn btn-secondary" href={`/blog/${post.slug}`}>
+							Saber más
 						</a>
 						<Image src={pageMotif} alt="" width="24" height="24" />
 					</article>
@@ -95,7 +95,7 @@ const blogPosts = await getCollection('blog');
 		}
 	}
 
-	.tags {
+	.categories {
 		display: flex;
 		gap: var(--em-spacing-25);
 		padding: 0;
@@ -104,7 +104,7 @@ const blogPosts = await getCollection('blog');
 		list-style-type: none;
 	}
 
-	.tag {
+	.category {
 		text-decoration: none;
 
 		background-color: var(--clr-accent-200);

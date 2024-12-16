@@ -4,7 +4,7 @@ subtitle: Entendiendo las principales razones
 author: Kovasz Pista
 isDraft: false
 publishedDate: 2024-12-14
-category: ['salud', 'peso', 'hábitos']
+categories: ['salud', 'peso', 'hábitos']
 image: https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80
 canonicalURL: https://localhost:3000/blog/por-que-no-puedo-bajar-de-peso
 ---

@@ -50,10 +50,10 @@ const filteredPosts = blogEntries.filter(
 									)}
 								</p>
 
-								<ul class="tags">
-									{post.data.category.map((category) => (
+								<ul class="categories">
+									{post.data.categories.map((category) => (
 										<li>
-											<a href={`${category}`} class="tag">
+											<a href={`/blog/${category}`} class="category">
 												{category}
 											</a>
 										</li>
