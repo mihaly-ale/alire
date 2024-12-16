@@ -14,10 +14,10 @@ import '../../styles/secondary-page.css';
 	heroShrunk={true}
 	isSecondaryPage={true}>
 	<main class="secondary-page-content">
-		<section>
+		<ul>
 			{
 				blogPosts.map((post) => (
-					<article class="container">
+					<li class="container">
 						<h2 class="blog-title">
 							<a href={`/blog/${post.slug}`}>
 								{post.data.title} - {post.data.subtitle}
@@ -58,15 +58,15 @@ import '../../styles/secondary-page.css';
 								class="blog-image"
 							/>
 						</a>
-						<p class="blog-excerpt">{post.body.slice(0, 250)} ...</p>
+						<p class="blog-excerpt">{post.body.split('##')[0]}</p>
 
 						<a class="btn btn-secondary" href={`/blog/${post.slug}`}>
 							Saber más
 						</a>
 						<Image src={pageMotif} alt="" width="24" height="24" />
-					</article>
+					</li>
 				))
 			}
-		</section>
+		</ul>
 	</main>
 </Layout>

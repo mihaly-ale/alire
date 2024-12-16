@@ -312,6 +312,10 @@ textarea:not([rows]) {
 }
 
 /* 14 */
+a {
+	text-decoration-skip-ink: auto;
+}
+
 :where(a:not([class])) {
 	color: currentColor;
 	text-underline-offset: 4px;
@@ -326,8 +330,8 @@ textarea:not([rows]) {
 	}
 }
 
-a {
-	text-decoration-skip-ink: auto;
+a[class] {
+	text-decoration: none;
 }
 
 /* 15 */
@@ -342,8 +346,7 @@ a {
 }
 
 /* 17 */
-ul:not([class]) {
-	margin-inline: 0;
+ul {
 	margin-block-start: 0;
 	padding: 0;
 }
