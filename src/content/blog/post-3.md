@@ -5,7 +5,9 @@ author: Kovasz Pista
 isDraft: false
 publishedDate: 2024-12-14
 categories: ['salud', 'peso', 'hábitos']
-image: './post-3.jpg'
+image:
+  src: './post-3.jpg'
+  alt: 'Cara triste dibujada en un plato vacío.'
 canonicalURL: https://localhost:3000/blog/por-que-no-puedo-bajar-de-peso
 ---
 

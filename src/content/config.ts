@@ -9,7 +9,10 @@ const blogCollection = defineCollection ({
       isDraft : z.boolean(),
       publishedDate : z.date(),
       categories: z.array(z.string()),
-      image: image(),
+      image: z.object({
+        src: image(),
+        alt: z.string(),
+      }),
       canonicalURL: z.string().url(),
     })
 })

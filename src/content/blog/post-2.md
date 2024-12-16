@@ -5,7 +5,10 @@ author: Kovasz Pista
 isDraft: false
 publishedDate: 2024-12-05
 categories: ['cetosis', 'dieta', 'salud']
-image: './post-2.jpg'
+image:
+  src: './post-2.jpg'
+  alt: 'Bistecs con un condimento rico sobre una tabla de madera.'
+
 canonicalURL: https://localhost:3000/blog/blog-post-1
 ---
 

@@ -5,7 +5,9 @@ author: Ayra Kenese
 isDraft: false
 publishedDate: 2024-12-14
 categories: ['salud', 'estrés', 'relajación']
-image: './post-4.jpg'
+image:
+  src: './post-4.jpg'
+  alt: 'Brazo extendido hacia arriba desde el mar.'
 canonicalURL: https://localhost:3000/blog/el-estres-y-la-importancia-de-la-relajacion
 ---
 

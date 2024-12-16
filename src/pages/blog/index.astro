@@ -48,8 +48,8 @@ import '../../styles/secondary-page.css';
 
 						<a href={`/blog/${post.slug}`} class="blog-link">
 							<Image
-								src={post.data.image}
-								alt=""
+								src={post.data.image.src}
+								alt={post.data.image.alt}
 								aria-hidden="true"
 								width="500"
 								height="300"

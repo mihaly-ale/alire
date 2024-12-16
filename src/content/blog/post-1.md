@@ -5,7 +5,9 @@ author: Ayra Kenese
 isDraft: false
 publishedDate: 2024-12-05
 categories: ['masaje', 'craneal', 'relajación']
-image: './post-1.jpg'
+image:
+  src: './post-1.jpg'
+  alt: 'Masajista practicando un masaje craneal en el cuello de una mujer.'
 canonicalURL: https://localhost:3000/blog/blog-post-1
 ---
 
