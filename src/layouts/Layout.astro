@@ -46,13 +46,13 @@ const { title, headline, tagline, showHero, heroShrunk, isSecondaryPage } =
 						<a href="/" class="nav-link">Inicio</a>
 					</li>
 					<li class="nav-list-item">
-						<a href="#tratamientos" class="nav-link">Tratamientos</a>
+						<a href="/#tratamientos" class="nav-link">Tratamientos</a>
 					</li>
 					<li class="nav-list-item">
 						<a href="/blog" class="nav-link">Blog</a>
 					</li>
 					<li class="nav-list-item">
-						<a href="#contacto" class="contact nav-link">Contacto</a>
+						<a href="/#contacto" class="contact nav-link">Contacto</a>
 					</li>
 				</ul>
 			</nav>
@@ -120,12 +120,18 @@ const { title, headline, tagline, showHero, heroShrunk, isSecondaryPage } =
 		object-fit: fill;
 	}
 
+	nav {
+		padding-block: var(--em-spacing-100);
+		margin-inline-start: var(--em-spacing-200);
+	}
+
 	.nav-list {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		gap: var(--em-spacing-50);
 		flex-wrap: wrap;
+		margin: 0;
 	}
 
 	.nav-list-item {
@@ -192,9 +198,6 @@ const { title, headline, tagline, showHero, heroShrunk, isSecondaryPage } =
 			gap: var(--em-spacing-200);
 			padding-block: var(--em-spacing-300);
 			padding-inline-start: 0;
-
-			/* full-width li */
-			align-items: stretch;
 		}
 
 		.nav-list-item {
