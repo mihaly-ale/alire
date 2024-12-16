@@ -1,7 +1,7 @@
 ---
 title: Masaje Craneal
 subtitle: Beneficios para el Bienestar
-author: Mayra Emese
+author: Ayra Kenese
 isDraft: false
 publishedDate: 2024-12-05
 category: ['masaje', 'craneal', 'relajación']
