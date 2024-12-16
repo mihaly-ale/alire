@@ -34,22 +34,22 @@ const filteredPosts = blogEntries.filter((entry) =>
 			<ul>
 				{
 					filteredPosts.map((post) => (
-						<li>
-							<article class="container">
-								<h2 class="blog-title">
-									<a href={`/blog/${post.slug}`}>{post.data.title}</a>
-									<br />
-									<small>
-										de
-										<a class="author" href={`/blog/${post.data.author}`}>
-											{post.data.author}
-										</a>
-									</small>
-								</h2>
+						<li class="container">
+							<h2 class="blog-title">
+								<a href={`/blog/${post.slug}`}>{post.data.title}</a>
+								<br />
+							</h2>
 
-								<p class="blog-excerpt">{post.body.slice(0, 250)} ...</p>
+							<p>
+								<small>
+									de
+									<a class="author" href={`/blog/${post.data.author}`}>
+										{post.data.author}
+									</a>
+									,
+								</small>
 
-								<p>
+								<span>
 									{new Date(post.data.publishedDate).toLocaleDateString(
 										'es-ES',
 										{
@@ -58,19 +58,26 @@ const filteredPosts = blogEntries.filter((entry) =>
 											day: 'numeric',
 										}
 									)}
-								</p>
+								</span>
+							</p>
 
-								<ul class="categories">
-									{post.data.categories.map((category) => (
-										<li>
-											<a href={`/blog/${category}`} class="category">
-												{category}
-											</a>
-										</li>
-									))}
-								</ul>
-								<Image src={pageMotif} alt="" width="24" height="24" />
-							</article>
+							<p class="blog-excerpt">{post.body.split('##')[0]}</p>
+
+							<ul class="categories margin-extra">
+								{post.data.categories.map((category) => (
+									<li>
+										<a href={`/blog/${category}`} class="category">
+											{category}
+										</a>
+									</li>
+								))}
+							</ul>
+
+							<a class="btn btn-secondary" href={`/blog/${post.slug}`}>
+								Saber más
+							</a>
+
+							<Image src={pageMotif} alt="" width="24" height="24" />
 						</li>
 					))
 				}

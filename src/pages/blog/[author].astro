@@ -38,8 +38,6 @@ const filteredPosts = blogEntries.filter(
 									<a href={`/blog/${post.slug}`}>{post.data.title}</a>
 								</h2>
 
-								<p class="blog-excerpt">{post.body.slice(0, 250)} ...</p>
-
 								<p>
 									{new Date(post.data.publishedDate).toLocaleDateString(
 										'es-ES',
@@ -51,7 +49,9 @@ const filteredPosts = blogEntries.filter(
 									)}
 								</p>
 
-								<ul class="categories">
+								<p class="blog-excerpt">{post.body.split('##')[0]}</p>
+
+								<ul class="categories margin-extra">
 									{post.data.categories.map((category) => (
 										<li>
 											<a href={`/blog/${category}`} class="category">
@@ -60,6 +60,11 @@ const filteredPosts = blogEntries.filter(
 										</li>
 									))}
 								</ul>
+
+								<a class="btn btn-secondary" href={`/blog/${post.slug}`}>
+									Saber más
+								</a>
+
 								<Image src={pageMotif} alt="" width="24" height="24" />
 							</article>
 						</li>

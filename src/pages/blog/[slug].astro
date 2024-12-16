@@ -13,4 +13,5 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
+<pre>{JSON.stringify(entry, null, 2)}</pre>
 <Content />
