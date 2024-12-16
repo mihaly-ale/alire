@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import pageMotif from '../../../public/logos/motif-dark.svg';
+
+export async function getStaticPaths() {
+	const blogEntries = await getCollection('blog');
+
+	return blogEntries.map((entry) => ({
+		params: { author: entry.data.author },
+		props: { author: entry.data.author, blogEntries },
+	}));
+}
+
+const { author, blogEntries } = Astro.props;
+
+const filteredPosts = blogEntries.filter(
+	(entry) => entry.data.author === author
+);
+---
+
+<Layout
+	title=`Entradas de ${author}`
+	headline=`Entradas de ${author}`
+	showHero={false}
+	heroShrunk={true}
+	isSecondaryPage={true}>
+	<main class="secondary-page-content">
+		<section>
+			<ul>
+				{
+					filteredPosts.map((post) => (
+						<li>
+							<article class="container">
+								<h2 class="blog-title">
+									<a href={`/blog/${post.slug}`}>{post.data.title}</a>
+								</h2>
+
+								<p class="blog-excerpt">{post.body.slice(0, 250)} ...</p>
+
+								<p>
+									{new Date(post.data.publishedDate).toLocaleDateString(
+										'es-ES',
+										{
+											year: 'numeric',
+											month: 'long',
+											day: 'numeric',
+										}
+									)}
+								</p>
+
+								<ul class="tags">
+									{post.data.category.map((category) => (
+										<li>
+											<a href={`${category}`} class="tag">
+												{category}
+											</a>
+										</li>
+									))}
+								</ul>
+								<Image src={pageMotif} alt="" width="24" height="24" />
+							</article>
+						</li>
+					))
+				}
+			</ul>
+		</section>
+	</main>
+</Layout>
