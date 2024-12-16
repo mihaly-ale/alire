@@ -1,5 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Image from 'astro/components/Image.astro';
+import '../../styles/secondary-page.css';
 
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('blog');
@@ -11,7 +14,51 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+console.log(entry);
 ---
 
-<pre>{JSON.stringify(entry, null, 2)}</pre>
-<Content />
+<Layout
+	title={entry.data.title}
+	headline=`${entry.data.title} -	${entry.data.subtitle}`
+	showHero={false}
+	heroShrunk={true}
+	isSecondaryPage={true}>
+	<main class="secondary-page-content">
+		<section class="container">
+			<p>
+				<span class="author">{entry.data.author}</span> &middot; {
+					new Date(entry.data.publishedDate).toLocaleDateString('es-ES', {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric',
+					})
+				}
+			</p>
+
+			<ul class="categories margin-extra">
+				{
+					entry.data.categories.map((category) => (
+						<li>
+							<a href={`/blog/${category}`} class="category">
+								{category}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+
+			<Image
+				src={entry.data.image}
+				alt=""
+				aria-hidden="true"
+				width="500"
+				height="300"
+				decoding="async"
+				loading="eager"
+				class="blog-image"
+			/>
+
+			<Content />
+		</section>
+	</main></Layout
+>
