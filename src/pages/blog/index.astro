@@ -1,6 +1,8 @@
 ---
 // components import
 import SecondaryLayout from '../../layouts/SecondaryLayout.astro';
+import BreadcrumbNavigation from '../../components/BreadcrumbNavigation.astro';
+import { BreadcrumbsItem } from 'accessible-astro-components';
 import { Image } from 'astro:assets';
 
 // utility import
@@ -19,6 +21,11 @@ const headline = 'Mi Blog';
 <SecondaryLayout title="Blog">
 	<div class="secondary-page-content">
 		<h1>{headline}</h1>
+
+		<BreadcrumbNavigation>
+			<BreadcrumbsItem href="/" label="Inicio" />
+			<BreadcrumbsItem href="/blog" label="Blog" currentPage={true} />
+		</BreadcrumbNavigation>
 
 		<main>
 			<ul>

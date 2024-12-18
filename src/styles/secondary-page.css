@@ -1,7 +1,7 @@
 .secondary-page-content {
 	margin-inline: auto;
-	width: 800px;
-	max-width: 100%;
+	width: 100%;
+	max-width: 65ch;
 
 	display: flex;
 	flex-direction: column;

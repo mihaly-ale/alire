@@ -1,0 +1,24 @@
+---
+const { label = 'Ruta de nevegación' } = Astro.props;
+---
+
+<nav aria-label=`${label}` class="breadcrumb-nav">
+	<ol class="breadcrumb-list">
+		<slot />
+	</ol>
+</nav>
+
+<style>
+	.breadcrumb-nav {
+		margin-inline-start: 0;
+		align-self: flex-start;
+	}
+
+	.breadcrumb-list {
+		list-style-type: none;
+		padding-inline-start: 0;
+		color: var(--clr-ui-400);
+
+		display: flex;
+	}
+</style>

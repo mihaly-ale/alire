@@ -40,7 +40,7 @@ const { title, headline, tagline, showHero, heroShrunk, isSecondaryPage } =
 					<rect y="16" width="32" height="4" rx="2" fill=""></rect>
 				</svg>
 			</button>
-			<nav class="navigation">
+			<nav class="navigation" aria-label="navegación primaria">
 				<ul class="nav-list">
 					<li class="nav-list-item">
 						<a href="/" class="nav-link">Inicio</a>
@@ -120,7 +120,7 @@ const { title, headline, tagline, showHero, heroShrunk, isSecondaryPage } =
 		object-fit: fill;
 	}
 
-	nav {
+	nav[aria-label='navegación primaria'] {
 		padding-block: var(--em-spacing-100);
 		margin-inline-start: var(--em-spacing-200);
 	}

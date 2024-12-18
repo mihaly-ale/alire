@@ -1,6 +1,8 @@
 ---
 // components import
 import SecondaryLayout from '../../layouts/SecondaryLayout.astro';
+import BreadcrumbNavigation from '../../components/BreadcrumbNavigation.astro';
+import { BreadcrumbsItem } from 'accessible-astro-components';
 import { Image } from 'astro:assets';
 
 // utility import
@@ -32,6 +34,16 @@ const filteredPosts = blogEntries.filter((entry) =>
 
 <SecondaryLayout title=`Entradas en ${category}`>
 	<div class="secondary-page-content">
+		<BreadcrumbNavigation>
+			<BreadcrumbsItem href="/" label="Inicio" />
+			<BreadcrumbsItem href="/blog" label="Blog" />
+			<BreadcrumbsItem
+				href="/blog"
+				label={category.charAt(0).toUpperCase() + category.slice(1)}
+				currentPage={true}
+			/>
+		</BreadcrumbNavigation>
+
 		<main>
 			<h1>Entradas en {category}</h1>
 

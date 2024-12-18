@@ -1,6 +1,8 @@
 ---
 // components import
 import SecondaryLayout from '../../layouts/SecondaryLayout.astro';
+import BreadcrumbNavigation from '../../components/BreadcrumbNavigation.astro';
+import { BreadcrumbsItem } from 'accessible-astro-components';
 import Image from 'astro/components/Image.astro';
 
 // utility import
@@ -23,6 +25,18 @@ const { Content } = await entry.render();
 
 <SecondaryLayout title={entry.data.title}>
 	<div class="secondary-page-content">
+		<BreadcrumbNavigation>
+			<BreadcrumbsItem href="/" label="Inicio" />
+			<BreadcrumbsItem href="/blog" label="Blog" />
+			<BreadcrumbsItem
+				href="/blog"
+				label=`${entry.data.title}
+				-
+				${entry.data.subtitle}`
+				currentPage={true}
+			/>
+		</BreadcrumbNavigation>
+
 		<main>
 			<article class="container">
 				<h1 class="blog-title">{entry.data.title} - {entry.data.subtitle}</h1>
