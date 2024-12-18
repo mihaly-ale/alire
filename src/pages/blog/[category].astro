@@ -1,8 +1,15 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
+// components import
+import SecondaryLayout from '../../layouts/SecondaryLayout.astro';
 import { Image } from 'astro:assets';
+
+// utility import
+import { getCollection } from 'astro:content';
+
+// assets import
 import pageMotif from '../../../public/logos/motif-dark.svg';
+
+// styles import
 import '../../styles/secondary-page.css';
 
 export async function getStaticPaths() {
@@ -23,20 +30,19 @@ const filteredPosts = blogEntries.filter((entry) =>
 );
 ---
 
-<Layout
-	title=`Entradas en ${category}`
-	headline=`Entradas de ${category}`
-	showHero={false}
-	heroShrunk={true}
-	isSecondaryPage={true}>
-	<main class="secondary-page-content">
-		<section>
+<SecondaryLayout title=`Entradas en ${category}`>
+	<div class="secondary-page-content">
+		<main>
+			<h1>Entradas en {category}</h1>
+
 			<ul>
 				{
 					filteredPosts.map((post) => (
 						<li class="container">
 							<h2 class="blog-title">
-								<a href={`/blog/${post.slug}`}>{post.data.title}</a>
+								<a href={`/blog/${post.slug}`}>
+									{post.data.title} - {post.data.subtitle}
+								</a>
 								<br />
 							</h2>
 
@@ -82,6 +88,6 @@ const filteredPosts = blogEntries.filter((entry) =>
 					))
 				}
 			</ul>
-		</section>
-	</main>
-</Layout>
+		</main>
+	</div>
+</SecondaryLayout>

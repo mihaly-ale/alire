@@ -1,73 +1,82 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
+// components import
+import SecondaryLayout from '../../layouts/SecondaryLayout.astro';
 import { Image } from 'astro:assets';
+
+// utility import
+import { getCollection } from 'astro:content';
+
+// assets import
 import pageMotif from '../../../public/logos/motif-dark.svg';
-const blogPosts = await getCollection('blog');
+
+// styles import
 import '../../styles/secondary-page.css';
+
+const blogPosts = await getCollection('blog');
+const headline = 'Mi Blog';
 ---
 
-<Layout
-	title="Blogs"
-	headline="Mi Blog"
-	showHero={false}
-	heroShrunk={true}
-	isSecondaryPage={true}>
-	<main class="secondary-page-content">
-		<ul>
-			{
-				blogPosts.map((post) => (
-					<li class="container">
-						<h2 class="blog-title">
-							<a href={`/blog/${post.slug}`}>
-								{post.data.title} - {post.data.subtitle}
+<SecondaryLayout title="Blog">
+	<div class="secondary-page-content">
+		<h1>{headline}</h1>
+
+		<main>
+			<ul>
+				{
+					blogPosts.map((post) => (
+						<li class="container">
+							<h2 class="blog-title">
+								<a href={`/blog/${post.slug}`}>
+									{post.data.title} - {post.data.subtitle}
+								</a>
+							</h2>
+							<p>
+								<a href={`/blog/${post.data.author}`} class="author">
+									{post.data.author}
+								</a>
+								&nbsp;&middot;
+								{new Date(post.data.publishedDate).toLocaleDateString('es-ES', {
+									year: 'numeric',
+									month: 'long',
+									day: 'numeric',
+								})}
+							</p>
+							<ul class="categories">
+								{post.data.categories.map((category) => (
+									<li>
+										<a href={`/blog/${category}`} class="category">
+											{category}
+										</a>
+									</li>
+								))}
+							</ul>
+							<a href={`/blog/${post.slug}`} class="blog-link">
+								<Image
+									src={post.data.image.src}
+									alt={post.data.image.alt}
+									aria-hidden="true"
+									width="500"
+									height="300"
+									decoding="async"
+									loading="eager"
+									class="blog-image"
+								/>
 							</a>
-						</h2>
-
-						<p>
-							<a href={`/blog/${post.data.author}`} class="author">
-								{post.data.author}
+							<p class="blog-excerpt">{post.body.split('##')[0]}</p>
+							<a class="btn btn-secondary" href={`/blog/${post.slug}`}>
+								Saber más
 							</a>
-							&nbsp;&middot;
-							{new Date(post.data.publishedDate).toLocaleDateString('es-ES', {
-								year: 'numeric',
-								month: 'long',
-								day: 'numeric',
-							})}
-						</p>
+							<Image src={pageMotif} alt="" width="24" height="24" />
+						</li>
+					))
+				}
+			</ul>
+		</main>
+	</div>
+</SecondaryLayout>
 
-						<ul class="categories">
-							{post.data.categories.map((category) => (
-								<li>
-									<a href={`/blog/${category}`} class="category">
-										{category}
-									</a>
-								</li>
-							))}
-						</ul>
-
-						<a href={`/blog/${post.slug}`} class="blog-link">
-							<Image
-								src={post.data.image.src}
-								alt={post.data.image.alt}
-								aria-hidden="true"
-								width="500"
-								height="300"
-								decoding="async"
-								loading="eager"
-								class="blog-image"
-							/>
-						</a>
-						<p class="blog-excerpt">{post.body.split('##')[0]}</p>
-
-						<a class="btn btn-secondary" href={`/blog/${post.slug}`}>
-							Saber más
-						</a>
-
-						<Image src={pageMotif} alt="" width="24" height="24" />
-					</li>
-				))
-			}
-		</ul>
-	</main>
-</Layout>
+<style>
+	ul {
+		margin: 0;
+	}
+</style>

@@ -1,7 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
+// components import
+import SecondaryLayout from '../../layouts/SecondaryLayout.astro';
 import Image from 'astro/components/Image.astro';
+
+// utility import
+import { getCollection } from 'astro:content';
+
+// styles import
 import '../../styles/secondary-page.css';
 
 export async function getStaticPaths() {
@@ -14,51 +19,50 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-console.log(entry);
 ---
 
-<Layout
-	title={entry.data.title}
-	headline=`${entry.data.title} -	${entry.data.subtitle}`
-	showHero={false}
-	heroShrunk={true}
-	isSecondaryPage={true}>
-	<main class="secondary-page-content">
-		<section class="container">
-			<p>
-				<span class="author">{entry.data.author}</span> &middot; {
-					new Date(entry.data.publishedDate).toLocaleDateString('es-ES', {
-						year: 'numeric',
-						month: 'long',
-						day: 'numeric',
-					})
-				}
-			</p>
+<SecondaryLayout title={entry.data.title}>
+	<div class="secondary-page-content">
+		<main>
+			<article class="container">
+				<h1 class="blog-title">{entry.data.title} - {entry.data.subtitle}</h1>
+				<p>
+					<a href={`../blog/${entry.data.author}`} class="author"
+						>{entry.data.author}</a
+					> &middot; {
+						new Date(entry.data.publishedDate).toLocaleDateString('es-ES', {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric',
+						})
+					}
+				</p>
 
-			<ul class="categories margin-extra">
-				{
-					entry.data.categories.map((category) => (
-						<li>
-							<a href={`/blog/${category}`} class="category">
-								{category}
-							</a>
-						</li>
-					))
-				}
-			</ul>
+				<ul class="categories margin-extra">
+					{
+						entry.data.categories.map((category) => (
+							<li>
+								<a href={`/blog/${category}`} class="category">
+									{category}
+								</a>
+							</li>
+						))
+					}
+				</ul>
 
-			<Image
-				src={entry.data.image.src}
-				alt={entry.data.image.alt}
-				aria-hidden="true"
-				width="500"
-				height="300"
-				decoding="async"
-				loading="eager"
-				class="blog-image"
-			/>
+				<Image
+					src={entry.data.image.src}
+					alt={entry.data.image.alt}
+					aria-hidden="true"
+					width="500"
+					height="300"
+					decoding="async"
+					loading="eager"
+					class="blog-image"
+				/>
 
-			<Content />
-		</section>
-	</main></Layout
->
+				<Content />
+			</article>
+		</main>
+	</div>
+</SecondaryLayout>
