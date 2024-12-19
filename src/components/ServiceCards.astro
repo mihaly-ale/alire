@@ -1,6 +1,9 @@
 ---
-const serviceCards = await Astro.glob('../../src/content/services/*.md');
+// component import
 import ServiceCardModals from './ServiceCardModals.astro';
+
+// assets import
+const serviceCards = await Astro.glob('../../src/content/services/*.md');
 ---
 
 {

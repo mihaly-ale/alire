@@ -1,29 +1,29 @@
 ---
-const { headline, tagline, showHero = true, heroShrunk = false } = Astro.props;
+// component import
 import { Image } from 'astro:assets';
+
+// assets import
 import heroImage from '../assets/hero-image.jpg';
+const { headline, tagline } = Astro.props;
 ---
 
-<section class:list={['hero-section', {'hero-shrunk': heroShrunk}]}>
+<section class="hero-section">
 	<h1 class="headline">{headline}</h1>
 
-	{
-		showHero && (
-			<Image
-				src={heroImage}
-				alt=""
-				aria-hidden="true"
-				widths={[800, 1200, 1600, 2000, 3000]}
-				sizes={`(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (max-width:2000px) 2000px, (min-width: 2001px) 3000px`}
-				decoding="async"
-				quality="70"
-				loading="eager"
-				class="background-image"
-			/>
+	<Image
+		src={heroImage}
+		alt=""
+		aria-hidden="true"
+		widths={[800, 1200, 1600, 2000, 3000]}
+		sizes={`(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (max-width:2000px) 2000px, (min-width: 2001px) 3000px`}
+		decoding="async"
+		quality="70"
+		loading="eager"
+		class="background-image"
+	/>
 
-			<p class="tagline">{tagline}</p>
-			<a href="#contacto" class="btn btn-cta">MimaTe</a>)
-	}
+	<p class="tagline">{tagline}</p>
+	<a href="#contacto" class="btn btn-cta">MimaTe</a>)
 </section>
 
 <style>
@@ -34,37 +34,6 @@ import heroImage from '../assets/hero-image.jpg';
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-	}
-
-	.hero-shrunk {
-		min-height: 0;
-		margin-block-start: var(--rem-spacing-200);
-
-	& .headline {
-		color: var(--text-color);
-		font-weight: var(--fw-600);
-		font-family: Poppins;
-		font-size: clamp(var(--fs-phone-h2), 3vw, var(--fs-desktop-h2));
-		margin-block-end: calc(1ex / 0.72);
-	}
-}
-
-	32.6875em = 523px
-	@media screen and (width <= 523px) {
-		.hero-shrunk {
-			padding-block-start: var(--rem-spacing-700);
-		}
-	}
-
-	:global(.background-image) {
-		background-color: currentColor;
-		position: absolute;
-		inset: 0;
-		z-index: -1;
-		object-fit: cover;
-		filter: brightness(70%);
-		width: 100%;
-		height: 100%;
 	}
 
 	.headline,
@@ -89,48 +58,5 @@ import heroImage from '../assets/hero-image.jpg';
 		max-width: 22ch;
 		line-height: 1.3;
 		margin-block-end: 1em;
-	}
-
-	:global(.btn) {
-		display: inline-block;
-		padding: var(--em-spacing-25) var(--em-spacing-75);
-		border-radius: var(--rad-25);
-		border: 1px solid currentColor;
-		cursor: pointer;
-		transition: all 250ms;
-		text-decoration: none;
-	}
-
-	.btn-cta {
-		font-size: clamp(var(--fs-phone-h4), 2vw, var(--fs-desktop-h3));
-		color: var(--clr-primary-200);
-		background-color: var(--clr-transparent-50);
-		letter-spacing: 2px;
-		border-width: 2px;
-
-		&:hover {
-			background-color: var(--bg-color);
-			color: var(--text-color);
-		}
-
-		&:active {
-			opacity: 0.75;
-		}
-	}
-
-	:global(.btn-secondary) {
-		font-size: clamp(var(--fs-phone-large), 1.45vw, var(--fs-desktop-large));
-		color: var(--text-color);
-		background-color: var(--clr-primary-200);
-		letter-spacing: 2px;
-		align-self: flex-start;
-
-		&:hover {
-			background-color: var(--clr-primary-300);
-		}
-
-		&:active {
-			opacity: 0.75;
-		}
 	}
 </style>
