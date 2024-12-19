@@ -352,3 +352,7 @@ ol {
 	padding: 0;
 }
 
+li::marker {
+	font-size: 0;
+}
+
