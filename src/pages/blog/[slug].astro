@@ -3,13 +3,10 @@
 import SecondaryLayout from '../../layouts/SecondaryLayout.astro';
 import BreadcrumbNavigation from '../../components/BreadcrumbNavigation.astro';
 import { BreadcrumbsItem } from 'accessible-astro-components';
-import Image from 'astro/components/Image.astro';
+import { Image } from 'astro:assets';
 
 // utility import
 import { getCollection } from 'astro:content';
-
-// styles import
-import '../../styles/secondary-page.css';
 
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('blog');
@@ -30,9 +27,7 @@ const { Content } = await entry.render();
 			<BreadcrumbsItem href="/blog" label="Blog" />
 			<BreadcrumbsItem
 				href="/blog"
-				label=`${entry.data.title}
-				-
-				${entry.data.subtitle}`
+				label=`${entry.data.title}`
 				currentPage={true}
 			/>
 		</BreadcrumbNavigation>
@@ -40,29 +35,31 @@ const { Content } = await entry.render();
 		<main>
 			<article class="container">
 				<h1 class="blog-title">{entry.data.title} - {entry.data.subtitle}</h1>
-				<p>
-					<a href={`../blog/${entry.data.author}`} class="author"
-						>{entry.data.author}</a
-					> &middot; {
-						new Date(entry.data.publishedDate).toLocaleDateString('es-ES', {
-							year: 'numeric',
-							month: 'long',
-							day: 'numeric',
-						})
-					}
-				</p>
+				<small>
+					<p>
+						<a href={`../blog/${entry.data.author}`} class="author"
+							>{entry.data.author}</a
+						> &middot; {
+							new Date(entry.data.publishedDate).toLocaleDateString('es-ES', {
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric',
+							})
+						}
 
-				<ul class="categories margin-extra">
-					{
-						entry.data.categories.map((category) => (
-							<li>
-								<a href={`/blog/${category}`} class="category">
-									{category}
-								</a>
-							</li>
-						))
-					}
-				</ul>
+						<ul class="categories">
+							{
+								entry.data.categories.map((category) => (
+									<li>
+										<a href={`/blog/${category}`} class="category">
+											{category}
+										</a>
+									</li>
+								))
+							}
+						</ul>
+					</p>
+				</small>
 
 				<Image
 					src={entry.data.image.src}

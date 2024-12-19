@@ -11,9 +11,6 @@ import { getCollection } from 'astro:content';
 // assets import
 import pageMotif from '../../../public/logos/motif-dark.svg';
 
-// styles import
-import '../../styles/secondary-page.css';
-
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('blog');
 
@@ -49,25 +46,30 @@ const filteredPosts = blogEntries.filter(
 								<a href={`/blog/${post.slug}`}>{post.data.title}</a>
 							</h2>
 
-							<p>
-								{new Date(post.data.publishedDate).toLocaleDateString('es-ES', {
-									year: 'numeric',
-									month: 'long',
-									day: 'numeric',
-								})}
-							</p>
+							<small>
+								<p>
+									{new Date(post.data.publishedDate).toLocaleDateString(
+										'es-ES',
+										{
+											year: 'numeric',
+											month: 'long',
+											day: 'numeric',
+										}
+									)}
+								</p>
+
+								<ul class="categories">
+									{post.data.categories.map((category) => (
+										<li>
+											<a href={`/blog/${category}`} class="category">
+												{category}
+											</a>
+										</li>
+									))}
+								</ul>
+							</small>
 
 							<p class="blog-excerpt">{post.body.split('##')[0]}</p>
-
-							<ul class="categories margin-extra">
-								{post.data.categories.map((category) => (
-									<li>
-										<a href={`/blog/${category}`} class="category">
-											{category}
-										</a>
-									</li>
-								))}
-							</ul>
 
 							<a class="btn btn-secondary" href={`/blog/${post.slug}`}>
 								Saber más
