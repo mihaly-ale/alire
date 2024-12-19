@@ -22,43 +22,45 @@ const { title, headline, tagline } = Astro.props;
 	</head>
 
 	<body>
-		<header>
-			<a href="/">
-				<div class="logo-container">
-					<img src="/logos/logomark.svg" alt="Alire." class="header-logo" />
-				</div>
-			</a>
-			<button class="nav-toggle-button">
-				<span class="visually-hidden">Menu</span>
-				<svg
-					class="nav-toggle-icon"
-					width="32"
-					height="20"
-					viewBox="0 0 32 20"
-					fill="var(--clr-primary-100)"
-					xmlns="http://www.w3.org/2000/svg">
-					<rect width="32" height="4" rx="2" fill=""></rect>
-					<rect y="8" width="32" height="4" rx="2" fill=""></rect>
-					<rect y="16" width="32" height="4" rx="2" fill=""></rect>
-				</svg>
-			</button>
-			<nav class="navigation" aria-label="navegación primaria">
-				<ul class="nav-list">
-					<li class="nav-list-item">
-						<a href="/" class="nav-link">Inicio</a>
-					</li>
-					<li class="nav-list-item">
-						<a href="/#tratamientos" class="nav-link">Tratamientos</a>
-					</li>
-					<li class="nav-list-item">
-						<a href="/blog" class="nav-link">Blog</a>
-					</li>
-					<li class="nav-list-item">
-						<a href="/#contacto" class="contact nav-link">Contacto</a>
-					</li>
-				</ul>
-			</nav>
-		</header>
+		<div class="full-bleed-header">
+			<header>
+				<a href="/">
+					<div class="logo-container">
+						<img src="/logos/logomark.svg" alt="Alire." class="header-logo" />
+					</div>
+				</a>
+				<button class="nav-toggle-button">
+					<span class="visually-hidden">Menu</span>
+					<svg
+						class="nav-toggle-icon"
+						width="32"
+						height="20"
+						viewBox="0 0 32 20"
+						fill="var(--clr-primary-100)"
+						xmlns="http://www.w3.org/2000/svg">
+						<rect width="32" height="4" rx="2" fill=""></rect>
+						<rect y="8" width="32" height="4" rx="2" fill=""></rect>
+						<rect y="16" width="32" height="4" rx="2" fill=""></rect>
+					</svg>
+				</button>
+				<nav class="navigation" aria-label="navegación primaria">
+					<ul class="nav-list">
+						<li class="nav-list-item">
+							<a href="/" class="nav-link">Inicio</a>
+						</li>
+						<li class="nav-list-item">
+							<a href="/#tratamientos" class="nav-link">Tratamientos</a>
+						</li>
+						<li class="nav-list-item">
+							<a href="/blog" class="nav-link">Blog</a>
+						</li>
+						<li class="nav-list-item">
+							<a href="/#contacto" class="contact nav-link">Contacto</a>
+						</li>
+					</ul>
+				</nav>
+			</header>
+		</div>
 
 		<Hero headline={headline} tagline={tagline} />
 
