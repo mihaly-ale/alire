@@ -19,11 +19,11 @@ const { headline, tagline } = Astro.props;
 		decoding="async"
 		quality="70"
 		loading="eager"
-		class="background-image"
+		class="background-image hero-image"
 	/>
 
 	<p class="tagline">{tagline}</p>
-	<a href="#contacto" class="btn btn-cta">MimaTe</a>)
+	<a href="#contacto" class="btn btn-cta">MimaTe</a>
 </section>
 
 <style>
@@ -34,6 +34,10 @@ const { headline, tagline } = Astro.props;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+	}
+
+	.hero-image {
+		object-position: top;
 	}
 
 	.headline,
