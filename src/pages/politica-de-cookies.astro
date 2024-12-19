@@ -1,15 +1,25 @@
 ---
+// components import
+import SecondaryLayout from '../layouts/SecondaryLayout.astro';
+import BreadcrumbNavigation from '../components/BreadcrumbNavigation.astro';
+import { BreadcrumbsItem } from 'accessible-astro-components';
+
+// assets import
 import * as Cookies from '../../src/content/legal/politica-de-cookies.md';
-import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout
-	title={Cookies.frontmatter.title}
-	headline={Cookies.frontmatter.title}
-	showHero={false}
-	heroShrunk={true}
-	isSecondaryPage={true}>
-	<main class="legal-page-content">
-		<Cookies.Content />
-	</main>
-</Layout>
+<SecondaryLayout title={Cookies.frontmatter.title}>
+	<div class="secondary-page-content">
+		<h1>{Cookies.frontmatter.title}</h1>
+
+		<BreadcrumbNavigation>
+			<BreadcrumbsItem href="/" label="Inicio" />
+			<BreadcrumbsItem
+				label=`${Cookies.frontmatter.title}`
+				currentPage={true}
+			/>
+		</BreadcrumbNavigation>
+
+		<main><Cookies.Content /></main>
+	</div>
+</SecondaryLayout>

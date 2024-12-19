@@ -1,15 +1,24 @@
 ---
+// components import
+import SecondaryLayout from '../layouts/SecondaryLayout.astro';
+import BreadcrumbNavigation from '../components/BreadcrumbNavigation.astro';
+import { BreadcrumbsItem } from 'accessible-astro-components';
+
+// assets import
 import * as Aviso from '../../src/content/legal/aviso-legal.md';
-import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout
-	title={Aviso.frontmatter.title}
-	headline={Aviso.frontmatter.title}
-	showHero={false}
-	heroShrunk={true}
-	isSecondaryPage={true}>
-	<main class="legal-page-content">
-		<Aviso.Content />
-	</main>
-</Layout>
+<SecondaryLayout title={Aviso.frontmatter.title}>
+	<div class="secondary-page-content">
+		<h1>{Aviso.frontmatter.title}</h1>
+
+		<BreadcrumbNavigation>
+			<BreadcrumbsItem href="/" label="Inicio" />
+			<BreadcrumbsItem label=`${Aviso.frontmatter.title}` currentPage={true} />
+		</BreadcrumbNavigation>
+
+		<main>
+			<Aviso.Content />
+		</main>
+	</div>
+</SecondaryLayout>

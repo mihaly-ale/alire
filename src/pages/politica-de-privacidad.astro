@@ -1,15 +1,27 @@
 ---
+// components import
+import SecondaryLayout from '../layouts/SecondaryLayout.astro';
+import BreadcrumbNavigation from '../components/BreadcrumbNavigation.astro';
+import { BreadcrumbsItem } from 'accessible-astro-components';
+
+// assets import
 import * as Privacidad from '../../src/content/legal/politica-de-privacidad.md';
-import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout
-	title={Privacidad.frontmatter.title}
-	headline={Privacidad.frontmatter.title}
-	showHero={false}
-	heroShrunk={true}
-	isSecondaryPage={true}>
-	<main class="legal-page-content">
-		<Privacidad.Content />
-	</main>
-</Layout>
+<SecondaryLayout title={Privacidad.frontmatter.title}>
+	<div class="secondary-page-content">
+		<h1>{Privacidad.frontmatter.title}</h1>
+
+		<BreadcrumbNavigation>
+			<BreadcrumbsItem href="/" label="Inicio" />
+			<BreadcrumbsItem
+				label=`${Privacidad.frontmatter.title}`
+				currentPage={true}
+			/>
+		</BreadcrumbNavigation>
+
+		<main>
+			<Privacidad.Content />
+		</main>
+	</div>
+</SecondaryLayout>
