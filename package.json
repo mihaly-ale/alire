@@ -13,7 +13,7 @@
     "astro": "^4.16.10"
   },
   "devDependencies": {
-    "accessible-astro-components": "^2.3.6",
+    "accessible-astro-components": "^3.0.1",
     "sass-embedded": "^1.81.0"
   }
 }

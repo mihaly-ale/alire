@@ -45,7 +45,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 <style is:global>
 	.modal {
 		box-shadow: 0 0 25px var(--clr-transparent-50);
-		border: none;
+		padding: 0;
+		width: 85%;
+		max-width: 800px;
 
 		&::backdrop {
 			background-color: var(--clr-transparent-50);
@@ -77,17 +79,37 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
 	.modal__content {
 		position: relative;
+		background-color: unset;
+
+		& .background-image {
+			margin-block-start: 0;
+			filter: brightness(40%);
+		}
 	}
 
-	.modal__close button {
-		background: var(--clr-primary-100);
-		padding: var(--em-spacing-50);
-		font-size: clamp(var(--fs-phone-large), 1.45vw, var(--fs-desktop-large));
-		font-weight: var(--fw-500);
+	.modal__close {
+		& button {
+			--modal-close-button-size: 3.5rem;
 
-		&:hover,
-		&:focus {
-			background: var(--clr-primary-300);
+			background: var(--clr-tertiary-200);
+			border-radius: var(--modal-close-button-size);
+			width: var(--modal-close-button-size);
+			aspect-ratio: 1;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			&:hover,
+			&:focus {
+				background: var(--clr-tertiary-300);
+			}
 		}
+	}
+
+	.modal__close-icon svg path {
+		fill: var(--text-color);
+		stroke: var(--text-color);
+		stroke-width: 10px;
 	}
 </style>
