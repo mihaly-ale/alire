@@ -1,28 +1,45 @@
 ---
-//  component import
+// components import
 import { Modal } from 'accessible-astro-components';
+import { Image } from 'astro:assets';
+
+// utility import
+import type { ImageMetadata } from 'astro';
 
 // assets import
 const overlays = await Astro.glob('../../src/content/overlays/*.md');
+const images = import.meta.glob<{ default: ImageMetadata }>(
+	'/src/assets/*-overlay.jpg'
+);
 ---
 
 {
-	overlays.map((overlay) => (
-		<Modal
-			triggerId={overlay.frontmatter.title}
-			title={overlay.frontmatter.title}
-			closeText="Cerrar">
-			<overlay.Content />
-			<img
-				src={`../../images/${overlay.frontmatter.resolvekey}-overlay.webp`}
-				alt=""
-				aria-hidden="true"
-				loading="lazy"
-				decoding="async"
-				class="background-image"
-			/>
-		</Modal>
-	))
+	overlays.map(async (overlay) => {
+		const resolveKey = overlay.frontmatter.resolvekey;
+		const resolvedImagePath = `/src/assets/${resolveKey}-overlay.jpg`;
+		const resolvedImage = await images[resolvedImagePath]?.();
+
+		return resolvedImage ? (
+			<Modal
+				triggerId={overlay.frontmatter.title}
+				title={overlay.frontmatter.title}
+				closeText="Cerrar">
+				<overlay.Content />
+				<Image
+					src={resolvedImage.default}
+					alt={overlay.frontmatter.title}
+					aria-hidden="true"
+					decoding="async"
+					quality="50"
+					loading="lazy"
+					format="webp"
+					class="background-image"
+				/>
+			</Modal>
+		) : (
+			console.log('Image for background not found')
+		);
+	})
 }
 
 <style is:global>
