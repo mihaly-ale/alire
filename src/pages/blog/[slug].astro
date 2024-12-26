@@ -19,10 +19,11 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-console.log(entry);
 ---
 
-<SecondaryLayout title={entry.data.title}>
+<SecondaryLayout
+	headline={entry.data.title}
+	title=`${entry.data.subtitle} | Alire`>
 	<div class="secondary-page-content">
 		<BreadcrumbNavigation>
 			<BreadcrumbsItem href="/" label="Inicio" />

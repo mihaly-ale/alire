@@ -46,8 +46,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 	.modal {
 		box-shadow: 0 0 25px var(--clr-transparent-50);
 		padding: 0;
-		width: 85%;
-		max-width: 800px;
+		width: 85% !important;
+		max-width: 800px !important;
 
 		&::backdrop {
 			background-color: var(--clr-transparent-50);
@@ -79,11 +79,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
 	.modal__content {
 		position: relative;
-		background-color: unset;
+		background-color: unset !important ;
 		padding-block-start: var(--rem-spacing-400);
 
 		& .background-image {
-			margin-block-start: 0;
+			margin-block-start: 0 !important;
 			filter: brightness(40%);
 		}
 	}

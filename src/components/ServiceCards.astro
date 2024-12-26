@@ -14,6 +14,7 @@ const serviceCards = await Astro.glob('../../src/content/services/*.md');
 					src={`/icons/icon-${card.frontmatter.icon}.svg`}
 					alt=""
 					class="card-icon"
+					loading="lazy"
 				/>
 				<h3 class="card-title">{card.frontmatter.title}</h3>
 				<card.Content />
