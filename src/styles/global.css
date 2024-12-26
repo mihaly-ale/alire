@@ -52,6 +52,91 @@ header {
 	object-fit: fill;
 }
 
+/* sections styling */
+.section {
+	padding-inline: var(--page-padding-phone);
+	padding-block: var(--section-padding-phone);
+}
+
+.flex-container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: var(--rem-spacing-200);
+
+	padding: 0;
+}
+
+.section-title {
+	font-family: Merienda;
+	font-size: clamp(var(--fs-phone-h2), 3vw, var(--fs-desktop-h2));
+
+	font-weight: 200;
+	text-transform: capitalize;
+	text-align: center;
+}
+
+.page-motif {
+	margin: 2rem auto 0;
+}
+
+.intro-section .flex-container p {
+	margin-block-end: 0;
+}
+
+.workflow-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form-section {
+	position: relative;
+}
+
+/* 40.875em = 654px */
+@media screen and (min-width: 40.875em) {
+	.workflow-section {
+		align-items: stretch;
+	}
+}
+
+/* 57.5em = 920px */
+@media screen and (min-width: 57.5em) {
+	.workflow-section {
+		align-items: center;
+	}
+}
+
+.linear-divider {
+	height: 25vh;
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	background-color: var(--clr-primary-200);
+	background-image: linear-gradient(
+		-45deg,
+		var(--clr-ui-600) 0%,
+		var(--clr-primary-600) 15%,
+		var(--clr-primary-500) 25%,
+		var(--clr-primary-400) 32.5%,
+		var(--clr-primary-300) 40%,
+		var(--clr-primary-100) 50%,
+		var(--clr-primary-300) 60%,
+		var(--clr-primary-400) 67.5%,
+		var(--clr-primary-500) 75%,
+		var(--clr-primary-600) 85%,
+		var(--clr-ui-600) 100%
+	);
+
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
 .background-image {
 	background-color: currentColor;
 	position: absolute;
