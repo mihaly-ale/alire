@@ -80,6 +80,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 	.modal__content {
 		position: relative;
 		background-color: unset;
+		padding-block-start: var(--rem-spacing-400);
 
 		& .background-image {
 			margin-block-start: 0;
@@ -89,7 +90,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
 	.modal__close {
 		& button {
-			--modal-close-button-size: 3.5rem;
+			--modal-close-button-size: 2.75rem;
 
 			background: var(--clr-tertiary-200);
 			border-radius: var(--modal-close-button-size);

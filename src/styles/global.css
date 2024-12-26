@@ -244,6 +244,7 @@ nav[aria-label='navegación primaria'] {
 	background-color: var(--clr-primary-200);
 	letter-spacing: 2px;
 	align-self: flex-start;
+	border: none;
 
 	&:hover {
 		background-color: var(--clr-primary-300);
@@ -267,10 +268,6 @@ nav[aria-label='navegación primaria'] {
 	padding-block-start: var(--rem-spacing-800);
 	margin-block-end: var(--rem-spacing-500);
 	padding-inline: var(--page-padding-phone);
-
-	& > * {
-		border: 1px solid red;
-	}
 }
 
 /* cookies table */
@@ -329,6 +326,7 @@ th {
 	color: var(--bg-color);
 	transition: all 150ms;
 	display: inline-block;
+	transition: all 150ms;
 
 	&:hover {
 		color: var(--text-color);
