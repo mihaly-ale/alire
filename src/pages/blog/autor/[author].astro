@@ -1,23 +1,26 @@
 ---
 // components import
-import SecondaryLayout from '../../layouts/SecondaryLayout.astro';
-import BreadcrumbNavigation from '../../components/BreadcrumbNavigation.astro';
+import SecondaryLayout from '../../../layouts/SecondaryLayout.astro';
+import BreadcrumbNavigation from '../../../components/BreadcrumbNavigation.astro';
 import { BreadcrumbsItem } from 'accessible-astro-components';
 import { Image } from 'astro:assets';
 
 // utility import
 import { getCollection } from 'astro:content';
+import slugify from '@sindresorhus/slugify';
 
 // assets import
-import pageMotif from '../../../public/logos/motif-dark.svg';
+import pageMotif from '../../../../public/logos/motif-dark.svg';
 
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('blog');
 
-	return blogEntries.map((entry) => ({
-		params: { author: entry.data.author },
-		props: { author: entry.data.author, blogEntries },
-	}));
+	return blogEntries.map((entry) => {
+		return {
+			params: { author: slugify(entry.data.author) },
+			props: { author: entry.data.author, blogEntries },
+		};
+	});
 }
 
 const { author, blogEntries } = Astro.props;
@@ -43,7 +46,9 @@ const filteredPosts = blogEntries.filter(
 					filteredPosts.map((post) => (
 						<li class="container">
 							<h2 class="blog-title">
-								<a href={`/blog/${post.slug}`}>{post.data.title}</a>
+								<a href={`/blog/${post.slug}`}>
+									{post.data.title} - {post.data.subtitle}
+								</a>
 							</h2>
 
 							<small>
@@ -61,7 +66,9 @@ const filteredPosts = blogEntries.filter(
 								<ul class="categories">
 									{post.data.categories.map((category) => (
 										<li>
-											<a href={`/blog/${category}`} class="category">
+											<a
+												href={`/blog/categoria/${slugify(category)}`}
+												class="category">
 												{category}
 											</a>
 										</li>

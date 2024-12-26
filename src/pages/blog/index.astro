@@ -7,6 +7,7 @@ import { Image } from 'astro:assets';
 
 // utility import
 import { getCollection } from 'astro:content';
+import slugify from '@sindresorhus/slugify';
 
 // assets import
 import pageMotif from '../../../public/logos/motif-dark.svg';
@@ -37,7 +38,9 @@ const headline = 'Mi Blog';
 
 							<small>
 								<p>
-									<a href={`/blog/${post.data.author}`} class="author">
+									<a
+										href={`/blog/autor/${slugify(post.data.author)}`}
+										class="author">
 										{post.data.author}
 									</a>
 									&nbsp;&middot;
@@ -53,7 +56,9 @@ const headline = 'Mi Blog';
 								<ul class="categories">
 									{post.data.categories.map((category) => (
 										<li>
-											<a href={`/blog/${category}`} class="category">
+											<a
+												href={`/blog/categoria/${slugify(category)}`}
+												class="category">
 												{category}
 											</a>
 										</li>

@@ -1,22 +1,23 @@
 ---
 // components import
-import SecondaryLayout from '../../layouts/SecondaryLayout.astro';
-import BreadcrumbNavigation from '../../components/BreadcrumbNavigation.astro';
+import SecondaryLayout from '../../../layouts/SecondaryLayout.astro';
+import BreadcrumbNavigation from '../../../components/BreadcrumbNavigation.astro';
 import { BreadcrumbsItem } from 'accessible-astro-components';
 import { Image } from 'astro:assets';
 
 // utility import
 import { getCollection } from 'astro:content';
+import slugify from '@sindresorhus/slugify';
 
 // assets import
-import pageMotif from '../../../public/logos/motif-dark.svg';
+import pageMotif from '../../../../public/logos/motif-dark.svg';
 
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('blog');
 
 	return blogEntries.flatMap((entry) =>
 		entry.data.categories.map((category) => ({
-			params: { category },
+			params: { category: slugify(category) },
 			props: { category, blogEntries },
 		}))
 	);
@@ -58,7 +59,9 @@ const filteredPosts = blogEntries.filter((entry) =>
 							<small>
 								<p>
 									de
-									<a class="author" href={`/blog/${post.data.author}`}>
+									<a
+										class="author"
+										href={`/blog/autor/${slugify(post.data.author)}`}>
 										{post.data.author}
 									</a>
 									&middot;
@@ -77,7 +80,9 @@ const filteredPosts = blogEntries.filter((entry) =>
 								<ul class="categories ">
 									{post.data.categories.map((category) => (
 										<li>
-											<a href={`/blog/${category}`} class="category">
+											<a
+												href={`/blog/categoria/${slugify(category)}`}
+												class="category">
 												{category}
 											</a>
 										</li>
