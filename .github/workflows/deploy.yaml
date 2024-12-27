@@ -30,6 +30,6 @@ jobs:
           server: ftp.your-hostinger-server.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: dist
+          local-dir: dist/
           server-dir: /public_html
 
