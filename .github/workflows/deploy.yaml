@@ -1,4 +1,4 @@
-name: Deploy to Hostinger
+name: Deploy to Hostinger via SFTP
 
 on:
   push:
@@ -24,8 +24,8 @@ jobs:
       - name: Build Site
         run: npm run build
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy via SFTP
+        uses: appleboy/ftp-action@v1.2.0
         with:
           server: ftp.92.113.28.191
           username: ${{ secrets.FTP_USERNAME }}
