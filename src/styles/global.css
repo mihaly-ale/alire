@@ -473,7 +473,3 @@ small {
 	font-size: clamp(var(--fs-phone-small), 1.45vw, var(--fs-desktop-small));
 }
 
-small a {
-	/* padding: calc(var(--em-spacing-25) / 6) var(--em-spacing-50) !important; */
-}
-
