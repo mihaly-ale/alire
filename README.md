@@ -1,4 +1,4 @@
-# Alire - A website project | [www.alire.me](https://www.alire.me)
+# Alire - A website project | <a href="https://www.alire.me" target="_blank">www.alire.me</a>
 
 ![Alire Logo](./public/logos/wordmark-gradient.svg#gh-light-mode-only)
 ![Alire Logo](./public/logos/wordmark-stroke.svg#gh-dark-mode-only)
