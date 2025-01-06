@@ -1,54 +1,92 @@
-# Astro Starter Kit: Basics
+# Alire - A website project
 
-```sh
-npm create astro@latest -- --template basics
-```
+![Alire Logo](./public/logos/wordmark-gradient.svg#gh-light-mode-only)
+![Alire Logo](./public/logos/wordmark-stroke.svg#gh-dark-mode-only)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Company Description
+Alire is a natural therapeutic company embracing a holistic approach, providing a variety of services including massage, osteopathy, nutrition, and biomagnetism. 
+This website serves as an introduction to the company's philosophy and services.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Project Goal
+The primary objective of this project was to experiment with the Astro.js framework as a component-based approach to web development.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+![Screenshots of the Page - Home](./readme-media/alire-home.jpg)
+![Screenshots of the Page - Services](./readme-media/alire-services.jpg)
+![Screenshots of the Page - Contact](./readme-media/alire-contact.jpg)
+![Screenshots of the Page - Blog](./readme-media/alire-blog.jpg)
 
-## 🚀 Project Structure
+## Technologies Used
+- **Figma**: Creating design and logos. [Link to Figma design](https://www.figma.com/proto/Ye1NIbMhdbf1XPc3QSTGgw/ALIRE?node-id=276-3033&t=9T0ZsaBmUtFDVFD5-1)
+- **SCSS**: Styling with modular and advanced CSS features
+- **Astro.js**: Framework for building the site with components
 
-Inside of your Astro project, you'll see the following folders and files:
+### Hosting
+- **Hostinger**: The project is hosted on Hostinger.
+Since Astro doesn't offer a deployment guide specifically for Hostinger, setting up the site required some unexpected experimentation.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Libraries Used
+- **Accessible Astro s omponents**: Utilized for building accessible and reusable UI components [Link](https://github.com/markteekman/accessible-astro-components)
+- **Slugify by sindresorhus**: Included to handle string conversion for URLs and identifiers [Link](https://github.com/sindresorhus/slugify)
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Challenges Faced
+1. **First Time Using a Framework**
+   - This project marked my first experience with a framework, moving from traditional static development to component-based architecture with Astro.js.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+2. **Advanced Git Practices**
+   - Explored branching and rebasing techniques.
+   - Worked extensively with git logs, including `reflog` for troubleshooting.
+   - Gained experience with merging versus rebasing workflows.
+   - Practiced resetting files and resolving merge conflicts.
+   - The focus was on experimentation with Git workflows rather than achieving perfection.
 
-Any static assets, like images, can be placed in the `public/` directory.
+3. **Working with Markdown Files**
+   - Gained familiarity with basic Markdown syntax for formatting content, such as headings, lists, links, and images.
+   - Explored the use of frontmatter to include metadata like titles, descriptions, and configuration options at the beginning of Markdown files.
+   - Learned how Markdown integrates with Astro to define page-level properties and improve project organization.
+   - Encountered challenges in formatting complex elements like nested lists and code blocks, but developed a clearer understanding through practice and reference to documentation.   
+ 
+3. **Hostinger and Astro Compatibility**
+   - Hostinger and Astro do not seamlessly integrate. The deployment required custom configurations.
+   
+        - Creating [Publish.yml](/.github/workflows/publish.yml) for the build process
+        - Using the YAML file to generate the `dist` folder on the build branch
+        - Hostinger automatically detects the `dist` folder for deployment using its CI/CD pipeline.
 
-## 🧞 Commands
+## Planned Improvements
+- Adding a "Back to Top" link for better navigation.
+- Implementing a "Skip to Main Content" feature to enhance accessibility.
+- Integrating light and dark mode for a customizable user experience.
+- Adding animations.
+- Improve age accessability.
 
-All commands are run from the root of the project, from a terminal:
+## Known Bugs
+1. **Modal Focus Issue**:
+   - After closing any of the four modals, the focus returns to the third button instead of the button that opened the modal. This needs to be fixed to ensure proper focus management and accessibility.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## What I would do different next time
+- Create and follow a  more robust styling strategy.
+- Use pre-made componenents and learn from them.
 
-## 👀 Want to learn more?
+## Happy with
+- The overall look of the website.
+- [PageSpeed Scores](https://pagespeed.web.dev/analysis/https-www-alire-me/qicj9x98xk?form_factor=mobile)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Image attributions:
+hero-image.jpg : [Photo by Kaboompics.com](https://www.pexels.com/photo/composition-of-cosmetic-bottle-with-pink-rose-petals-and-wooden-plate-4041392/)
+form-background.jpg : [Photo by RDNE Stock Project](https://www.pexels.com/photo/clear-glass-cups-on-glass-table-8312798/)
+cta-image-01.jpg : [Photo by Monika Grabowska](https://unsplash.com/photos/purple-and-green-vegetable-in-black-bowl-M1y4TFQ9zVk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+cta-image-02.jpg : [Photo by Sean Stratton](https://unsplash.com/photos/black-stacking-stones-on-gray-surface-ObpCE_X3j6U?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+cta-image-03.jpg : [Photo by Miklas Ohlrogge](https://unsplash.com/photos/woman-walking-on-train-railway-Mof1w0Jn3HA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+cta-image-02.jpg : [Photo by Caju Gomes](https://unsplash.com/photos/woman-holding-sliced-watermelon-QDq3YliZg48?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+nutrition-overlay.jpg: [Photo by Adonyi Gábor](https://www.pexels.com/photo/assorted-vegetables-on-brown-wooden-table-1414651/
+)
+massage-overlay.jpg: [Photo by Anna Tarazevich](https://www.pexels.com/photo/a-person-massaging-a-client-s-bare-back-6560289/
+)
+osteopathy-overlay.jpg: [Photo by Yan Krukau](https://www.pexels.com/photo/woman-in-white-long-sleeve-shirt-stretching-woman-s-arm-5793700/)
+biomagnet-overlay.jpg: [Photo by David Bartus](https://www.pexels.com/photo/levitating-metal-discs-7440924/
+)
+post-1.jpg: [Photo by Tima Miroshnichenko](https://www.pexels.com/photo/a-masseuse-massaging-a-woman-6186765/)
+post-2.jpg: [Photo by Serhii Kalyn](https://unsplash.com/photos/two-pieces-of-raw-meat-sit-on-a-cutting-board-XELZYG_aXkU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+post-3.jpg: [Photo by Thought Catalog](https://unsplash.com/photos/silver-fork-and-knife-on-plate-fnztlIb52gU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+post-4.jpg: [Photo by Nikko Macaspac](https://unsplash.com/photos/photo-of-person-reach-out-above-the-water-6SNbWyFwuhk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+post-5.jpg: [Photo by Lukas](https://www.pexels.com/photo/children-s-team-building-on-green-grassland-296301/)
