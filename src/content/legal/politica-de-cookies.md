@@ -81,7 +81,7 @@ Además de la publicidad gestionada por las webs de NoTengo Nombre en sus servic
 
 Las empresas que generan estas cookies tienen sus propias políticas de privacidad. En la actualidad, las webs de NoTengo Nombre utilizan la plataforma Doubleclick (Google) para gestionar estos servicios. Para más información, acuda a
 
-http://www.google.es/policies/privacy/ads/#toc-doubleclick y a http://www.google.es/policies/privacy/ads/.
+https://policies.google.com/technologies/ads?hl=es.
 
 ## ¿Cómo puedo deshabilitar las cookies en mi navegador?
 

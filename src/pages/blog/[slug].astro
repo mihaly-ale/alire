@@ -40,9 +40,8 @@ const { Content } = await entry.render();
 				<h1 class="blog-title">{entry.data.title} - {entry.data.subtitle}</h1>
 				<small>
 					<p>
-						<a
-							href={`../blog/autor/${slugify(entry.data.author)}`}
-							class="author">{entry.data.author}</a
+						<a href={`/blog/autor/${slugify(entry.data.author)}`} class="author"
+							>{entry.data.author}</a
 						> &middot; {
 							new Date(entry.data.publishedDate).toLocaleDateString('es-ES', {
 								year: 'numeric',
