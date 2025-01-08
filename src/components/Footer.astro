@@ -3,107 +3,73 @@
 ---
 
 <footer>
-	<div>
-		<a href="/"
-			><img src="/logos/wordmark-stroke.svg" alt="" class="footer-logo" /></a
-		>
+	<div class="footer primary">
+		<div>
+			<a href="/"
+				><img
+					src="/logos/wordmark-stroke.svg"
+					alt=""
+					class="footer-logo"
+					loading="lazy"
+				/></a
+			>
+		</div>
+
+		<div class="social-links">
+			<a href="https://www.facebook.com" target="_blank"
+				><img src="/icons/icon-facebook.svg" alt="" loading="lazy" /><span
+					class="visually-hidden">Alire en Facebook.</span
+				></a
+			>
+			<a href="https://www.instagram.com" target="_blank"
+				><img src="/icons/icon-instagram.svg" alt="" loading="lazy" /><span
+					class="visually-hidden">Alire en Instagram.</span
+				></a
+			>
+			<a href="https://www.tiktok.com" target="_blank"
+				><img src="/icons/icon-tiktok.svg" alt="" loading="lazy" /><span
+					class="visually-hidden">Alire en TikTok.</span
+				></a
+			>
+		</div>
+
+		<div class="legal-links">
+			<a target="_blank" href="/aviso-legal">Aviso Legal</a>
+			<a target="_blank" href="/politica-de-privacidad"
+				>Política de Privacidad</a
+			>
+			<a target="_blank" href="/politica-de-cookies">Política de Cookies</a>
+		</div>
+
+		<div>
+			<p>
+				Por favor, ten en cuenta que este negocio no es un centro médico
+				autorizado. En su lugar, es un espacio dedicado a ayudar a los
+				visitantes a mejorar su bienestar general y calidad de vida. Los
+				servicios ofrecidos se centran en el cuidado personal y el apoyo,
+				diseñados para promover un sentido de equilibrio y mejora en la vida
+				cotidiana.
+			</p>
+			<p>
+				Cualquier consejo o servicio proporcionado no está destinado a
+				reemplazar la orientación médica profesional.
+			</p>
+		</div>
 	</div>
 
-	<div class="social-links">
-		<a href="https://www.facebook.com" target="_blank"
-			><img src="/icons/icon-facebook.svg" alt="" loading="lazy" /><span
-				class="visually-hidden">Alire en Facebook.</span
-			></a
-		>
-		<a href="https://www.instagram.com" target="_blank"
-			><img src="/icons/icon-instagram.svg" alt="" loading="lazy" /><span
-				class="visually-hidden">Alire en Instagram.</span
-			></a
-		>
-		<a href="https://www.tiktok.com" target="_blank"
-			><img src="/icons/icon-tiktok.svg" alt="" loading="lazy" /><span
-				class="visually-hidden">Alire en TikTok.</span
-			></a
-		>
-	</div>
-
-	<div class="legal">
-		<a target="_blank" href="/aviso-legal">Aviso Legal</a>
-		<a target="_blank" href="/politica-de-privacidad">Política de Privacidad</a>
-		<a target="_blank" href="/politica-de-cookies">Política de Cookies</a>
-	</div>
-
-	<div>
-		<p>
-			Por favor, ten en cuenta que este negocio no es un centro médico
-			autorizado. En su lugar, es un espacio dedicado a ayudar a los visitantes
-			a mejorar su bienestar general y calidad de vida. Los servicios ofrecidos
-			se centran en el cuidado personal y el apoyo, diseñados para promover un
-			sentido de equilibrio y mejora en la vida cotidiana.
+	<div class="footer secondary">
+		<p>&copy; 2025</p>
+		<p class="dev">
+			made by&nbsp; &nbsp;
+			<a href="https://github.com/mihaly-ale/alire" target="_blank"
+				><span class="visually-hidden">Mihaly Ale</span>
+				<img
+					src="/logos/dev-logo_light-bg.svg"
+					alt="Logo Mihaly Ale."
+					class="dev-logo"
+					loading="lazy"
+				/></a
+			>
 		</p>
-		<p>
-			Cualquier consejo o servicio proporcionado no está destinado a reemplazar
-			la orientación médica profesional.
-		</p>
 	</div>
-	<a class="dev-link" href="https://github.com/mihaly-ale/alire" target="_blank"
-		><span class="visually-hidden">Made by Mihaly Ale</span>
-		<img
-			src="/logos/dev-logo.svg"
-			alt="Logo Mihaly Ale."
-			class="dev-logo"
-			loading="lazy"
-		/></a
-	>
 </footer>
-
-<style>
-	footer {
-		color: var(--bg-color);
-		background-color: var(--text-color);
-		padding: var(--section-padding-phone);
-
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: var(--rem-spacing-300);
-		position: relative;
-	}
-
-	.footer-logo {
-		width: 75%;
-		margin: 0 auto;
-	}
-
-	.social-links,
-	.legal {
-		display: flex;
-		gap: var(--rem-spacing-200);
-	}
-
-	.social-links a {
-		transition: scale 150ms;
-		&:hover {
-			scale: 0.95;
-		}
-	}
-
-	.legal {
-		flex-wrap: wrap;
-		justify-content: center;
-
-		& a:visited {
-			color: color-mix(in srgb, currentColor 90%, black 10%);
-		}
-	}
-
-	.dev-link {
-		position: absolute;
-		bottom: 2rem;
-		right: 2rem;
-	}
-
-	.dev-logo {
-		width: 5rem;
-	}
-</style>
