@@ -77,9 +77,17 @@ header {
 }
 
 .page-motif {
-	margin: 2rem auto 0;
+	margin-block-start: var(--rem-spacing-200);
+	margin-inline: auto;
 }
 
+@media screen and (min-width: 40.875em) {
+	.page-motif {
+		margin-block-start: var(--rem-spacing-500);
+	}
+}
+
+/* set page-motif distancing */
 .intro-section .flex-container p {
 	margin-block-end: 0;
 }
@@ -459,12 +467,6 @@ a[class*='btn'] {
 	&:hover {
 		translate: 1px 2px;
 	}
-}
-
-/* page motif */
-.container > :last-child {
-	margin-block-start: var(--rem-spacing-200);
-	margin-inline: auto;
 }
 
 /* decrease font size under blog-titles to add importance to it */
