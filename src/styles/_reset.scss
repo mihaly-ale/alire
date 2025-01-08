@@ -214,16 +214,19 @@ html {
 }
 
 /* 4 */
-@media (prefers-reduced-motion: no-preference) {
-	:has(:target) {
-		scroll-behavior: smooth;
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
 	}
 }
 
 /* 5 */
 body {
-	min-height: 100svh;
 	min-height: 100vh;
+	min-height: 100svh;
 	min-width: 320px;
 	margin: 0;
 	line-height: 1.5;
@@ -240,7 +243,7 @@ p {
 	margin-block-end: calc(1ex / 0.32);
 }
 
-h1 {
+h1:not([class]) {
 	line-height: calc(1ex / 0.42);
 	margin-inline: 0;
 	margin-block-start: 0;
@@ -275,7 +278,8 @@ h4 {
 }
 
 /* 9 */
-:is(h1, h2, h3, h4, h5, h6) {
+:is(h1, h2, h3, h4, h5, h6, blockquote) {
+	white-space: unset;
 	text-wrap: balance;
 }
 
@@ -296,6 +300,8 @@ canvas,
 svg {
 	display: block;
 	max-width: 100%;
+	object-fit: cover;
+	font-style: italic;
 }
 
 /* 12 */
@@ -316,6 +322,7 @@ a {
 	text-decoration-skip-ink: auto;
 }
 
+/* 15 */
 :where(a:not([class])) {
 	color: currentColor;
 	text-underline-offset: 4px;
@@ -330,29 +337,35 @@ a {
 	}
 }
 
+/* 16 */
 a[class] {
 	text-decoration: none;
 }
 
-/* 15 */
+/* 17 */
 :target {
 	scroll-margin-block: 5ex;
 }
 
-/* 16 */
+/* 18 */
 #root,
 #__next {
 	isolation: isolate;
 }
 
-/* 17 */
+/* 19 */
 ul,
 ol {
 	margin-block-start: 0;
 	padding: 0;
 }
 
-li::marker {
+/* 20 */
+li[class]::marker {
+	font-size: 0;
+}
+
+ul[class] > li:not([class])::marker {
 	font-size: 0;
 }
 
