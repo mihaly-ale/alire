@@ -1,0 +1,46 @@
+---
+// components import
+import Footer from '../components/Footer.astro';
+
+// styles import
+import '../styles/index.scss';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="robots" content="index, follow" />
+		<meta
+			name="description"
+			content="Descubre Alire, tu espacio de bienestar en Valladolid. Experto en masaje, biomagnetismo, nutrición y osteopatía para cuidar tu cuerpo y mente. ¡Mímate hoy!"
+		/>
+		<meta
+			property="og:title"
+			content="Descubre Alire, tu espacio de bienestar en Valladolid. Experto en masaje, biomagnetismo, nutrición y osteopatía para cuidar tu cuerpo y mente. ¡Mímate hoy!"
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://www.alire.me" />
+		<meta
+			property="og:image"
+			content="https://www.alire.me/logos/wordmark-gradient.svg"
+		/>
+		<meta property="og:image:alt" content="Alire logo." />
+		<meta
+			property="og:description"
+			content="Descubre Alire, tu espacio de bienestar en Valladolid. Experto en masaje, biomagnetismo, nutrición y osteopatía para cuidar tu cuerpo y mente. ¡Mímate hoy!"
+		/>
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@alireme" />
+
+		<link rel="icon" type="image/svg+xml" href="/logos/favicon.svg" />
+		<title>Página no encontrada - Alire</title>
+	</head>
+
+	<body>
+		<slot />
+	</body>
+</html>

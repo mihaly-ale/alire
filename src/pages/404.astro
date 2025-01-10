@@ -1,0 +1,65 @@
+---
+// components import
+import ErrorPageLayout from '../layouts/ErrorPageLayout.astro';
+import { Image } from 'astro:assets';
+
+// assets import
+import bgImage from '../assets/404-background.avif';
+---
+
+<ErrorPageLayout>
+	<div class="page-content">
+		<h1>404</h1>
+		<p>Parece que te has desviado del camino hacia el bienestar.</p>
+		<p>
+			No te preocupes, puedo ayudarte a volver a tu camino y encontrar lo que
+			buscas.
+		</p>
+		<a href="/" class="btn btn-error"> Inicio</a>
+		<img class="page-motif" src="/logos/motif-dark.svg" alt="" />
+		<Image
+			src={bgImage}
+			alt=""
+			aria-hidden="true"
+			widths={[800, 1200, 1600, 2000, 3000]}
+			sizes={`(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (max-width:2000px) 2000px, (min-width: 2001px) 3000px`}
+			decoding="async"
+			quality="70"
+			loading="lazy"
+			class="background-image four-o-four"
+		/>
+	</div>
+</ErrorPageLayout>
+
+<style>
+	h1 {
+		color: var(--clr-tertiary-400);
+		font-size: 5rem;
+		margin-block-end: calc(1ex / 0.32 / 4);
+		font-family: Merienda;
+	}
+
+	p {
+		color: var(--bg-color);
+		font-weight: var(--fw-500);
+		font-size: clamp(var(--fs-desktop-large), 2.15vw, var(--fs-phone-large));
+		max-width: 40ch;
+	}
+
+	.page-content {
+		height: 100svh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-inline: var(--page-padding-phone);
+	}
+
+	.page-motif {
+		margin-block-start: 3rem;
+	}
+
+	a {
+		margin: 0 auto;
+	}
+</style>
