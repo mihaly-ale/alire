@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@sindresorhus/slugify": "^2.2.1",
-    "astro": "^4.16.18"
+    "astro": "^5.16.6"
   },
   "devDependencies": {
     "accessible-astro-components": "^3.0.1",
