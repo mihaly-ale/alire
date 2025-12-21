@@ -1,10 +1,10 @@
 $type-scale: (
 	// minor-third
-	// multipliers above h2: 1.2*3, 1.2*4
+	// multipliers above h2: 1.2^4, 1.2^6
 	phone:
 		(
-			h1: 4.3rem,
-			list-nr: 3.58rem,
+			h1: 6.19rem,
+			list-nr: 4.3rem,
 			h2: 2.074rem,
 			h3: 1.728rem,
 			h4: 1.44rem,
@@ -33,4 +33,3 @@ $font-weight: (
 	500: 500,
 	600: 600,
 );
-
