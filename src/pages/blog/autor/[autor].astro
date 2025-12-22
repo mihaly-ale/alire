@@ -3,14 +3,10 @@
 import SecondaryLayout from '../../../layouts/SecondaryLayout.astro';
 import BreadcrumbNavigation from '../../../components/BreadcrumbNavigation.astro';
 import { BreadcrumbsItem } from 'accessible-astro-components';
-import { Image } from 'astro:assets';
 
 // utility import
 import { getCollection } from 'astro:content';
 import slugify from '@sindresorhus/slugify';
-
-// assets import
-import pageMotif from '../../../../public/logos/motif-dark.svg';
 
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('blog');
@@ -33,9 +29,9 @@ const filteredPosts = blogEntries.filter(
 <SecondaryLayout headline=`Entradas de ${author}` title="Blog | Alire">
 	<div class="secondary-page-content">
 		<BreadcrumbNavigation>
-			<BreadcrumbsItem href="/" label="Inicio" />
-			<BreadcrumbsItem href="/blog" label="Blog" />
-			<BreadcrumbsItem href="/blog" label={author} currentPage={true} />
+			<BreadcrumbsItem href={`${import.meta.env.BASE_URL}`} label="Inicio" />
+			<BreadcrumbsItem href={`${import.meta.env.BASE_URL}/blog`} label="Blog" />
+			<BreadcrumbsItem label={author} currentPage={true} />
 		</BreadcrumbNavigation>
 
 		<main>
@@ -46,7 +42,8 @@ const filteredPosts = blogEntries.filter(
 					filteredPosts.map((post) => (
 						<li class="container">
 							<h2 class="blog-title">
-								<a href={`/blog/${post.slug}`}>
+								<a
+									href={`${import.meta.env.BASE_URL}/blog/${slugify(post.data.title)}`}>
 									{post.data.title} - {post.data.subtitle}
 								</a>
 							</h2>
@@ -67,7 +64,7 @@ const filteredPosts = blogEntries.filter(
 									{post.data.categories.map((category) => (
 										<li>
 											<a
-												href={`/blog/categoria/${slugify(category)}`}
+												href={`${import.meta.env.BASE_URL}/blog/categoria/${slugify(category)}`}
 												class="category">
 												{category}
 											</a>
@@ -78,16 +75,16 @@ const filteredPosts = blogEntries.filter(
 
 							<p class="blog-excerpt">{post.body.split('##')[0]}</p>
 
-							<a class="btn btn-secondary" href={`/blog/${post.slug}`}>
+							<a
+								class="btn btn-secondary"
+								href={`${import.meta.env.BASE_URL}/blog/${slugify(post.data.title)}`}>
 								Saber más
 							</a>
 
-							<Image
-								src={pageMotif}
-								alt=""
-								width="24"
-								height="24"
+							<img
 								class="page-motif"
+								src={`${import.meta.env.BASE_URL}/logos/motif-dark.svg`}
+								alt=""
 							/>
 						</li>
 					))

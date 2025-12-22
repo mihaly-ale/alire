@@ -3,7 +3,6 @@
 import SecondaryLayout from '../../layouts/SecondaryLayout.astro';
 import BreadcrumbNavigation from '../../components/BreadcrumbNavigation.astro';
 import { BreadcrumbsItem } from 'accessible-astro-components';
-import { Image } from 'astro:assets';
 
 // utility import
 import { getCollection } from 'astro:content';
@@ -26,13 +25,9 @@ const { Content } = await entry.render();
 	title=`${entry.data.subtitle} | Alire`>
 	<div class="secondary-page-content">
 		<BreadcrumbNavigation>
-			<BreadcrumbsItem href="/" label="Inicio" />
-			<BreadcrumbsItem href="/blog" label="Blog" />
-			<BreadcrumbsItem
-				href="/blog"
-				label=`${entry.data.title}`
-				currentPage={true}
-			/>
+			<BreadcrumbsItem href={`${import.meta.env.BASE_URL}`} label="Inicio" />
+			<BreadcrumbsItem href={`${import.meta.env.BASE_URL}/blog`} label="Blog" />
+			<BreadcrumbsItem label=`${entry.data.title}` currentPage={true} />
 		</BreadcrumbNavigation>
 
 		<main>
@@ -40,8 +35,9 @@ const { Content } = await entry.render();
 				<h1 class="blog-title">{entry.data.title} - {entry.data.subtitle}</h1>
 				<small>
 					<p>
-						<a href={`/blog/autor/${slugify(entry.data.author)}`} class="author"
-							>{entry.data.author}</a
+						<a
+							href={`${import.meta.env.BASE_URL}/blog/autor/${slugify(entry.data.author)}`}
+							class="author">{entry.data.author}</a
 						> &middot; {
 							new Date(entry.data.publishedDate).toLocaleDateString('es-ES', {
 								year: 'numeric',
@@ -55,7 +51,7 @@ const { Content } = await entry.render();
 								entry.data.categories.map((category) => (
 									<li>
 										<a
-											href={`/blog/categoria/${slugify(category)}`}
+											href={`${import.meta.env.BASE_URL}/blog/categoria/${slugify(category)}`}
 											class="category">
 											{category}
 										</a>
@@ -66,15 +62,10 @@ const { Content } = await entry.render();
 					</p>
 				</small>
 
-				<Image
-					src={entry.data.image.src}
-					alt={entry.data.image.alt}
-					aria-hidden="true"
-					width="500"
-					height="300"
-					decoding="async"
-					loading="eager"
-					class="blog-image"
+				<img
+					class="page-motif"
+					src={`${import.meta.env.BASE_URL}/logos/motif-dark.svg`}
+					alt=""
 				/>
 
 				<Content />

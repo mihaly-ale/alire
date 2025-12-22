@@ -13,7 +13,7 @@ import * as Aviso from '../../src/content/legal/aviso-legal.md';
 		<h1>{Aviso.frontmatter.title}</h1>
 
 		<BreadcrumbNavigation>
-			<BreadcrumbsItem href="/" label="Inicio" />
+			<BreadcrumbsItem href={`${import.meta.env.BASE_URL}`} label="Inicio" />
 			<BreadcrumbsItem label=`${Aviso.frontmatter.title}` currentPage={true} />
 		</BreadcrumbNavigation>
 

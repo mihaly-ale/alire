@@ -5,49 +5,71 @@
 <footer>
 	<div class="footer primary">
 		<div>
-			<a href="/"
+			<a href={`${import.meta.env.BASE_URL}`}
 				><img
-					src="/logos/wordmark-stroke.svg"
-					alt=""
+					src={`${import.meta.env.BASE_URL}/logos/wordmark-stroke.svg`}
+					alt="Alire "
 					class="footer-logo"
 					loading="lazy"
 				/></a
 			>
 		</div>
 
+		<img
+			class="page-motif"
+			src={`${import.meta.env.BASE_URL}/logos/motif-light.svg`}
+			alt=""
+		/>
+
 		<ul class="social-links">
 			<li>
 				<a href="https://www.facebook.com" target="_blank"
-					><img src="/icons/icon-facebook.svg" alt="" loading="lazy" /><span
-						class="visually-hidden">Alire en Facebook.</span
-					></a
+					><img
+						src={`${import.meta.env.BASE_URL}/icons/icon-facebook.svg`}
+						alt=""
+						loading="lazy"
+					/><span class="visually-hidden">Alire en Facebook.</span></a
 				>
 			</li>
 			<li>
 				<a href="https://www.instagram.com" target="_blank"
-					><img src="/icons/icon-instagram.svg" alt="" loading="lazy" /><span
-						class="visually-hidden">Alire en Instagram.</span
-					></a
+					><img
+						src={`${import.meta.env.BASE_URL}/icons/icon-instagram.svg`}
+						alt=""
+						loading="lazy"
+					/><span class="visually-hidden">Alire en Instagram.</span></a
 				>
 			</li>
 			<li>
 				<a href="https://www.tiktok.com" target="_blank"
-					><img src="/icons/icon-tiktok.svg" alt="" loading="lazy" /><span
-						class="visually-hidden">Alire en TikTok.</span
-					></a
+					><img
+						src={`${import.meta.env.BASE_URL}/icons/icon-tiktok.svg`}
+						alt=""
+						loading="lazy"
+					/><span class="visually-hidden">Alire en TikTok.</span></a
 				>
 			</li>
 		</ul>
 
 		<ul class="legal-links">
-			<li><a target="_blank" href="/aviso-legal">Aviso Legal</a></li>
 			<li>
-				<a target="_blank" href="/politica-de-privacidad"
+				<a target="_blank" href={`${import.meta.env.BASE_URL}/aviso-legal`}
+					>Aviso Legal</a
+				>
+			</li>
+			<li>
+				<a
+					target="_blank"
+					href={`${import.meta.env.BASE_URL}/politica-de-cookies`}
 					>Política de Privacidad</a
 				>
 			</li>
 			<li>
-				<a target="_blank" href="/politica-de-cookies">Política de Cookies</a>
+				<a
+					target="_blank"
+					href={`${import.meta.env.BASE_URL}/politica-de-privacidad`}
+					>Política de Cookies</a
+				>
 			</li>
 		</ul>
 
@@ -71,10 +93,10 @@
 		<p>&copy; 2025</p>
 		<p class="dev">
 			made by&nbsp; &nbsp;
-			<a href="https://github.com/mihaly-ale/alire" target="_blank"
+			<a href="https://github.com/mihaly-ale/" target="_blank"
 				><span class="visually-hidden">Mihaly Ale</span>
 				<img
-					src="/logos/dev-logo_light-bg.svg"
+					src={`${import.meta.env.BASE_URL}/logos/dev-logo_light-bg.svg`}
 					alt="Logo Mihaly Ale."
 					class="dev-logo"
 					loading="lazy"

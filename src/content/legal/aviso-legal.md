@@ -9,10 +9,10 @@ Servicios de la Sociedad de la Información y el Comercio Electrónico_(LSSI-CE)
 de 11 de julio, se facilitan a continuación los siguientes datos de información
 general de este sitio web:
 
-La titularidad de este sitio web, **[www.alire.me]**, (en
+La titularidad de este sitio web, **[www.mihaly-ale.github.io/alire/](https://mihaly-ale.github.io/alire/)**, (en
 adelante, _Sitio Web_) la ostenta: , provista de **NIF: a-987654321** e inscrita en:
 Registro Mercantil de Luna con los siguientes datos registrales: Tomo 1, Página
-3, Hoja 4, cuyo representante es: **Notengo Nombre **, y cuyos datos de
+3, Hoja 4, cuyo representante es: \*\*Notengo Nombre \*\*, y cuyos datos de
 contacto son:
 
 - Dirección: **1 Avenida de Tarta, 124816, Talladolid**
@@ -150,4 +150,3 @@ Este documento de Aviso Legal y Condiciones Generales de uso del sitio web ha si
 [hola@alire.me]: mailto:hola@alire.me
 [INFORMACIÓN GENERAL]: #i-información-general
 [123-456-789]: tel:123-456-789
-

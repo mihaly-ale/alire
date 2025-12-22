@@ -15,8 +15,12 @@ import bgImage from '../assets/404-background.avif';
 			No te preocupes, puedo ayudarte a volver a tu camino y encontrar lo que
 			buscas.
 		</p>
-		<a href="/" class="btn btn-error"> Inicio</a>
-		<img class="page-motif" src="/logos/motif-dark.svg" alt="" />
+		<a href={`${import.meta.env.BASE_URL}`} class="btn btn-error"> Inicio</a>
+		<img
+			class="page-motif"
+			src={`${import.meta.env.BASE_URL}/logos/motif-dark.svg`}
+			alt=""
+		/>
 		<Image
 			src={bgImage}
 			alt=""

@@ -39,16 +39,24 @@ const { title, headline, tagline } = Astro.props;
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@alireme" />
 
-		<link rel="icon" type="image/svg+xml" href="/logos/favicon.svg" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href={`${import.meta.env.BASE_URL}/logos/favicon.svg`}
+		/>
 		<title>{headline} - {title}</title>
 	</head>
 
 	<body>
 		<div class="full-bleed-header">
 			<header>
-				<a href="/">
+				<a href={`${import.meta.env.BASE_URL}`}>
 					<div class="logo-container">
-						<img src="/logos/logomark.svg" alt="Alire." class="header-logo" />
+						<img
+							src={`${import.meta.env.BASE_URL}/logos/logomark.svg`}
+							alt="Alire."
+							class="header-logo"
+						/>
 					</div>
 				</a>
 				<button class="nav-toggle-button">
@@ -68,16 +76,15 @@ const { title, headline, tagline } = Astro.props;
 				<nav class="navigation" aria-label="navegación primaria">
 					<ul class="nav-list">
 						<li class="nav-list-item">
-							<a href="/" class="nav-link">Inicio</a>
+							<a href="#tratamientos" class="nav-link">Tratamientos</a>
 						</li>
 						<li class="nav-list-item">
-							<a href="/#tratamientos" class="nav-link">Tratamientos</a>
+							<a href={`${import.meta.env.BASE_URL}/blog`} class="nav-link"
+								>Blog</a
+							>
 						</li>
 						<li class="nav-list-item">
-							<a href="/blog" class="nav-link">Blog</a>
-						</li>
-						<li class="nav-list-item">
-							<a href="/#contacto" class="contact nav-link">Contacto</a>
+							<a href="#contacto" class="contact nav-link">Contacto</a>
 						</li>
 					</ul>
 				</nav>
