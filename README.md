@@ -94,9 +94,7 @@ The primary objective of this project was to experiment with the Astro.js framew
 
   The form doesn't preform any validation until the first submission. After that, it provides inline validation to give instant feedback and encourage visitors during the correction phase.
 
-  [FormSubmit][formsubmit] was used for form submission.
-
-  I consider the result a win.
+  ~~[FormSubmit][formsubmit] was used for form submission.~~
 
 - Use pre-made componenents and learn from them.
 
