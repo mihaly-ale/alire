@@ -1,4 +1,4 @@
-# Alire - A website project | <a href="https://www.alire.me" target="_blank">www.alire.me</a>
+# Alire - A website project | <a href="https://mihaly-ale.github.io/alire/" target="_blank">Visit site</a>
 
 ![Alire Logo](./public/logos/wordmark-gradient.svg#gh-light-mode-only)
 ![Alire Logo](./public/logos/wordmark-stroke.svg#gh-dark-mode-only)
@@ -25,8 +25,8 @@ The primary objective of this project was to experiment with the Astro.js framew
 
 ### Hosting
 
-- **Hostinger**: The project is hosted on Hostinger.
-  Since Astro doesn't offer a deployment guide specifically for Hostinger, setting up the site required some unexpected challenges.
+~~- **Hostinger**: The project is hosted on Hostinger.~~
+  ~~Since Astro doesn't offer a deployment guide specifically for Hostinger, setting up the site required some unexpected challenges.~~
 
 ## Libraries Used
 
@@ -73,7 +73,10 @@ The primary objective of this project was to experiment with the Astro.js framew
 ## Known Bugs
 
 1. **Modal Focus Issue**:
-   - After closing any of the four modals, the focus returns to the third button instead of the button that opened the modal. This needs to be fixed to ensure proper focus management and accessibility.
+   
+   ~~- After closing any of the four modals, the focus returns to the third button instead of the button that opened the modal. This needs to be fixed to ensure proper focus management and accessibility.~~
+
+   [fix merged upstream](https://github.com/incluud/accessible-astro-components/commit/58be2e4220bddd0afb0af199ac027a44679b4462)
 
 ## What I would do different next time
 
